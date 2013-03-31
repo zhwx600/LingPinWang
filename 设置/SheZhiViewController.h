@@ -10,4 +10,5 @@
 
 @interface SheZhiViewController : UIViewController
 
+- (IBAction)registerLogin:(id)sender;
 @end

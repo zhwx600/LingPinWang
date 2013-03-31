@@ -68,6 +68,12 @@
 - (IBAction)savePasswordAct:(id)sender {
 }
 
+- (IBAction)cancelInputView:(id)sender
+{
+    [self.m_userNameField resignFirstResponder];
+    [self.m_passwordField resignFirstResponder];
+}
+
 - (void)dealloc {
     [_m_userNameField release];
     [_m_passwordField release];

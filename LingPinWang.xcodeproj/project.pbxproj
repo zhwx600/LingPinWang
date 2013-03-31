@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181162FF1708622E00CD07B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181162FE1708622E00CD07B1 /* QuartzCore.framework */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
 		1893E736170711A300E52CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E735170711A300E52CCC /* Foundation.framework */; };
 		1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E737170711A300E52CCC /* CoreGraphics.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181162FE1708622E00CD07B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1893E730170711A300E52CCC /* LingPinWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingPinWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893E733170711A300E52CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1893E735170711A300E52CCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181162FF1708622E00CD07B1 /* QuartzCore.framework in Frameworks */,
 				1893E734170711A300E52CCC /* UIKit.framework in Frameworks */,
 				1893E736170711A300E52CCC /* Foundation.framework in Frameworks */,
 				1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */,
@@ -102,6 +105,7 @@
 		1893E727170711A200E52CCC = {
 			isa = PBXGroup;
 			children = (
+				181162FE1708622E00CD07B1 /* QuartzCore.framework */,
 				1893E739170711A300E52CCC /* LingPinWang */,
 				1893E732170711A300E52CCC /* Frameworks */,
 				1893E731170711A300E52CCC /* Products */,

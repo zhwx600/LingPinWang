@@ -7,6 +7,8 @@
 //
 
 #import "SheZhiViewController.h"
+#import "AppDelegate.h"
+
 
 @interface SheZhiViewController ()
 
@@ -37,4 +39,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)registerLogin:(id)sender
+{
+    AppDelegate* del = [[UIApplication sharedApplication] delegate];
+    [del entryLoginControllerView];
+}
 @end

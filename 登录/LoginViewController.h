@@ -22,6 +22,7 @@
 - (IBAction)getPasswordAct:(id)sender;
 - (IBAction)savePasswordAct:(id)sender;
 
+- (IBAction)cancelInputView:(id)sender;
 
 
 @end

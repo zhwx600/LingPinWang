@@ -18,6 +18,9 @@
 #import "SheZhiViewController.h"
 #import "LoginViewController.h"
 
+#import <QuartzCore/CoreAnimation.h>
+
+
 @implementation AppDelegate
 
 @synthesize m_lipinViewController,m_qiandaoViewController,m_shangjiaViewController,m_shezhiViewController,m_loginViewController;
@@ -64,6 +67,7 @@
     [rootNav3 release];
     [rootNav4 release];
     
+
     self.window.rootViewController = m_loginViewController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -112,12 +116,28 @@
 
 -(void) entryTabControllerView;
 {
-    m_loginViewController.modalTransitionStyle = UIModalTransitionStylePartialCurl; //水平翻转
-    [m_loginViewController presentViewController:self.tabBarController animated:YES completion:nil];
+    CATransition *transtion = [CATransition animation];
+    transtion.duration = 0.5;
+    [transtion setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [transtion setType:@"oglFlip"];
+    [transtion setSubtype:kCATransitionFromLeft];
+    [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
+    self.window.rootViewController = self.tabBarController;
+    
 }
 -(void) entryLoginControllerView
 {
     
+    CATransition *transtion = [CATransition animation];
+    transtion.duration = 0.5;
+    [transtion setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [transtion setType:@"oglFlip"];
+    [transtion setSubtype:kCATransitionFromLeft];
+    [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
+    
+    self.window.rootViewController = m_loginViewController;
+    
+
 }
 
 
