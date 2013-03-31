@@ -65,7 +65,11 @@
 - (IBAction)getPasswordAct:(id)sender {
 }
 
-- (IBAction)savePasswordAct:(id)sender {
+- (IBAction)savePasswordAct:(id)sender
+{
+    [self.m_userNameField resignFirstResponder];
+    [self.m_passwordField resignFirstResponder];
+    
 }
 
 - (IBAction)cancelInputView:(id)sender
