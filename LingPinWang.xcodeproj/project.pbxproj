@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180522C91716EE3900D64217 /* ZhwxBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180522C81716EE3900D64217 /* ZhwxBaseViewController.m */; };
+		180522CC1716EE5C00D64217 /* ZhwxBaseNavCotroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 180522CB1716EE5C00D64217 /* ZhwxBaseNavCotroller.m */; };
 		181162FF1708622E00CD07B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181162FE1708622E00CD07B1 /* QuartzCore.framework */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
 		1893E736170711A300E52CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E735170711A300E52CCC /* Foundation.framework */; };
@@ -42,6 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180522C71716EE3900D64217 /* ZhwxBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhwxBaseViewController.h; sourceTree = "<group>"; };
+		180522C81716EE3900D64217 /* ZhwxBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhwxBaseViewController.m; sourceTree = "<group>"; };
+		180522CA1716EE5C00D64217 /* ZhwxBaseNavCotroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhwxBaseNavCotroller.h; sourceTree = "<group>"; };
+		180522CB1716EE5C00D64217 /* ZhwxBaseNavCotroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhwxBaseNavCotroller.m; sourceTree = "<group>"; };
 		181162FE1708622E00CD07B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1893E730170711A300E52CCC /* LingPinWang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LingPinWang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893E733170711A300E52CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -102,6 +108,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180522C01716E79700D64217 /* 公共类 */ = {
+			isa = PBXGroup;
+			children = (
+				180522C71716EE3900D64217 /* ZhwxBaseViewController.h */,
+				180522C81716EE3900D64217 /* ZhwxBaseViewController.m */,
+				180522CA1716EE5C00D64217 /* ZhwxBaseNavCotroller.h */,
+				180522CB1716EE5C00D64217 /* ZhwxBaseNavCotroller.m */,
+			);
+			path = "公共类";
+			sourceTree = SOURCE_ROOT;
+		};
 		1893E727170711A200E52CCC = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +150,7 @@
 		1893E739170711A300E52CCC /* LingPinWang */ = {
 			isa = PBXGroup;
 			children = (
+				180522C01716E79700D64217 /* 公共类 */,
 				1893E7901707221C00E52CCC /* 登录 */,
 				1893E76517071CA900E52CCC /* 礼品 */,
 				1893E76617071CA900E52CCC /* 签到 */,
@@ -336,6 +354,8 @@
 				1893E77617071D2200E52CCC /* ShangJiaViewController.m in Sources */,
 				1893E77B17071D3B00E52CCC /* SheZhiViewController.m in Sources */,
 				1893E7941707225F00E52CCC /* LoginViewController.m in Sources */,
+				180522C91716EE3900D64217 /* ZhwxBaseViewController.m in Sources */,
+				180522CC1716EE5C00D64217 /* ZhwxBaseNavCotroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
