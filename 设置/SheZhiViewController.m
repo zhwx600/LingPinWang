@@ -44,4 +44,184 @@
     AppDelegate* del = [[UIApplication sharedApplication] delegate];
     [del entryLoginControllerView];
 }
+- (void)dealloc {
+    [_m_cell0 release];
+    [_m_cell1 release];
+    [_m_cell2 release];
+    [_m_cell3 release];
+    [_m_cell4 release];
+    [_m_cell5 release];
+    [_m_tableView release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setM_cell0:nil];
+    [self setM_cell1:nil];
+    [self setM_cell2:nil];
+    [self setM_cell3:nil];
+    [self setM_cell4:nil];
+    [self setM_cell5:nil];
+    [self setM_tableView:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 3;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+//    switch (section) {
+//        case 0:
+//            return @"摄像头选择";
+//            break;
+//        case 1:
+//            return @"画面设置";
+//            break;
+//        case 2:
+//            return @"语音设置";
+//            break;
+//        case 3:
+//            return @"节点信息";
+//            break;
+//        default:
+//            break;
+//    }
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    switch (section) {
+        case 0:
+            return 2;
+            break;
+        case 1:
+            return 3;
+            break;
+            
+        case 2:
+            return 1;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+    
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 	static NSString *kCellIdentifier = @"cellID";
+	
+    UITableViewCell *cell = nil;
+    
+    int section = indexPath.section;
+    int row = indexPath.row;
+    if (0 == section) {
+        switch (row) {
+            case 0:
+                cell = self.m_cell0;
+                cell.textLabel.text = @"绑定微博账号";
+                break;
+            case 1:
+                cell = self.m_cell1;
+                cell.textLabel.text = @"推送通知";
+                break;
+            default:
+                break;
+        }
+    }else if(1 == section){
+        switch (row) {
+            case 0:
+                cell = self.m_cell2;
+                cell.textLabel.text = @"关于我们";
+
+                break;
+            case 1:
+                cell = self.m_cell3;
+                cell.textLabel.text = @"给我们一个好评";
+                //cell.selectedBackgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+                //cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
+                break;
+            case 2:
+                cell = self.m_cell4;
+                cell.textLabel.text = @"意见反馈";
+                //cell.selectedBackgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+                //cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
+                break;
+                
+            default:
+                break;
+        }
+        
+    }else if(2 == section){
+        
+        switch (row) {
+            case 0:
+                cell = self.m_cell5;
+                cell.textLabel.text = @"注销登录";
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                break;
+            default:
+                break;
+        }
+        
+        //        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
+        //        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
+        
+        cell.backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+        cell.backgroundView.backgroundColor = [UIColor clearColor];
+        
+        
+        
+    }
+    
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    
+    
+	return cell;
+}
+
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    int temsection = indexPath.section;
+    int row = indexPath.row;
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (temsection == 0) {
+        
+    }else if(temsection == 1){
+
+        
+    }else if(temsection == 2){
+
+    }else if(temsection == 3){
+        
+    }else if(temsection == 4){
+        
+    }
+    
+    
+    
+    
+}
+
+
+
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import "ZhwxBaseNavCotroller.h"
 #import "FirstViewController.h"
 
 #import "SecondViewController.h"
@@ -24,7 +25,7 @@
 @implementation AppDelegate
 
 @synthesize m_lipinViewController,m_qiandaoViewController,m_shangjiaViewController,m_shezhiViewController,m_loginViewController;
-
+@synthesize m_zhwxLoginBase;
 
 - (void)dealloc
 {
@@ -52,12 +53,12 @@
     m_shezhiViewController = [[SheZhiViewController alloc] init];
     m_loginViewController = [[LoginViewController alloc] init];
 
-    UINavigationController* rootNav1 = [[UINavigationController alloc] initWithRootViewController:m_lipinViewController];
-    UINavigationController* rootNav2 = [[UINavigationController alloc] initWithRootViewController:m_qiandaoViewController];
-    UINavigationController* rootNav3 = [[UINavigationController alloc] initWithRootViewController:m_shangjiaViewController];
-    UINavigationController* rootNav4 = [[UINavigationController alloc] initWithRootViewController:m_shezhiViewController];
+    ZhwxBaseNavCotroller* rootNav1 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_lipinViewController];
+    ZhwxBaseNavCotroller* rootNav2 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_qiandaoViewController];
+    ZhwxBaseNavCotroller* rootNav3 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_shangjiaViewController];
+    ZhwxBaseNavCotroller* rootNav4 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_shezhiViewController];
     
-    
+    m_zhwxLoginBase = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_loginViewController];
     
     
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
@@ -68,7 +69,7 @@
     [rootNav4 release];
     
 
-    self.window.rootViewController = m_loginViewController;
+    self.window.rootViewController = m_zhwxLoginBase;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -123,7 +124,7 @@
     [transtion setSubtype:kCATransitionFromLeft];
     [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
     self.window.rootViewController = self.tabBarController;
-    
+    [self.tabBarController setSelectedIndex:0];
 }
 -(void) entryLoginControllerView
 {
@@ -135,7 +136,7 @@
     [transtion setSubtype:kCATransitionFromLeft];
     [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
     
-    self.window.rootViewController = m_loginViewController;
+    self.window.rootViewController = m_zhwxLoginBase;
     
 
 }

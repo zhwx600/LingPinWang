@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class LiPinViewController;
 @class QinDaoViewController;
 @class ShangJiaViewController;
 @class SheZhiViewController;
 @class LoginViewController;
+@class ZhwxBaseNavCotroller;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -26,6 +28,7 @@
 @property (nonatomic,retain) ShangJiaViewController* m_shangjiaViewController;
 @property (nonatomic,retain) SheZhiViewController* m_shezhiViewController;
 @property (nonatomic,retain) LoginViewController* m_loginViewController;
+@property (nonatomic,readonly) ZhwxBaseNavCotroller* m_zhwxLoginBase;
 
 -(void) entryTabControllerView;
 -(void) entryLoginControllerView;

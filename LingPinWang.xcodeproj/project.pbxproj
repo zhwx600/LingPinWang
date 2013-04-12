@@ -77,6 +77,29 @@
 		181254C91717E2A100D0DD1A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 181254BF1717E2A100D0DD1A /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		181254CB1717E57F00D0DD1A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181254CA1717E57E00D0DD1A /* ImageIO.framework */; };
 		181254CD1717E58A00D0DD1A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181254CC1717E58900D0DD1A /* MapKit.framework */; };
+		18532B7A17185E6A005EA34B /* 背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6717185E6A005EA34B /* 背景.jpg */; };
+		18532B7B17185E6A005EA34B /* 领品网app_130225_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6817185E6A005EA34B /* 领品网app_130225_03.png */; };
+		18532B7C17185E6A005EA34B /* 领品网app_130225_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6917185E6A005EA34B /* 领品网app_130225_07.png */; };
+		18532B7D17185E6A005EA34B /* 领品网app_130225_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6A17185E6A005EA34B /* 领品网app_130225_11.png */; };
+		18532B7E17185E6A005EA34B /* 领品网app_130225_15.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6B17185E6A005EA34B /* 领品网app_130225_15.png */; };
+		18532B7F17185E6A005EA34B /* 领品网app_130225_18.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6C17185E6A005EA34B /* 领品网app_130225_18.png */; };
+		18532B8017185E6A005EA34B /* 领品网app_130225_23.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6D17185E6A005EA34B /* 领品网app_130225_23.png */; };
+		18532B8117185E6A005EA34B /* 领品网app_130225_25.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6E17185E6A005EA34B /* 领品网app_130225_25.png */; };
+		18532B8217185E6A005EA34B /* 领品网app_130225_27.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6F17185E6A005EA34B /* 领品网app_130225_27.png */; };
+		18532B8317185E6A005EA34B /* 功能条.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7117185E6A005EA34B /* 功能条.png */; };
+		18532B8417185E6A005EA34B /* 领品网app_130323_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7217185E6A005EA34B /* 领品网app_130323_02.png */; };
+		18532B8517185E6A005EA34B /* 领品网app_130323_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7317185E6A005EA34B /* 领品网app_130323_05.png */; };
+		18532B8617185E6A005EA34B /* 领品网app_130323_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7417185E6A005EA34B /* 领品网app_130323_08.png */; };
+		18532B8717185E6A005EA34B /* 领品网app_130323_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7517185E6A005EA34B /* 领品网app_130323_11.png */; };
+		18532B8817185E6A005EA34B /* 商家.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7717185E6A005EA34B /* 商家.png */; };
+		18532B8917185E6A005EA34B /* 底.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7817185E6A005EA34B /* 底.png */; };
+		18532B8A17185E6A005EA34B /* 搜索.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7917185E6A005EA34B /* 搜索.png */; };
+		18532B9217186E95005EA34B /* UINavigationBar+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B9117186E95005EA34B /* UINavigationBar+Image.m */; };
+		18532B9417187082005EA34B /* bgCartNavi.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B9317187082005EA34B /* bgCartNavi.png */; };
+		18532B981718757C005EA34B /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B961718757B005EA34B /* RegistViewController.m */; };
+		18532B991718757C005EA34B /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B971718757B005EA34B /* RegistViewController.xib */; };
+		18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B9B171875BD005EA34B /* ForgotPassViewController.m */; };
+		18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B9C171875BD005EA34B /* ForgotPassViewController.xib */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
 		1893E736170711A300E52CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E735170711A300E52CCC /* Foundation.framework */; };
 		1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E737170711A300E52CCC /* CoreGraphics.framework */; };
@@ -236,6 +259,32 @@
 		181254BF1717E2A100D0DD1A /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		181254CA1717E57E00D0DD1A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		181254CC1717E58900D0DD1A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		18532B6717185E6A005EA34B /* 背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "背景.jpg"; sourceTree = "<group>"; };
+		18532B6817185E6A005EA34B /* 领品网app_130225_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_03.png"; sourceTree = "<group>"; };
+		18532B6917185E6A005EA34B /* 领品网app_130225_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_07.png"; sourceTree = "<group>"; };
+		18532B6A17185E6A005EA34B /* 领品网app_130225_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_11.png"; sourceTree = "<group>"; };
+		18532B6B17185E6A005EA34B /* 领品网app_130225_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_15.png"; sourceTree = "<group>"; };
+		18532B6C17185E6A005EA34B /* 领品网app_130225_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_18.png"; sourceTree = "<group>"; };
+		18532B6D17185E6A005EA34B /* 领品网app_130225_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_23.png"; sourceTree = "<group>"; };
+		18532B6E17185E6A005EA34B /* 领品网app_130225_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_25.png"; sourceTree = "<group>"; };
+		18532B6F17185E6A005EA34B /* 领品网app_130225_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_27.png"; sourceTree = "<group>"; };
+		18532B7117185E6A005EA34B /* 功能条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "功能条.png"; sourceTree = "<group>"; };
+		18532B7217185E6A005EA34B /* 领品网app_130323_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130323_02.png"; sourceTree = "<group>"; };
+		18532B7317185E6A005EA34B /* 领品网app_130323_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130323_05.png"; sourceTree = "<group>"; };
+		18532B7417185E6A005EA34B /* 领品网app_130323_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130323_08.png"; sourceTree = "<group>"; };
+		18532B7517185E6A005EA34B /* 领品网app_130323_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130323_11.png"; sourceTree = "<group>"; };
+		18532B7717185E6A005EA34B /* 商家.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "商家.png"; sourceTree = "<group>"; };
+		18532B7817185E6A005EA34B /* 底.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "底.png"; sourceTree = "<group>"; };
+		18532B7917185E6A005EA34B /* 搜索.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "搜索.png"; sourceTree = "<group>"; };
+		18532B9017186E95005EA34B /* UINavigationBar+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Image.h"; sourceTree = "<group>"; };
+		18532B9117186E95005EA34B /* UINavigationBar+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Image.m"; sourceTree = "<group>"; };
+		18532B9317187082005EA34B /* bgCartNavi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgCartNavi.png; sourceTree = "<group>"; };
+		18532B951718757B005EA34B /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		18532B961718757B005EA34B /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		18532B971718757B005EA34B /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
+		18532B9A171875BD005EA34B /* ForgotPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPassViewController.h; sourceTree = "<group>"; };
+		18532B9B171875BD005EA34B /* ForgotPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPassViewController.m; sourceTree = "<group>"; };
+		18532B9C171875BD005EA34B /* ForgotPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPassViewController.xib; sourceTree = "<group>"; };
 		1893E730170711A300E52CCC /* 领品网.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "领品网.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893E733170711A300E52CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1893E735170711A300E52CCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -472,6 +521,8 @@
 			children = (
 				1812542E17179C5000D0DD1A /* ZhwxTableCell.h */,
 				1812542F17179C5000D0DD1A /* ZhwxTableCell.m */,
+				18532B9017186E95005EA34B /* UINavigationBar+Image.h */,
+				18532B9117186E95005EA34B /* UINavigationBar+Image.m */,
 			);
 			path = "自定义控件";
 			sourceTree = SOURCE_ROOT;
@@ -515,6 +566,44 @@
 				181254BF1717E2A100D0DD1A /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		18532B6617185E6A005EA34B /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				18532B6717185E6A005EA34B /* 背景.jpg */,
+				18532B6817185E6A005EA34B /* 领品网app_130225_03.png */,
+				18532B6917185E6A005EA34B /* 领品网app_130225_07.png */,
+				18532B6A17185E6A005EA34B /* 领品网app_130225_11.png */,
+				18532B6B17185E6A005EA34B /* 领品网app_130225_15.png */,
+				18532B6C17185E6A005EA34B /* 领品网app_130225_18.png */,
+				18532B6D17185E6A005EA34B /* 领品网app_130225_23.png */,
+				18532B6E17185E6A005EA34B /* 领品网app_130225_25.png */,
+				18532B6F17185E6A005EA34B /* 领品网app_130225_27.png */,
+			);
+			path = "登录";
+			sourceTree = "<group>";
+		};
+		18532B7017185E6A005EA34B /* 签到 */ = {
+			isa = PBXGroup;
+			children = (
+				18532B7117185E6A005EA34B /* 功能条.png */,
+				18532B7217185E6A005EA34B /* 领品网app_130323_02.png */,
+				18532B7317185E6A005EA34B /* 领品网app_130323_05.png */,
+				18532B7417185E6A005EA34B /* 领品网app_130323_08.png */,
+				18532B7517185E6A005EA34B /* 领品网app_130323_11.png */,
+			);
+			path = "签到";
+			sourceTree = "<group>";
+		};
+		18532B7617185E6A005EA34B /* 商家 */ = {
+			isa = PBXGroup;
+			children = (
+				18532B7717185E6A005EA34B /* 商家.png */,
+				18532B7817185E6A005EA34B /* 底.png */,
+				18532B7917185E6A005EA34B /* 搜索.png */,
+			);
+			path = "商家";
 			sourceTree = "<group>";
 		};
 		1893E727170711A200E52CCC = {
@@ -630,6 +719,9 @@
 		1893E77D17071FE800E52CCC /* image */ = {
 			isa = PBXGroup;
 			children = (
+				18532B6617185E6A005EA34B /* 登录 */,
+				18532B7017185E6A005EA34B /* 签到 */,
+				18532B7617185E6A005EA34B /* 商家 */,
 				1893E77E17071FE800E52CCC /* tabbarimage */,
 				1893E78717071FE800E52CCC /* uiimage */,
 			);
@@ -654,6 +746,7 @@
 		1893E78717071FE800E52CCC /* uiimage */ = {
 			isa = PBXGroup;
 			children = (
+				18532B9317187082005EA34B /* bgCartNavi.png */,
 				180522DA1716F9B600D64217 /* Default-568h@2x.png */,
 				180522DB1716F9B600D64217 /* Default.png */,
 				180522DC1716F9B600D64217 /* Default@2x.png */,
@@ -667,6 +760,12 @@
 				1893E7911707225F00E52CCC /* LoginViewController.h */,
 				1893E7921707225F00E52CCC /* LoginViewController.m */,
 				1893E7931707225F00E52CCC /* LoginViewController.xib */,
+				18532B951718757B005EA34B /* RegistViewController.h */,
+				18532B961718757B005EA34B /* RegistViewController.m */,
+				18532B971718757B005EA34B /* RegistViewController.xib */,
+				18532B9A171875BD005EA34B /* ForgotPassViewController.h */,
+				18532B9B171875BD005EA34B /* ForgotPassViewController.m */,
+				18532B9C171875BD005EA34B /* ForgotPassViewController.xib */,
 			);
 			path = "登录";
 			sourceTree = SOURCE_ROOT;
@@ -747,6 +846,26 @@
 				181254461717AE3C00D0DD1A /* blueArrow@2x.png in Resources */,
 				181254471717AE3C00D0DD1A /* blueArrowDown.png in Resources */,
 				181254481717AE3C00D0DD1A /* blueArrowDown@2x.png in Resources */,
+				18532B7A17185E6A005EA34B /* 背景.jpg in Resources */,
+				18532B7B17185E6A005EA34B /* 领品网app_130225_03.png in Resources */,
+				18532B7C17185E6A005EA34B /* 领品网app_130225_07.png in Resources */,
+				18532B7D17185E6A005EA34B /* 领品网app_130225_11.png in Resources */,
+				18532B7E17185E6A005EA34B /* 领品网app_130225_15.png in Resources */,
+				18532B7F17185E6A005EA34B /* 领品网app_130225_18.png in Resources */,
+				18532B8017185E6A005EA34B /* 领品网app_130225_23.png in Resources */,
+				18532B8117185E6A005EA34B /* 领品网app_130225_25.png in Resources */,
+				18532B8217185E6A005EA34B /* 领品网app_130225_27.png in Resources */,
+				18532B8317185E6A005EA34B /* 功能条.png in Resources */,
+				18532B8417185E6A005EA34B /* 领品网app_130323_02.png in Resources */,
+				18532B8517185E6A005EA34B /* 领品网app_130323_05.png in Resources */,
+				18532B8617185E6A005EA34B /* 领品网app_130323_08.png in Resources */,
+				18532B8717185E6A005EA34B /* 领品网app_130323_11.png in Resources */,
+				18532B8817185E6A005EA34B /* 商家.png in Resources */,
+				18532B8917185E6A005EA34B /* 底.png in Resources */,
+				18532B8A17185E6A005EA34B /* 搜索.png in Resources */,
+				18532B9417187082005EA34B /* bgCartNavi.png in Resources */,
+				18532B991718757C005EA34B /* RegistViewController.xib in Resources */,
+				18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +939,9 @@
 				181254C71717E2A100D0DD1A /* SDWebImagePrefetcher.m in Sources */,
 				181254C81717E2A100D0DD1A /* UIButton+WebCache.m in Sources */,
 				181254C91717E2A100D0DD1A /* UIImageView+WebCache.m in Sources */,
+				18532B9217186E95005EA34B /* UINavigationBar+Image.m in Sources */,
+				18532B981718757C005EA34B /* RegistViewController.m in Sources */,
+				18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

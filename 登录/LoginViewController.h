@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZhwxBaseViewController.h"
 
-
-@interface LoginViewController : UIViewController<UITextFieldDelegate>
+@interface LoginViewController :ZhwxBaseViewController<UITextFieldDelegate>
 {
     
 }

@@ -19,6 +19,7 @@ UITableViewDataSource,
 UITableViewDelegate>
 
 @property (retain,nonatomic) PullingRefreshTableView *tableView;
+@property (retain,nonatomic) NSMutableArray *all_list;
 @property (retain,nonatomic) NSMutableArray *list;
 @property (nonatomic) BOOL refreshing;
 @property (assign,nonatomic) NSInteger page;
@@ -29,6 +30,7 @@ UITableViewDelegate>
 @synthesize list = _list;
 @synthesize refreshing = _refreshing;
 @synthesize page = _page;
+@synthesize all_list;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,7 +52,7 @@ UITableViewDelegate>
         [self.view addSubview:_tableView];
         self.page = 0;
         
-        _list = [[NSMutableArray alloc] initWithObjects:
+        all_list = [[NSMutableArray alloc] initWithObjects:
                  @"http://static2.dmcdn.net/static/video/656/177/44771656:jpeg_preview_small.jpg?20120509154705",
                     @"http://static2.dmcdn.net/static/video/629/228/44822926:jpeg_preview_small.jpg?20120509181018",
                     @"http://static2.dmcdn.net/static/video/116/367/44763611:jpeg_preview_small.jpg?20120509101749",
@@ -79,6 +81,7 @@ UITableViewDelegate>
                     @"http://static2.dmcdn.net/static/video/929/448/51844929:jpeg_preview_small.jpg?20121105222216",
                     @"http://static2.dmcdn.net/static/video/320/548/51845023:jpeg_preview_small.jpg?20121105222214",
                     nil];
+        _list = [[NSMutableArray alloc] init];
     [SDWebImageManager.sharedManager.imageDownloader setValue:@"SDWebImage Demo" forHTTPHeaderField:@"AppName"];
     SDWebImageManager.sharedManager.imageDownloader.executionOrder = SDWebImageDownloaderLIFOExecutionOrder;
         
@@ -91,9 +94,15 @@ UITableViewDelegate>
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     if (self.page == 0) {
         [self.tableView launchRefreshing];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +113,12 @@ UITableViewDelegate>
 
 #pragma mark - Your actions
 
+- (void)flushCache
+{
+    [SDWebImageManager.sharedManager.imageCache clearMemory];
+    [SDWebImageManager.sharedManager.imageCache clearDisk];
+}
+
 - (void)loadData{
     self.page++;
     if (self.refreshing) {
@@ -111,11 +126,15 @@ UITableViewDelegate>
         self.refreshing = NO;
         [self.list removeAllObjects];
     }
-    for (int i = 0; i < 10; i++) {
-        [self.list addObject:@"ROW"];
+    
+    int tatolcount = (all_list.count+10)/10;
+    
+    
+    for (int i = (self.page-1)*10; i < (self.page)*10 && i<all_list.count; i++) {
+        [self.list addObject:[all_list objectAtIndex:i]];
     }
-    if (self.page >= 3) {
-        [self.tableView tableViewDidFinishedLoadingWithMessage:@"All loaded!"];
+    if (self.page > tatolcount) {
+        [self.tableView tableViewDidFinishedLoadingWithMessage:@"全部加载完毕!"];
         self.tableView.reachedTheEnd  = YES;
     } else {
         [self.tableView tableViewDidFinishedLoading];
@@ -134,7 +153,8 @@ UITableViewDelegate>
 
 #pragma mark - TableView*
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.list.count;
 }
 
@@ -157,6 +177,7 @@ UITableViewDelegate>
 #pragma mark - PullingRefreshTableViewDelegate
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     self.refreshing = YES;
+    [self flushCache];
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
 }
 

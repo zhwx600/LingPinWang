@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 
 #import "AppDelegate.h"
+#import "RegistViewController.h"
+#import "ForgotPassViewController.h"
 
 
 @interface LoginViewController ()
@@ -30,6 +32,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,10 +71,18 @@
     
 }
 
-- (IBAction)registerAct:(id)sender {
+- (IBAction)registerAct:(id)sender
+{
+    RegistViewController* registview = [[RegistViewController alloc] init];
+    [self.navigationController pushViewController:registview animated:YES];
+    [registview release];
 }
 
-- (IBAction)getPasswordAct:(id)sender {
+- (IBAction)getPasswordAct:(id)sender
+{
+    ForgotPassViewController* forgotview = [[ForgotPassViewController alloc] init];
+    [self.navigationController pushViewController:forgotview animated:YES];
+    [forgotview release];
 }
 
 - (IBAction)savePasswordAct:(id)sender

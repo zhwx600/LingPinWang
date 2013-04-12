@@ -26,7 +26,7 @@
         
         UIFont* temfont1 = [UIFont systemFontOfSize:14];
         m_desLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 40, 220, 25)];
-        m_titleLabel.font = temfont1;
+        m_desLabel.font = temfont1;
         
         [self.contentView addSubview:m_titleLabel];
         [self.contentView addSubview:m_desLabel];
