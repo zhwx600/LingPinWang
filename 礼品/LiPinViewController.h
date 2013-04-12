@@ -10,4 +10,7 @@
 
 @interface LiPinViewController : UIViewController
 
+{
+    
+}
 @end

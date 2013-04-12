@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface QinDaoViewController : UIViewController
+{
+
+}
+
 
 @end
