@@ -10,4 +10,8 @@
 
 @interface ZhwxBaseViewController : UIViewController
 
+
+-(void) addMyNavBar;
+-(void) closeBtnAction:(id) sender;
+
 @end

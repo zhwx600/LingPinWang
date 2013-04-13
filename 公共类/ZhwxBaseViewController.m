@@ -7,12 +7,18 @@
 //
 
 #import "ZhwxBaseViewController.h"
+#import "UINavigationBar+Image.h"
+#import "Utilities.h"
 
 @interface ZhwxBaseViewController ()
+
+@property (nonatomic,retain)UINavigationBar* m_zhwxNavBar;
 
 @end
 
 @implementation ZhwxBaseViewController
+@synthesize m_zhwxNavBar;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +39,42 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc
+{
+    [m_zhwxNavBar release];
+    
+    [super dealloc];
+}
+
+-(void) addMyNavBar
+{
+    m_zhwxNavBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0,320,44)];
+    [m_zhwxNavBar setBarStyle:UIBarStyleBlackTranslucent];
+    UINavigationItem* navitem = [[UINavigationItem alloc] initWithTitle:nil];
+    
+    UIBarButtonItem* leftButton = [Utilities createNavItemByTarget:self Sel:@selector(closeBtnAction:) Imgage:[UIImage imageNamed:@"item_back.png"] Title:@"返回" Pos:0];
+    navitem.leftBarButtonItem = leftButton;
+    
+    [m_zhwxNavBar pushNavigationItem:navitem animated:YES];
+    
+    
+    if ([m_zhwxNavBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)])
+    {
+        [m_zhwxNavBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+    else
+    {
+        [m_zhwxNavBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi.png"]];
+    }
+
+    [self.view addSubview:m_zhwxNavBar];
+}
+
+-(void) closeBtnAction:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -77,6 +77,9 @@
 		181254C91717E2A100D0DD1A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 181254BF1717E2A100D0DD1A /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		181254CB1717E57F00D0DD1A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181254CA1717E57E00D0DD1A /* ImageIO.framework */; };
 		181254CD1717E58A00D0DD1A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181254CC1717E58900D0DD1A /* MapKit.framework */; };
+		181254EF17191BF400D0DD1A /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181254EE17191BF400D0DD1A /* Utilities.m */; };
+		181254F317191DCB00D0DD1A /* item_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 181254F117191DCB00D0DD1A /* item_back.png */; };
+		181254F417191DCB00D0DD1A /* item_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 181254F217191DCB00D0DD1A /* item_right.png */; };
 		18532B7A17185E6A005EA34B /* 背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6717185E6A005EA34B /* 背景.jpg */; };
 		18532B7B17185E6A005EA34B /* 领品网app_130225_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6817185E6A005EA34B /* 领品网app_130225_03.png */; };
 		18532B7C17185E6A005EA34B /* 领品网app_130225_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6917185E6A005EA34B /* 领品网app_130225_07.png */; };
@@ -259,6 +262,10 @@
 		181254BF1717E2A100D0DD1A /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		181254CA1717E57E00D0DD1A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		181254CC1717E58900D0DD1A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		181254ED17191BF400D0DD1A /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		181254EE17191BF400D0DD1A /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		181254F117191DCB00D0DD1A /* item_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_back.png; sourceTree = "<group>"; };
+		181254F217191DCB00D0DD1A /* item_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_right.png; sourceTree = "<group>"; };
 		18532B6717185E6A005EA34B /* 背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "背景.jpg"; sourceTree = "<group>"; };
 		18532B6817185E6A005EA34B /* 领品网app_130225_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_03.png"; sourceTree = "<group>"; };
 		18532B6917185E6A005EA34B /* 领品网app_130225_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_07.png"; sourceTree = "<group>"; };
@@ -568,6 +575,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		181254EC17191BF400D0DD1A /* 功能类 */ = {
+			isa = PBXGroup;
+			children = (
+				181254ED17191BF400D0DD1A /* Utilities.h */,
+				181254EE17191BF400D0DD1A /* Utilities.m */,
+			);
+			path = "功能类";
+			sourceTree = SOURCE_ROOT;
+		};
 		18532B6617185E6A005EA34B /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +659,7 @@
 		1893E739170711A300E52CCC /* LingPinWang */ = {
 			isa = PBXGroup;
 			children = (
+				181254EC17191BF400D0DD1A /* 功能类 */,
 				1812542D17179C2F00D0DD1A /* 自定义控件 */,
 				180522CD1716F3E800D64217 /* 开源控件 */,
 				180522C01716E79700D64217 /* 公共类 */,
@@ -746,6 +763,8 @@
 		1893E78717071FE800E52CCC /* uiimage */ = {
 			isa = PBXGroup;
 			children = (
+				181254F117191DCB00D0DD1A /* item_back.png */,
+				181254F217191DCB00D0DD1A /* item_right.png */,
 				18532B9317187082005EA34B /* bgCartNavi.png */,
 				180522DA1716F9B600D64217 /* Default-568h@2x.png */,
 				180522DB1716F9B600D64217 /* Default.png */,
@@ -866,6 +885,8 @@
 				18532B9417187082005EA34B /* bgCartNavi.png in Resources */,
 				18532B991718757C005EA34B /* RegistViewController.xib in Resources */,
 				18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */,
+				181254F317191DCB00D0DD1A /* item_back.png in Resources */,
+				181254F417191DCB00D0DD1A /* item_right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +963,7 @@
 				18532B9217186E95005EA34B /* UINavigationBar+Image.m in Sources */,
 				18532B981718757C005EA34B /* RegistViewController.m in Sources */,
 				18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */,
+				181254EF17191BF400D0DD1A /* Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"注册";
-
+        [self addMyNavBar];
     }
     return self;
 }
@@ -28,8 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self.navigationController.navigationBar setHidden:NO];
 
     
 }
@@ -47,5 +45,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void) closeBtnAction:(id)sender
+{
+    [super closeBtnAction:sender];
+
+}
+
 
 @end

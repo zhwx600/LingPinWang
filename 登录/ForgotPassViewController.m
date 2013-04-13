@@ -20,7 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = @"密码找回";
-        
+        [self addMyNavBar];
     }
     return self;
 }
@@ -29,9 +29,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.navigationController.navigationBar setHidden:NO];
-    
-    NSLog(@"%@",self.view);
+
     
     
 }
@@ -41,10 +39,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)close:(id)sender
+-(void) closeBtnAction:(id)sender
 {
-    [self.navigationController.navigationBar setHidden:YES];
-    //[self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"%@",self.view);
+    [super closeBtnAction:sender];
+    
 }
+
 @end
