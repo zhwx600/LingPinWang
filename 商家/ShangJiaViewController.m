@@ -15,13 +15,21 @@
 @interface ShangJiaViewController () <
 PullingRefreshTableViewDelegate,
 UITableViewDataSource,
-UITableViewDelegate>
+UITableViewDelegate,
+UISearchBarDelegate,
+UISearchDisplayDelegate>
 
 @property (retain,nonatomic) PullingRefreshTableView *tableView;
 @property (retain,nonatomic) NSMutableArray *all_list;
 @property (retain,nonatomic) NSMutableArray *list;
 @property (nonatomic) BOOL refreshing;
 @property (assign,nonatomic) NSInteger page;
+
+@property(nonatomic, strong, readonly) UISearchBar *m_searchBar;
+@property(nonatomic, strong) UISearchDisplayController * m_searchDisplayController;
+@property(nonatomic,retain) NSMutableArray* m_searchResultArr;
+@property(nonatomic, copy) NSString * m_currentSearchString;
+
 @end
 
 @implementation ShangJiaViewController
@@ -31,6 +39,10 @@ UITableViewDelegate>
 @synthesize page = _page;
 @synthesize all_list;
 
+@synthesize m_searchBar;
+@synthesize m_searchDisplayController;
+@synthesize m_searchResultArr;
+@synthesize m_currentSearchString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,6 +96,9 @@ UITableViewDelegate>
         [SDWebImageManager.sharedManager.imageDownloader setValue:@"SDWebImage Demo" forHTTPHeaderField:@"AppName"];
         SDWebImageManager.sharedManager.imageDownloader.executionOrder = SDWebImageDownloaderLIFOExecutionOrder;
         
+        [self initSearch];
+        
+        
     }
     return self;
 }
@@ -94,6 +109,39 @@ UITableViewDelegate>
     // Do any additional setup after loading the view from its nib.
     
 }
+
+-(void) initSearch
+{
+    m_searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
+    m_searchBar.placeholder = @"商家名称";
+    m_searchBar.delegate = self;
+    
+    [m_searchBar sizeToFit];
+    
+    m_searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:self.m_searchBar contentsController:self];
+    m_searchDisplayController.searchResultsDataSource = self;
+    m_searchDisplayController.searchResultsDelegate = self;
+    m_searchDisplayController.delegate = self;
+    m_searchDisplayController.searchResultsTableView.rowHeight = self.tableView.rowHeight;
+    
+//    [self.tableView addSubview:m_searchBar];
+//    
+//    self.tableView.contentInset = UIEdgeInsetsMake(CGRectGetHeight(m_searchBar.bounds), 0, 0, 0);
+//    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(CGRectGetHeight(m_searchBar.bounds), 0, 0, 0);
+    
+    UIView *headerView = [[UISearchBar alloc] initWithFrame:m_searchBar.frame];
+    headerView.hidden = YES;
+    self.tableView.tableHeaderView = headerView;
+    [headerView release];
+    
+    [self.tableView addSubview:m_searchBar];
+    
+    // The search bar is hidden when the view becomes visible the first time
+    self.tableView.contentOffset = CGPointMake(0, CGRectGetHeight(m_searchBar.bounds));
+    
+
+}
+
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -108,6 +156,13 @@ UITableViewDelegate>
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc
+{
+    [m_searchResultArr release];
+    
+    [super dealloc];
 }
 
 #pragma mark - Your actions
@@ -152,12 +207,25 @@ UITableViewDelegate>
 
 #pragma mark - TableView*
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70.0f;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.list.count;
+    if (tableView == self.tableView) {
+        return self.list.count;
+    }else{
+        return m_searchResultArr.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+   // NSLog(@"table 地址：%@ !!",tableView);
+    
     static NSString *identifier = @"_zhwxcell";
     ZhwxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil){
@@ -167,8 +235,15 @@ UITableViewDelegate>
     cell.m_desLabel.text = [NSString stringWithFormat:@" des row =%d",indexPath.row];
     cell.m_titleLabel.text = [NSString stringWithFormat:@" m_titleLabel row =%d",indexPath.row];
     
-    [cell.m_imageView setImageWithURL:[NSURL URLWithString:[self.list objectAtIndex:indexPath.row]]
-                     placeholderImage:[UIImage imageNamed:@"Default"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
+    
+    if (tableView == self.tableView) {
+        [cell.m_imageView setImageWithURL:[NSURL URLWithString:[self.list objectAtIndex:indexPath.row]]
+                         placeholderImage:[UIImage imageNamed:@"Default"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
+    }else{
+        [cell.m_imageView setImageWithURL:[NSURL URLWithString:[m_searchResultArr objectAtIndex:indexPath.row]]
+                         placeholderImage:[UIImage imageNamed:@"Default"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
+    }
+    
     
     return cell;
 }
@@ -191,12 +266,77 @@ UITableViewDelegate>
 #pragma mark - Scroll
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.tableView tableViewDidScroll:scrollView];
+    
+    if (scrollView == self.tableView) {
+        [self.tableView tableViewDidScroll:scrollView];
+    }else{
+        
+    }
+    
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    [self.tableView tableViewDidEndDragging:scrollView];
+    
+    if (scrollView == self.tableView) {
+        [self.tableView tableViewDidEndDragging:scrollView];
+    }else{
+        
+    }
+
 }
 
+
+#pragma mark - Search Delegate
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    [m_searchBar setShowsCancelButton:YES animated:YES];
+    for(UIView *subView in m_searchBar.subviews){
+        if([subView isKindOfClass:[UIButton class]]){
+            [(UIButton*)subView setTitle:@"取消" forState:UIControlStateNormal];
+        }
+    }
+    
+    if (m_searchResultArr) {
+        [m_searchResultArr release];
+    }
+    m_searchResultArr = nil;
+    m_currentSearchString = @"";
+}
+
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    if (m_searchResultArr) {
+        [m_searchResultArr release];
+    }
+    m_searchResultArr = nil;
+    m_currentSearchString = nil;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    for(UIView *subview in controller.searchResultsTableView.subviews) {
+        
+        if([subview isKindOfClass:[UILabel class]]) {
+            [(UILabel*)subview setText:@"没有搜索到该商家"];
+            
+        }
+        
+    }
+
+    if (searchString.length > 0) { // Should always be the case
+        NSArray *personsToSearch = self.list;
+        if (m_currentSearchString.length > 0 && [searchString rangeOfString:m_currentSearchString].location == 0) { // If the new search string starts with the last search string, reuse the already filtered array so searching is faster
+            personsToSearch = m_searchResultArr;
+        }
+        
+        m_searchResultArr = [[NSMutableArray alloc] initWithArray:[personsToSearch filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF CONTAINS %@", searchString]]];
+    } else {
+        m_searchResultArr = self.list;
+    }
+    
+    m_currentSearchString = [searchString retain];
+    
+    return YES;
+}
 
 @end

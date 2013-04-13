@@ -7,52 +7,39 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31036;&#21697;/LiPinViewController.m"
-         timestampString = "387472161.629072"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.m"
+         timestampString = "387517530.073164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "137"
-         endingLineNumber = "137"
-         landmarkName = "-loadData"
+         startingLineNumber = "337"
+         endingLineNumber = "337"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31036;&#21697;/LiPinViewController.m"
-         timestampString = "387472198.203486"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.m"
+         timestampString = "387517530.073164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
-         landmarkName = "-loadData"
+         startingLineNumber = "308"
+         endingLineNumber = "308"
+         landmarkName = "-searchDisplayControllerDidEndSearch:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#20844;&#20849;&#31867;/ZhwxBaseNavCotroller.m"
-         timestampString = "387477556.136251"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.m"
+         timestampString = "387517220.077104"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#30331;&#24405;/LoginViewController.m"
-         timestampString = "387480014.355182"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "220"
+         endingLineNumber = "220"
+         landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
