@@ -11,6 +11,8 @@
 #import "ZhwxTableCell.h"
 #import "UIImageView+WebCache.h"
 
+#import "ShangJiaDetailViewController.h"
+
 
 @interface ShangJiaViewController () <
 PullingRefreshTableViewDelegate,
@@ -230,6 +232,7 @@ UISearchDisplayDelegate>
     ZhwxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil){
         cell = [[[ZhwxTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     cell.m_desLabel.text = [NSString stringWithFormat:@" des row =%d",indexPath.row];
@@ -247,6 +250,17 @@ UISearchDisplayDelegate>
     
     return cell;
 }
+
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+    shangjia.title = @"商家详情";
+    [self.navigationController pushViewController:shangjia animated:YES];
+    [shangjia release];
+    
+}
+
 
 #pragma mark - PullingRefreshTableViewDelegate
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{

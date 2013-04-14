@@ -103,6 +103,11 @@
 		18532B991718757C005EA34B /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B971718757B005EA34B /* RegistViewController.xib */; };
 		18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B9B171875BD005EA34B /* ForgotPassViewController.m */; };
 		18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B9C171875BD005EA34B /* ForgotPassViewController.xib */; };
+		188981B2171AEF9B00345ADF /* bgCartNavi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */; };
+		188981B6171AF4F000345ADF /* RegistCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188981B4171AF4EF00345ADF /* RegistCommitViewController.m */; };
+		188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */; };
+		188981BB171B03FE00345ADF /* ShangJiaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188981B9171B03FE00345ADF /* ShangJiaDetailViewController.m */; };
+		188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
 		1893E736170711A300E52CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E735170711A300E52CCC /* Foundation.framework */; };
 		1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E737170711A300E52CCC /* CoreGraphics.framework */; };
@@ -292,6 +297,13 @@
 		18532B9A171875BD005EA34B /* ForgotPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPassViewController.h; sourceTree = "<group>"; };
 		18532B9B171875BD005EA34B /* ForgotPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPassViewController.m; sourceTree = "<group>"; };
 		18532B9C171875BD005EA34B /* ForgotPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPassViewController.xib; sourceTree = "<group>"; };
+		188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgCartNavi@2x.png"; sourceTree = "<group>"; };
+		188981B3171AF4EF00345ADF /* RegistCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistCommitViewController.h; sourceTree = "<group>"; };
+		188981B4171AF4EF00345ADF /* RegistCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistCommitViewController.m; sourceTree = "<group>"; };
+		188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCommitViewController.xib; sourceTree = "<group>"; };
+		188981B8171B03FE00345ADF /* ShangJiaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangJiaDetailViewController.h; sourceTree = "<group>"; };
+		188981B9171B03FE00345ADF /* ShangJiaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangJiaDetailViewController.m; sourceTree = "<group>"; };
+		188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangJiaDetailViewController.xib; sourceTree = "<group>"; };
 		1893E730170711A300E52CCC /* 领品网.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "领品网.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893E733170711A300E52CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1893E735170711A300E52CCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -719,6 +731,9 @@
 				1893E77317071D2200E52CCC /* ShangJiaViewController.h */,
 				1893E77417071D2200E52CCC /* ShangJiaViewController.m */,
 				1893E77517071D2200E52CCC /* ShangJiaViewController.xib */,
+				188981B8171B03FE00345ADF /* ShangJiaDetailViewController.h */,
+				188981B9171B03FE00345ADF /* ShangJiaDetailViewController.m */,
+				188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */,
 			);
 			path = "商家";
 			sourceTree = SOURCE_ROOT;
@@ -763,6 +778,7 @@
 		1893E78717071FE800E52CCC /* uiimage */ = {
 			isa = PBXGroup;
 			children = (
+				188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */,
 				181254F117191DCB00D0DD1A /* item_back.png */,
 				181254F217191DCB00D0DD1A /* item_right.png */,
 				18532B9317187082005EA34B /* bgCartNavi.png */,
@@ -785,6 +801,9 @@
 				18532B9A171875BD005EA34B /* ForgotPassViewController.h */,
 				18532B9B171875BD005EA34B /* ForgotPassViewController.m */,
 				18532B9C171875BD005EA34B /* ForgotPassViewController.xib */,
+				188981B3171AF4EF00345ADF /* RegistCommitViewController.h */,
+				188981B4171AF4EF00345ADF /* RegistCommitViewController.m */,
+				188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */,
 			);
 			path = "登录";
 			sourceTree = SOURCE_ROOT;
@@ -887,6 +906,9 @@
 				18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */,
 				181254F317191DCB00D0DD1A /* item_back.png in Resources */,
 				181254F417191DCB00D0DD1A /* item_right.png in Resources */,
+				188981B2171AEF9B00345ADF /* bgCartNavi@2x.png in Resources */,
+				188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */,
+				188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,6 +986,8 @@
 				18532B981718757C005EA34B /* RegistViewController.m in Sources */,
 				18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */,
 				181254EF17191BF400D0DD1A /* Utilities.m in Sources */,
+				188981B6171AF4F000345ADF /* RegistCommitViewController.m in Sources */,
+				188981BB171B03FE00345ADF /* ShangJiaDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

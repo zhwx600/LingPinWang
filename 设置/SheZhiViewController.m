@@ -169,7 +169,7 @@
         switch (row) {
             case 0:
                 cell = self.m_cell5;
-                cell.textLabel.text = @"注销登录";
+                //cell.textLabel.text = @"注销登录";
                 cell.textLabel.textAlignment = UITextAlignmentCenter;
                 break;
             default:

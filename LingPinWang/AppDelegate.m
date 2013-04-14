@@ -53,8 +53,9 @@
     m_shezhiViewController = [[SheZhiViewController alloc] init];
     m_loginViewController = [[LoginViewController alloc] init];
 
-    ZhwxBaseNavCotroller* rootNav1 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_lipinViewController];
-    ZhwxBaseNavCotroller* rootNav2 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_qiandaoViewController];
+    
+    ZhwxBaseNavCotroller* rootNav1 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_qiandaoViewController];
+    ZhwxBaseNavCotroller* rootNav2 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_lipinViewController];
     ZhwxBaseNavCotroller* rootNav3 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_shangjiaViewController];
     ZhwxBaseNavCotroller* rootNav4 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_shezhiViewController];
     

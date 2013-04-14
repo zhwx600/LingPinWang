@@ -32,11 +32,11 @@
     // 设置导航栏背景颜色
     if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
     {
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi.png"] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi"] forBarMetrics:UIBarMetricsDefault];
     }
     else
     {
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi.png"]];
+        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi"]];
     }
 
     

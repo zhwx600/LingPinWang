@@ -46,7 +46,7 @@ UIImageView *backgroundView;
 
 -(void) drawRect:(CGRect)rect
 {
-    UIImage* image = [UIImage imageNamed:@"bgCartNavi.png"];
+    UIImage* image = [UIImage imageNamed:@"bgCartNavi"];
     [image drawInRect:CGRectMake(0, 0, 320, 44)];
 }
 

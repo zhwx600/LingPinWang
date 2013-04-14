@@ -10,7 +10,7 @@
 #import "PullingRefreshTableView.h"
 #import "ZhwxTableCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "ShangJiaDetailViewController.h"
 
 
 @interface LiPinViewController () <
@@ -163,6 +163,7 @@ UITableViewDelegate>
     ZhwxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil){
         cell = [[[ZhwxTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     cell.m_desLabel.text = [NSString stringWithFormat:@" des row =%d",indexPath.row];
@@ -172,6 +173,15 @@ UITableViewDelegate>
                    placeholderImage:[UIImage imageNamed:@"Default"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
     
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+    shangjia.title = @"礼品详情";
+    [self.navigationController pushViewController:shangjia animated:YES];
+    [shangjia release];
+    
 }
 
 #pragma mark - PullingRefreshTableViewDelegate

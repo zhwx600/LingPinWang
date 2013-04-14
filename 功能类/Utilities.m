@@ -194,6 +194,7 @@
         label.textAlignment = UITextAlignmentCenter;
         label.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
         [button addSubview:label];
+        label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         [label release];
 
@@ -210,6 +211,7 @@
         label.textAlignment = UITextAlignmentCenter;
         label.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
         [button addSubview:label];
+        label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         [label release];
     //right
@@ -225,6 +227,7 @@
         label.textAlignment = UITextAlignmentCenter;
         label.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
         [button addSubview:label];
+        label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         [label release];
     }
@@ -245,7 +248,9 @@
     [button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
     [button setExclusiveTouch:YES];
     
-    CGSize strsize = image.size;
+    
+    
+    CGSize strsize = CGSizeMake(image.size.width/2.0, image.size.height/2.0);
     
     CGRect frame;
     frame = CGRectMake(0, 0, strsize.width, strsize.height);

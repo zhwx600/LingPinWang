@@ -12,6 +12,9 @@
 
 
 -(void) addMyNavBar;
+-(void) setNavTitle:(NSString*) title;
 -(void) closeBtnAction:(id) sender;
+
+-(void) addRightButton:(SEL) sel Title:(NSString*) title;
 
 @end
