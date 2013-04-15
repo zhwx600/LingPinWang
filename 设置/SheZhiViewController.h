@@ -20,6 +20,8 @@
 @property (retain, nonatomic) IBOutlet UITableViewCell *m_cell3;
 @property (retain, nonatomic) IBOutlet UITableViewCell *m_cell4;
 @property (retain, nonatomic) IBOutlet UITableViewCell *m_cell5;
+@property (retain, nonatomic) IBOutlet UITableViewCell *m_cell6;
 
 - (IBAction)registerLogin:(id)sender;
+- (IBAction)clearImageLocalAct:(id)sender;
 @end

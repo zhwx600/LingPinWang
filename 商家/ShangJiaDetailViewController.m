@@ -36,8 +36,8 @@
         [self initImageViewForShangJia];
         
         self.navigationItem.leftBarButtonItem = [Utilities createNavItemByTarget:self Sel:@selector(closeBtnAction:) Imgage:[UIImage imageNamed:@"item_back.png"]];
-        
-        
+
+       // [self initParamScrollView:m_imageUrlList];
     }
     return self;
 }
@@ -65,6 +65,8 @@
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
     
+    [self initParamScrollView:m_imageUrlList];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,12 +82,14 @@
     
     [m_imageUrlList release];
     
+    [_m_moreScrollView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setM_scrollView:nil];
     [self setM_pageControl:nil];
     [self setM_desTextView:nil];
+    [self setM_moreScrollView:nil];
     [super viewDidUnload];
 }
 
@@ -164,6 +168,42 @@
     }
     
 }
+
+
+-(void) initParamScrollView:(NSArray*) arr
+{
+    
+    int startVerOff = 220;
+    
+    for (int i=0; i<arr.count; i++) {
+        
+        NSString* textstr = [arr objectAtIndex:i];
+        UIFont *font =  [UIFont fontWithName:@"Helvetica" size:15.0f];
+        CGSize size = [textstr sizeWithFont:font constrainedToSize:CGSizeMake(278, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+        
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(21, startVerOff, size.width, size.height)];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = UITextAlignmentLeft;
+        label.font = [UIFont fontWithName:@"Helvetica" size:15.0f];
+        label.textColor = [UIColor blackColor];
+        [label setNumberOfLines:0];
+        [label setLineBreakMode:UILineBreakModeWordWrap];
+        
+        label.text = textstr;
+        [self.m_moreScrollView addSubview:label];
+        [label release];
+        
+        startVerOff += size.height + 9;
+        
+        NSLog(@"nitParamScrollView: %@",[arr objectAtIndex:i]);
+    }
+    [self.m_moreScrollView setContentSize:CGSizeMake(0, startVerOff)];
+    [self.m_moreScrollView setFrame:DEV_HAVE_TABLE_VIEW_FRAME];
+
+    
+}
+
+
 
 
 #pragma mark - 加载滑动图片 相关

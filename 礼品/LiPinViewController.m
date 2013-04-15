@@ -187,7 +187,7 @@ UITableViewDelegate>
 #pragma mark - PullingRefreshTableViewDelegate
 - (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     self.refreshing = YES;
-    [self flushCache];
+   // [self flushCache];
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
 }
 

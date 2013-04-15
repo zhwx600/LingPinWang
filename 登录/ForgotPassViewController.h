@@ -8,7 +8,11 @@
 
 #import "ZhwxBaseViewController.h"
 
-@interface ForgotPassViewController : ZhwxBaseViewController
+@interface ForgotPassViewController : ZhwxBaseViewController<UITextFieldDelegate,UIAlertViewDelegate>
+
+
+@property (retain, nonatomic) IBOutlet UITextField *m_phoneNumberField;
 
 - (IBAction)close:(id)sender;
+- (IBAction)getNewPassword:(id)sender;
 @end

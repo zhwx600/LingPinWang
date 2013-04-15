@@ -45,4 +45,35 @@
     
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self getNewPassword: nil];
+    return YES;
+}
+
+
+- (IBAction)getNewPassword:(id)sender
+{
+    UIAlertView* passAlert = [[UIAlertView alloc] initWithTitle:@"新密码" message:@"新密码是:【123456】.请牢记!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [passAlert show];
+    [passAlert release];
+    
+}
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self closeBtnAction:nil];
+}
+
+
+- (void)dealloc {
+    [_m_phoneNumberField release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setM_phoneNumberField:nil];
+    [super viewDidUnload];
+}
 @end

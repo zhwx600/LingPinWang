@@ -11,4 +11,15 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #define isRetina5inch (fabs(( double)[[ UIScreen mainScreen] bounds].size.height-( double )568) < DBL_EPSILON)
+
+    #define DEV_FULLSCREEN_FRAME [[ UIScreen mainScreen] bounds]
+
+    #define DEV_NO_NAV_VIEW_FRAME CGRectMake(0, 0, 320, DEV_FULLSCREEN_FRAME.size.height-20)
+
+    #define DEV_HAVE_NAV_VIEW_FRAME CGRectMake(0, 0, 320, DEV_FULLSCREEN_FRAME.size.height-44-20)
+
+    #define DEV_HAVE_TABLE_VIEW_FRAME CGRectMake(0, 0, 320, DEV_FULLSCREEN_FRAME.size.height-44-49-20)
+
 #endif

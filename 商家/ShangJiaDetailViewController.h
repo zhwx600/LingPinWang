@@ -23,11 +23,16 @@
 @property (retain, nonatomic) IBOutlet UIPageControl *m_pageControl;
 @property (retain, nonatomic) IBOutlet UIScrollView *m_scrollView;
 @property (retain, nonatomic) IBOutlet UITextView *m_desTextView;
+@property (retain, nonatomic) IBOutlet UIScrollView *m_moreScrollView;
 
 @property (nonatomic,retain)    NSMutableArray* m_imageUrlList;
 
 -(void) closeBtnAction:(id)sender;
 -(void) initImageViewForLiPin;
 -(void) initImageViewForShangJia;
+
+
+-(void) initParamScrollView:(NSArray*) arr;
+
 
 @end

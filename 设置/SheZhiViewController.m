@@ -8,7 +8,7 @@
 
 #import "SheZhiViewController.h"
 #import "AppDelegate.h"
-
+#import "UIImageView+WebCache.h"
 
 @interface SheZhiViewController ()
 
@@ -44,6 +44,19 @@
     AppDelegate* del = [[UIApplication sharedApplication] delegate];
     [del entryLoginControllerView];
 }
+
+- (void)flushCache
+{
+    [SDWebImageManager.sharedManager.imageCache clearMemory];
+    [SDWebImageManager.sharedManager.imageCache clearDisk];
+}
+
+- (IBAction)clearImageLocalAct:(id)sender
+{
+    [self flushCache];
+}
+
+
 - (void)dealloc {
     [_m_cell0 release];
     [_m_cell1 release];
@@ -52,6 +65,7 @@
     [_m_cell4 release];
     [_m_cell5 release];
     [_m_tableView release];
+    [_m_cell6 release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -62,6 +76,7 @@
     [self setM_cell4:nil];
     [self setM_cell5:nil];
     [self setM_tableView:nil];
+    [self setM_cell6:nil];
     [super viewDidUnload];
 }
 
@@ -71,7 +86,7 @@
 {
     
     // Return the number of sections.
-    return 3;
+    return 4;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -108,6 +123,9 @@
             break;
             
         case 2:
+            return 1;
+            break;
+        case 3:
             return 1;
             break;
             
@@ -168,6 +186,22 @@
         
         switch (row) {
             case 0:
+                cell = self.m_cell6;
+                //cell.textLabel.text = @"注销登录";
+                cell.textLabel.textAlignment = UITextAlignmentCenter;
+                break;
+            default:
+                break;
+        }
+        cell.backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+        cell.backgroundView.backgroundColor = [UIColor clearColor];
+        
+        
+        
+    }else if(3 == section){
+        
+        switch (row) {
+            case 0:
                 cell = self.m_cell5;
                 //cell.textLabel.text = @"注销登录";
                 cell.textLabel.textAlignment = UITextAlignmentCenter;
@@ -175,7 +209,6 @@
             default:
                 break;
         }
-        
         //        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
         //        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
         
