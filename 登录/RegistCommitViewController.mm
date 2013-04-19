@@ -7,6 +7,9 @@
 //
 
 #import "RegistCommitViewController.h"
+#import "HttpProcessor.h"
+#import "xmlparser.h"
+
 
 @interface RegistCommitViewController ()
 
@@ -31,6 +34,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,8 +59,15 @@
         
         [UIView commitAnimations];
     }else{
+        
+        NSTimeInterval animationDuration = 0.30f;
+        [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+        [UIView setAnimationDuration:animationDuration];
+
         CGRect rect = CGRectMake(0.0f, -180.0f, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = rect;
+        [UIView commitAnimations];
+        
     }
     
 }
@@ -122,4 +135,11 @@
     [self setM_passwordSureField:nil];
     [super viewDidUnload];
 }
+
+
+
+
+
+
+
 @end

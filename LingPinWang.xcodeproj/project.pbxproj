@@ -80,6 +80,14 @@
 		181254EF17191BF400D0DD1A /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 181254EE17191BF400D0DD1A /* Utilities.m */; };
 		181254F317191DCB00D0DD1A /* item_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 181254F117191DCB00D0DD1A /* item_back.png */; };
 		181254F417191DCB00D0DD1A /* item_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 181254F217191DCB00D0DD1A /* item_right.png */; };
+		18172179172184D4006718CA /* DataProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1817216B172184D4006718CA /* DataProcess.m */; };
+		1817217A172184D4006718CA /* HttpProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1817216D172184D4006718CA /* HttpProcessor.m */; };
+		1817217B172184D4006718CA /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172170172184D4006718CA /* tinystr.cpp */; };
+		1817217C172184D4006718CA /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172172172184D4006718CA /* tinyxml.cpp */; };
+		1817217D172184D4006718CA /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172174172184D4006718CA /* tinyxmlerror.cpp */; };
+		1817217E172184D4006718CA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172175172184D4006718CA /* tinyxmlparser.cpp */; };
+		1817217F172184D4006718CA /* xmlparser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18172177172184D4006718CA /* xmlparser.mm */; };
+		18172184172188A2006718CA /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18172183172188A2006718CA /* Answer.m */; };
 		18532B7A17185E6A005EA34B /* 背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6717185E6A005EA34B /* 背景.jpg */; };
 		18532B7B17185E6A005EA34B /* 领品网app_130225_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6817185E6A005EA34B /* 领品网app_130225_03.png */; };
 		18532B7C17185E6A005EA34B /* 领品网app_130225_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6917185E6A005EA34B /* 领品网app_130225_07.png */; };
@@ -99,12 +107,12 @@
 		18532B8A17185E6A005EA34B /* 搜索.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B7917185E6A005EA34B /* 搜索.png */; };
 		18532B9217186E95005EA34B /* UINavigationBar+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B9117186E95005EA34B /* UINavigationBar+Image.m */; };
 		18532B9417187082005EA34B /* bgCartNavi.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B9317187082005EA34B /* bgCartNavi.png */; };
-		18532B981718757C005EA34B /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B961718757B005EA34B /* RegistViewController.m */; };
+		18532B981718757C005EA34B /* RegistViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18532B961718757B005EA34B /* RegistViewController.mm */; };
 		18532B991718757C005EA34B /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B971718757B005EA34B /* RegistViewController.xib */; };
 		18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18532B9B171875BD005EA34B /* ForgotPassViewController.m */; };
 		18532B9E171875BD005EA34B /* ForgotPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18532B9C171875BD005EA34B /* ForgotPassViewController.xib */; };
 		188981B2171AEF9B00345ADF /* bgCartNavi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */; };
-		188981B6171AF4F000345ADF /* RegistCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188981B4171AF4EF00345ADF /* RegistCommitViewController.m */; };
+		188981B6171AF4F000345ADF /* RegistCommitViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188981B4171AF4EF00345ADF /* RegistCommitViewController.mm */; };
 		188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */; };
 		188981BB171B03FE00345ADF /* ShangJiaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188981B9171B03FE00345ADF /* ShangJiaDetailViewController.m */; };
 		188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */; };
@@ -271,6 +279,23 @@
 		181254EE17191BF400D0DD1A /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		181254F117191DCB00D0DD1A /* item_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_back.png; sourceTree = "<group>"; };
 		181254F217191DCB00D0DD1A /* item_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_right.png; sourceTree = "<group>"; };
+		1817216617218484006718CA /* ProtocolDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolDefine.h; sourceTree = "<group>"; };
+		1817216A172184D4006718CA /* DataProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProcess.h; sourceTree = "<group>"; };
+		1817216B172184D4006718CA /* DataProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProcess.m; sourceTree = "<group>"; };
+		1817216C172184D4006718CA /* HttpProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpProcessor.h; sourceTree = "<group>"; };
+		1817216D172184D4006718CA /* HttpProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpProcessor.m; sourceTree = "<group>"; };
+		1817216E172184D4006718CA /* IDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDispatcher.h; sourceTree = "<group>"; };
+		18172170172184D4006718CA /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		18172171172184D4006718CA /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		18172172172184D4006718CA /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		18172173172184D4006718CA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		18172174172184D4006718CA /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		18172175172184D4006718CA /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		18172176172184D4006718CA /* xmlparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlparser.h; sourceTree = "<group>"; };
+		18172177172184D4006718CA /* xmlparser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = xmlparser.mm; sourceTree = "<group>"; };
+		1817218017218512006718CA /* xmlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlCommand.h; sourceTree = "<group>"; };
+		18172182172188A2006718CA /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		18172183172188A2006718CA /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		18532B6717185E6A005EA34B /* 背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "背景.jpg"; sourceTree = "<group>"; };
 		18532B6817185E6A005EA34B /* 领品网app_130225_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_03.png"; sourceTree = "<group>"; };
 		18532B6917185E6A005EA34B /* 领品网app_130225_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_07.png"; sourceTree = "<group>"; };
@@ -292,14 +317,14 @@
 		18532B9117186E95005EA34B /* UINavigationBar+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Image.m"; sourceTree = "<group>"; };
 		18532B9317187082005EA34B /* bgCartNavi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgCartNavi.png; sourceTree = "<group>"; };
 		18532B951718757B005EA34B /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
-		18532B961718757B005EA34B /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		18532B961718757B005EA34B /* RegistViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RegistViewController.mm; sourceTree = "<group>"; };
 		18532B971718757B005EA34B /* RegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
 		18532B9A171875BD005EA34B /* ForgotPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPassViewController.h; sourceTree = "<group>"; };
 		18532B9B171875BD005EA34B /* ForgotPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPassViewController.m; sourceTree = "<group>"; };
 		18532B9C171875BD005EA34B /* ForgotPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPassViewController.xib; sourceTree = "<group>"; };
 		188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgCartNavi@2x.png"; sourceTree = "<group>"; };
 		188981B3171AF4EF00345ADF /* RegistCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistCommitViewController.h; sourceTree = "<group>"; };
-		188981B4171AF4EF00345ADF /* RegistCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistCommitViewController.m; sourceTree = "<group>"; };
+		188981B4171AF4EF00345ADF /* RegistCommitViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RegistCommitViewController.mm; sourceTree = "<group>"; };
 		188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCommitViewController.xib; sourceTree = "<group>"; };
 		188981B8171B03FE00345ADF /* ShangJiaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangJiaDetailViewController.h; sourceTree = "<group>"; };
 		188981B9171B03FE00345ADF /* ShangJiaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangJiaDetailViewController.m; sourceTree = "<group>"; };
@@ -596,6 +621,53 @@
 			path = "功能类";
 			sourceTree = SOURCE_ROOT;
 		};
+		181721651721840D006718CA /* 协议 */ = {
+			isa = PBXGroup;
+			children = (
+				18172167172184D4006718CA /* httpProcessor */,
+				1817216F172184D4006718CA /* TinyXml */,
+				1817218017218512006718CA /* xmlCommand.h */,
+				1817216617218484006718CA /* ProtocolDefine.h */,
+			);
+			path = "协议";
+			sourceTree = SOURCE_ROOT;
+		};
+		18172167172184D4006718CA /* httpProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				1817216A172184D4006718CA /* DataProcess.h */,
+				1817216B172184D4006718CA /* DataProcess.m */,
+				1817216C172184D4006718CA /* HttpProcessor.h */,
+				1817216D172184D4006718CA /* HttpProcessor.m */,
+				1817216E172184D4006718CA /* IDispatcher.h */,
+			);
+			path = httpProcessor;
+			sourceTree = "<group>";
+		};
+		1817216F172184D4006718CA /* TinyXml */ = {
+			isa = PBXGroup;
+			children = (
+				18172170172184D4006718CA /* tinystr.cpp */,
+				18172171172184D4006718CA /* tinystr.h */,
+				18172172172184D4006718CA /* tinyxml.cpp */,
+				18172173172184D4006718CA /* tinyxml.h */,
+				18172174172184D4006718CA /* tinyxmlerror.cpp */,
+				18172175172184D4006718CA /* tinyxmlparser.cpp */,
+				18172176172184D4006718CA /* xmlparser.h */,
+				18172177172184D4006718CA /* xmlparser.mm */,
+			);
+			path = TinyXml;
+			sourceTree = "<group>";
+		};
+		18172181172186CD006718CA /* 数据类 */ = {
+			isa = PBXGroup;
+			children = (
+				18172182172188A2006718CA /* Answer.h */,
+				18172183172188A2006718CA /* Answer.m */,
+			);
+			path = "数据类";
+			sourceTree = SOURCE_ROOT;
+		};
 		18532B6617185E6A005EA34B /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +747,8 @@
 				1812542D17179C2F00D0DD1A /* 自定义控件 */,
 				180522CD1716F3E800D64217 /* 开源控件 */,
 				180522C01716E79700D64217 /* 公共类 */,
+				18172181172186CD006718CA /* 数据类 */,
+				181721651721840D006718CA /* 协议 */,
 				1893E7901707221C00E52CCC /* 登录 */,
 				1893E76517071CA900E52CCC /* 礼品 */,
 				1893E76617071CA900E52CCC /* 签到 */,
@@ -796,13 +870,13 @@
 				1893E7921707225F00E52CCC /* LoginViewController.m */,
 				1893E7931707225F00E52CCC /* LoginViewController.xib */,
 				18532B951718757B005EA34B /* RegistViewController.h */,
-				18532B961718757B005EA34B /* RegistViewController.m */,
+				18532B961718757B005EA34B /* RegistViewController.mm */,
 				18532B971718757B005EA34B /* RegistViewController.xib */,
 				18532B9A171875BD005EA34B /* ForgotPassViewController.h */,
 				18532B9B171875BD005EA34B /* ForgotPassViewController.m */,
 				18532B9C171875BD005EA34B /* ForgotPassViewController.xib */,
 				188981B3171AF4EF00345ADF /* RegistCommitViewController.h */,
-				188981B4171AF4EF00345ADF /* RegistCommitViewController.m */,
+				188981B4171AF4EF00345ADF /* RegistCommitViewController.mm */,
 				188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */,
 			);
 			path = "登录";
@@ -983,11 +1057,19 @@
 				181254C81717E2A100D0DD1A /* UIButton+WebCache.m in Sources */,
 				181254C91717E2A100D0DD1A /* UIImageView+WebCache.m in Sources */,
 				18532B9217186E95005EA34B /* UINavigationBar+Image.m in Sources */,
-				18532B981718757C005EA34B /* RegistViewController.m in Sources */,
+				18532B981718757C005EA34B /* RegistViewController.mm in Sources */,
 				18532B9D171875BD005EA34B /* ForgotPassViewController.m in Sources */,
 				181254EF17191BF400D0DD1A /* Utilities.m in Sources */,
-				188981B6171AF4F000345ADF /* RegistCommitViewController.m in Sources */,
+				188981B6171AF4F000345ADF /* RegistCommitViewController.mm in Sources */,
 				188981BB171B03FE00345ADF /* ShangJiaDetailViewController.m in Sources */,
+				18172179172184D4006718CA /* DataProcess.m in Sources */,
+				1817217A172184D4006718CA /* HttpProcessor.m in Sources */,
+				1817217B172184D4006718CA /* tinystr.cpp in Sources */,
+				1817217C172184D4006718CA /* tinyxml.cpp in Sources */,
+				1817217D172184D4006718CA /* tinyxmlerror.cpp in Sources */,
+				1817217E172184D4006718CA /* tinyxmlparser.cpp in Sources */,
+				1817217F172184D4006718CA /* xmlparser.mm in Sources */,
+				18172184172188A2006718CA /* Answer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

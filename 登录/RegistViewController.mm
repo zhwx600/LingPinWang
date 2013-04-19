@@ -9,6 +9,9 @@
 #import "RegistViewController.h"
 #import "RegistCommitViewController.h"
 
+#import "HttpProcessor.h"
+#import "xmlparser.h"
+#import "ProtocolDefine.h"
 
 @interface RegistViewController ()
 
@@ -38,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self requestQuestion];
     
 }
 
@@ -297,4 +301,40 @@
 	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
 
 }
+
+
+
+#pragma mark- 请求问题
+
+//升级请求
+-(void) requestQuestion
+{
+
+    NSString* str = [MyXMLParser EncodeToStr:nil Type:REQUEST_FOR_ANSWER];
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstQuestion:)];
+    [http threadFunStart];
+    
+    [http release];
+}
+
+-(void) receiveDataByRequstQuestion:(NSData*) data
+{
+    if (data && data.length>0) {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+        NSMutableArray* registArr = [[NSMutableArray alloc] initWithArray:(NSArray*)[MyXMLParser DecodeToObj:str]];
+        [str release];
+        
+        NSLog(@" regist arr count = %d",registArr.count);
+        
+    }else{
+        NSLog(@"receiveDataByRequstQuestion 接收到 数据 异常");
+
+        
+    }
+
+}
+
 @end
