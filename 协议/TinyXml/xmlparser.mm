@@ -183,9 +183,29 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
 
 +(void) encodeForRequestAnswer:(TTiXmlElement *) rootElement
 {
-    TTiXmlElement *lmtParamRoot = new TTiXmlElement("234234234");
-    rootElement->LinkEndChild(lmtParamRoot);
+//    TTiXmlElement *lmtParamRoot = new TTiXmlElement("234234234");
+//    rootElement->LinkEndChild(lmtParamRoot);
     return;
+}
+
+
++(void) encodeForRequestCode:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("mobile");
+    TTiXmlText *txtId = new TTiXmlText([(NSString*)requestObj UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    return;
+}
+
++(void) encodeForRequestRegist:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    
 }
 
 
@@ -218,7 +238,16 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     if (0 == [type compare:REQUEST_FOR_ANSWER]) {
         
         [MyXMLParser encodeForRequestAnswer:lmtRoot];
+    //获取验证码
+    }else if(0 == [type compare:REQUEST_FOR_CODE]){
+        
+        [MyXMLParser encodeForRequestCode:lmtRoot Obj:obj];
+    // 注册
+    }else if(0 == [type compare:REQUEST_FOR_REGIST]){
+        
     }
+    
+    
     //参展
 //    else if(0 == [type compare:@"ihshow"]){
 //        TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestshow");
@@ -364,10 +393,47 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
             //进入下一个 param
             lmtTmp = lmtTmp->NextSiblingElement();
             
+            [imageArr addObject:imageObj];
+            [imageObj release];
+            
         }
     }
     return imageArr;
 
+}
+
+//验证码 返回
++(NSString*) decodeForRequestCode:(TTiXmlElement *) rootElement
+{
+
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    NSString* codeStr = nil;
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        codeStr = [[[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] autorelease];
+
+    }
+    return codeStr;
+    
+}
+
+//注册 返回
++(NSString*) decodeForRequestRegist:(TTiXmlElement *) rootElement
+{
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    NSString* registStr = nil;
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        registStr = [[[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] autorelease];
+        
+    }
+    return registStr;
+    
 }
 
 +(NSObject*) DecodeToObj:(NSString *)str
@@ -405,12 +471,24 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
             return ver;
             
             //参展请求 返回
-        }else if(0 == [commid compare:@"ihlookcaption"]){
+        }else if(0 == [commid compare:REQUEST_FOR_ANSWER]){
             
-            NSMutableArray* imageArr = [MyXMLParser decodeForRequestAnswer:lmtRoot];
+            NSMutableArray* imageArr = [MyXMLParser decodeForRequestAnswer:lmtName];
 
             [_mutexDe unlock];
             return imageArr;
+        }else if(0 == [commid compare:REQUEST_FOR_CODE]){
+            
+            NSString* codeArr = [MyXMLParser decodeForRequestCode:lmtName];
+            
+            [_mutexDe unlock];
+            return codeArr;
+        }else if(0 == [commid compare:REQUEST_FOR_REGIST]){
+            
+            NSString* registArr = [MyXMLParser decodeForRequestRegist:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
         }
 
         

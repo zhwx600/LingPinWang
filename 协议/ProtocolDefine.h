@@ -20,7 +20,12 @@
 #define ID_VALUE_SPARETE_STR @"="
 
 //协议命令 宏
+//获取问题答案
 #define REQUEST_FOR_ANSWER @"getweijian"
+//获取验证码
+#define REQUEST_FOR_CODE @"getregno"
+//注册
+#define REQUEST_FOR_REGIST @"regsubmit"
 
 
 
