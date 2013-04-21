@@ -26,6 +26,20 @@
 #define REQUEST_FOR_CODE @"getregno"
 //注册
 #define REQUEST_FOR_REGIST @"regsubmit"
+//登录
+#define REQUEST_FOR_LOGIN @"login"
+//商品详细
+#define REQUEST_FOR_PRODUCT_DETAIL @"productdetail"
+//商家详细
+#define REQUEST_FOR_BUSINESS_DETAIL @"businessesdetail"
+//礼品发布
+#define REQUEST_FOR_PRODUCT @"product"
+//签到
+#define REQUEST_FOR_CHECK_IN @"checkin"
+//商家发布
+#define REQUEST_FOR_BUSINESSES @"businesses"
+//找回密码
+#define REQUEST_FOR_GET_PASSWORD @"getpw"
 
 
 

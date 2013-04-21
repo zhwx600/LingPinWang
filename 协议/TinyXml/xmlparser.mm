@@ -11,7 +11,12 @@
 
 #import "ProtocolDefine.h"
 #import "Answer.h"
+#import "RequestRegist.h"
+#import "RequestLogin.h"
 
+#import "ResultLogin.h"
+#import "ResultLiPinDetail.h"
+#import "ResultShangjiaDetail.h"
 
 NSCondition             *_mutexEn = NULL;
 NSCondition             *_mutexDe = NULL;
@@ -205,7 +210,110 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
 
 +(void) encodeForRequestRegist:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
 {
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
     
+    RequestRegist*  registObj = (RequestRegist*) requestObj;
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("mobile");
+    TTiXmlText *txtId = new TTiXmlText([registObj.m_phone UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    lmtTmp = new TTiXmlElement("name");
+    txtId = new TTiXmlText([registObj.m_name UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    lmtTmp = new TTiXmlElement("sex");
+    txtId = new TTiXmlText([registObj.m_sex UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    lmtTmp = new TTiXmlElement("password");
+    txtId = new TTiXmlText([registObj.m_password UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    
+    for (NSString* key in [registObj.m_answerDic allKeys]) {
+        
+        lmtTmp = new TTiXmlElement("question");
+        txtId = new TTiXmlText([key UTF8String]);
+        lmtTmp->LinkEndChild(txtId);
+        lmtParamRoot->LinkEndChild(lmtTmp);
+        
+        NSArray* valueArray = [registObj.m_answerDic valueForKey:key];
+        NSString* valueStr = [valueArray componentsJoinedByString:OPTION_SPARETE_STR];
+        
+        lmtTmp = new TTiXmlElement("answer");
+        if (valueStr && valueStr.length>0) {
+        }else{
+            valueStr = @"";
+        }
+        lmtTmp = new TTiXmlElement("answer");
+        txtId = new TTiXmlText([valueStr UTF8String]);
+        lmtTmp->LinkEndChild(txtId);
+        lmtParamRoot->LinkEndChild(lmtTmp);
+        
+    }
+
+    
+    return;
+}
+
++(void) encodeForRequestLogin:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    RequestLogin* loginObj = (RequestLogin*)requestObj;
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("logid");
+    TTiXmlText *txtId = new TTiXmlText([loginObj.m_phone UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    
+    lmtTmp = new TTiXmlElement("logpw");
+    txtId = new TTiXmlText([loginObj.m_password UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    return;
+}
+
+
++(void) encodeForRequestLiPinDetail:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    NSString* proid = (NSString*)requestObj;
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("productid");
+    TTiXmlText *txtId = new TTiXmlText([proid UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+
+    
+    return;
+}
+
++(void) encodeForRequestShangJiaDetail:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    NSString* proid = (NSString*)requestObj;
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("businesid");
+    TTiXmlText *txtId = new TTiXmlText([proid UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    
+    return;
 }
 
 
@@ -244,7 +352,14 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         [MyXMLParser encodeForRequestCode:lmtRoot Obj:obj];
     // 注册
     }else if(0 == [type compare:REQUEST_FOR_REGIST]){
+        [MyXMLParser encodeForRequestRegist:lmtRoot Obj:obj];
         
+    }else if(0 == [type compare:REQUEST_FOR_LOGIN]){
+        [MyXMLParser encodeForRequestLogin:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_PRODUCT_DETAIL]){
+        [MyXMLParser encodeForRequestLiPinDetail:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_BUSINESS_DETAIL]){
+        [MyXMLParser encodeForRequestShangJiaDetail:lmtRoot Obj:obj];
     }
     
     
@@ -435,6 +550,107 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     return registStr;
     
 }
+
+//注册 返回
++(ResultLogin*) decodeForRequestLogin:(TTiXmlElement *) rootElement
+{
+    
+    ResultLogin* resultLogin = [[[ResultLogin alloc] init] autorelease];
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement("complete");
+        
+        resultLogin.m_result = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("sessionno");
+        resultLogin.m_sessionId = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("username");
+        resultLogin.m_userName = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("usernum");
+        resultLogin.m_linpinCount = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("userstate");
+        resultLogin.m_userState = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("captionurl");
+        resultLogin.m_userState = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("otherurl");
+        [resultLogin.m_adImageUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("otherurl2");
+        [resultLogin.m_adToUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];
+    }
+    return resultLogin;
+
+    
+}
+
+//注册 返回
++(ResultLiPinDetail*) decodeForRequestLiPinDetail:(TTiXmlElement *) rootElement
+{
+    
+    ResultLiPinDetail* resultDetail = [[[ResultLiPinDetail alloc] init] autorelease];
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement("productmemo");
+        
+        resultDetail.m_description = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+                
+        lmtTmp = lmtParamRoot->FirstChildElement("imageurl");
+        [resultDetail.m_imageUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];
+    }
+    return resultDetail;
+    
+    
+}
+
+
+//注册 返回
++(ResultShangjiaDetail*) decodeForRequestShangJiaDetail:(TTiXmlElement *) rootElement
+{
+    
+    ResultShangjiaDetail* resultDetail = [[[ResultShangjiaDetail alloc] init] autorelease];
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement("imageurl");
+        [resultDetail.m_imageUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("businestel");
+        resultDetail.m_telephone = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("businesfax");
+        resultDetail.m_fax = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("businesaddress");
+        resultDetail.m_address = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        lmtTmp = lmtParamRoot->FirstChildElement("businesmemo");
+        resultDetail.m_description = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
+        
+    }
+    return resultDetail;
+    
+    
+}
+
+
 
 +(NSObject*) DecodeToObj:(NSString *)str
 {

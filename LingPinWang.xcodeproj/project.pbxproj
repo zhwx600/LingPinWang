@@ -88,6 +88,16 @@
 		1817217E172184D4006718CA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172175172184D4006718CA /* tinyxmlparser.cpp */; };
 		1817217F172184D4006718CA /* xmlparser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18172177172184D4006718CA /* xmlparser.mm */; };
 		18172184172188A2006718CA /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18172183172188A2006718CA /* Answer.m */; };
+		184D4C711723C6A60074D36C /* RequestRegist.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C701723C6A60074D36C /* RequestRegist.m */; };
+		184D4C74172425620074D36C /* RequestLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C73172425610074D36C /* RequestLogin.m */; };
+		184D4C77172425940074D36C /* ResultLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C76172425940074D36C /* ResultLogin.m */; };
+		184D4C7A17242CB20074D36C /* ResultLiPinDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C7917242CB20074D36C /* ResultLiPinDetail.m */; };
+		184D4C7D17242E2A0074D36C /* ResultShangjiaDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C7C17242E2A0074D36C /* ResultShangjiaDetail.m */; };
+		184D4C80172432500074D36C /* RequsetProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C7F172432500074D36C /* RequsetProduct.m */; };
+		184D4C83172432620074D36C /* ResultProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C82172432610074D36C /* ResultProduct.m */; };
+		184D4C86172433EE0074D36C /* RequestCheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C85172433EE0074D36C /* RequestCheckIn.m */; };
+		184D4C89172434860074D36C /* RequestBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C88172434850074D36C /* RequestBusiness.m */; };
+		184D4C8C172434BB0074D36C /* ResultBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C8B172434BA0074D36C /* ResultBusiness.m */; };
 		18532B7A17185E6A005EA34B /* 背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6717185E6A005EA34B /* 背景.jpg */; };
 		18532B7B17185E6A005EA34B /* 领品网app_130225_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6817185E6A005EA34B /* 领品网app_130225_03.png */; };
 		18532B7C17185E6A005EA34B /* 领品网app_130225_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 18532B6917185E6A005EA34B /* 领品网app_130225_07.png */; };
@@ -296,6 +306,26 @@
 		1817218017218512006718CA /* xmlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlCommand.h; sourceTree = "<group>"; };
 		18172182172188A2006718CA /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		18172183172188A2006718CA /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		184D4C6F1723C6A60074D36C /* RequestRegist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestRegist.h; sourceTree = "<group>"; };
+		184D4C701723C6A60074D36C /* RequestRegist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestRegist.m; sourceTree = "<group>"; };
+		184D4C72172425610074D36C /* RequestLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestLogin.h; sourceTree = "<group>"; };
+		184D4C73172425610074D36C /* RequestLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestLogin.m; sourceTree = "<group>"; };
+		184D4C75172425940074D36C /* ResultLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLogin.h; sourceTree = "<group>"; };
+		184D4C76172425940074D36C /* ResultLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLogin.m; sourceTree = "<group>"; };
+		184D4C7817242CB20074D36C /* ResultLiPinDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultLiPinDetail.h; sourceTree = "<group>"; };
+		184D4C7917242CB20074D36C /* ResultLiPinDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultLiPinDetail.m; sourceTree = "<group>"; };
+		184D4C7B17242E2A0074D36C /* ResultShangjiaDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultShangjiaDetail.h; sourceTree = "<group>"; };
+		184D4C7C17242E2A0074D36C /* ResultShangjiaDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultShangjiaDetail.m; sourceTree = "<group>"; };
+		184D4C7E172432500074D36C /* RequsetProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequsetProduct.h; sourceTree = "<group>"; };
+		184D4C7F172432500074D36C /* RequsetProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequsetProduct.m; sourceTree = "<group>"; };
+		184D4C81172432610074D36C /* ResultProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultProduct.h; sourceTree = "<group>"; };
+		184D4C82172432610074D36C /* ResultProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultProduct.m; sourceTree = "<group>"; };
+		184D4C84172433EE0074D36C /* RequestCheckIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCheckIn.h; sourceTree = "<group>"; };
+		184D4C85172433EE0074D36C /* RequestCheckIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCheckIn.m; sourceTree = "<group>"; };
+		184D4C87172434850074D36C /* RequestBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestBusiness.h; sourceTree = "<group>"; };
+		184D4C88172434850074D36C /* RequestBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestBusiness.m; sourceTree = "<group>"; };
+		184D4C8A172434BA0074D36C /* ResultBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultBusiness.h; sourceTree = "<group>"; };
+		184D4C8B172434BA0074D36C /* ResultBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultBusiness.m; sourceTree = "<group>"; };
 		18532B6717185E6A005EA34B /* 背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "背景.jpg"; sourceTree = "<group>"; };
 		18532B6817185E6A005EA34B /* 领品网app_130225_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_03.png"; sourceTree = "<group>"; };
 		18532B6917185E6A005EA34B /* 领品网app_130225_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "领品网app_130225_07.png"; sourceTree = "<group>"; };
@@ -664,6 +694,26 @@
 			children = (
 				18172182172188A2006718CA /* Answer.h */,
 				18172183172188A2006718CA /* Answer.m */,
+				184D4C6F1723C6A60074D36C /* RequestRegist.h */,
+				184D4C701723C6A60074D36C /* RequestRegist.m */,
+				184D4C72172425610074D36C /* RequestLogin.h */,
+				184D4C73172425610074D36C /* RequestLogin.m */,
+				184D4C75172425940074D36C /* ResultLogin.h */,
+				184D4C76172425940074D36C /* ResultLogin.m */,
+				184D4C7817242CB20074D36C /* ResultLiPinDetail.h */,
+				184D4C7917242CB20074D36C /* ResultLiPinDetail.m */,
+				184D4C7B17242E2A0074D36C /* ResultShangjiaDetail.h */,
+				184D4C7C17242E2A0074D36C /* ResultShangjiaDetail.m */,
+				184D4C7E172432500074D36C /* RequsetProduct.h */,
+				184D4C7F172432500074D36C /* RequsetProduct.m */,
+				184D4C81172432610074D36C /* ResultProduct.h */,
+				184D4C82172432610074D36C /* ResultProduct.m */,
+				184D4C84172433EE0074D36C /* RequestCheckIn.h */,
+				184D4C85172433EE0074D36C /* RequestCheckIn.m */,
+				184D4C87172434850074D36C /* RequestBusiness.h */,
+				184D4C88172434850074D36C /* RequestBusiness.m */,
+				184D4C8A172434BA0074D36C /* ResultBusiness.h */,
+				184D4C8B172434BA0074D36C /* ResultBusiness.m */,
 			);
 			path = "数据类";
 			sourceTree = SOURCE_ROOT;
@@ -1070,6 +1120,16 @@
 				1817217E172184D4006718CA /* tinyxmlparser.cpp in Sources */,
 				1817217F172184D4006718CA /* xmlparser.mm in Sources */,
 				18172184172188A2006718CA /* Answer.m in Sources */,
+				184D4C711723C6A60074D36C /* RequestRegist.m in Sources */,
+				184D4C74172425620074D36C /* RequestLogin.m in Sources */,
+				184D4C77172425940074D36C /* ResultLogin.m in Sources */,
+				184D4C7A17242CB20074D36C /* ResultLiPinDetail.m in Sources */,
+				184D4C7D17242E2A0074D36C /* ResultShangjiaDetail.m in Sources */,
+				184D4C80172432500074D36C /* RequsetProduct.m in Sources */,
+				184D4C83172432620074D36C /* ResultProduct.m in Sources */,
+				184D4C86172433EE0074D36C /* RequestCheckIn.m in Sources */,
+				184D4C89172434860074D36C /* RequestBusiness.m in Sources */,
+				184D4C8C172434BB0074D36C /* ResultBusiness.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
