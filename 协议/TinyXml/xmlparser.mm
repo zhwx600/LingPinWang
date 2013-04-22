@@ -13,10 +13,16 @@
 #import "Answer.h"
 #import "RequestRegist.h"
 #import "RequestLogin.h"
+#import "RequsetProduct.h"
+#import "RequestCheckIn.h"
+#import "RequestBusiness.h"
 
 #import "ResultLogin.h"
 #import "ResultLiPinDetail.h"
 #import "ResultShangjiaDetail.h"
+#import "ResultProduct.h"
+#import "ResultBusiness.h"
+
 
 NSCondition             *_mutexEn = NULL;
 NSCondition             *_mutexDe = NULL;
@@ -316,6 +322,76 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     return;
 }
 
++(void) encodeForRequestProduct:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    RequsetProduct* product = (RequsetProduct*)requestObj;
+    
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("commandstart");
+    TTiXmlText *txtId = new TTiXmlText([product.m_startIndex UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    
+    lmtParamRoot = new TTiXmlElement("commandend");
+    txtId = new TTiXmlText([product.m_endIndex UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    return;
+}
+
++(void) encodeForRequestCheckIn:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    RequestCheckIn* checkIn = (RequestCheckIn*)requestObj;
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("sessionno");
+    TTiXmlText *txtId = new TTiXmlText([checkIn.m_sessionId UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    lmtTmp = new TTiXmlElement("logid");
+    txtId = new TTiXmlText([checkIn.m_phone UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    return;
+}
+
++(void) encodeForRequestShangJia:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    RequestBusiness* product = (RequestBusiness*)requestObj;
+    
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("commandstart");
+    TTiXmlText *txtId = new TTiXmlText([product.m_startIndex UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    
+    lmtParamRoot = new TTiXmlElement("commandend");
+    txtId = new TTiXmlText([product.m_endIndex UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    return;
+}
+
++(void) encodeForRequestPassword:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRoot);
+    
+    TTiXmlElement *lmtTmp = new TTiXmlElement("logid");
+    TTiXmlText *txtId = new TTiXmlText([(NSString*)requestObj UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    return;
+}
+
 
 +(NSString*) EncodeToStr:(NSObject *)obj Type:(NSString *)type
 {
@@ -360,6 +436,14 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         [MyXMLParser encodeForRequestLiPinDetail:lmtRoot Obj:obj];
     }else if(0 == [type compare:REQUEST_FOR_BUSINESS_DETAIL]){
         [MyXMLParser encodeForRequestShangJiaDetail:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_PRODUCT]){
+        [MyXMLParser encodeForRequestProduct:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_CHECK_IN]){
+        [MyXMLParser encodeForRequestCheckIn:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_BUSINESSES]){
+        [MyXMLParser encodeForRequestShangJia:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_GET_PASSWORD]){
+        [MyXMLParser encodeForRequestPassword:lmtRoot Obj:obj];
     }
     
     
@@ -650,7 +734,126 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     
 }
 
+//注册 返回
++(NSString*) decodeForRequestCheckIn:(TTiXmlElement *) rootElement
+{
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    NSString* checkInStr = nil;
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        checkInStr = [[[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] autorelease];
+        
+    }
+    return checkInStr;
+    
+}
 
+//注册 返回
++(NSMutableArray*) decodeForRequestProduct:(TTiXmlElement *) rootElement
+{
+
+    NSMutableArray* imageArr = [[[NSMutableArray alloc] init] autorelease];
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("add");
+    
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        while (lmtTmp)
+        {
+            ResultProduct* resultPro = [[ResultProduct alloc] init];
+            TTiXmlElement *lmtKey = lmtTmp->FirstChildElement("productid");
+            resultPro.m_productId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("productname");
+            resultPro.m_productName = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("imageurl");
+            resultPro.m_imageUrl = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("productmemo");
+            resultPro.m_productDes = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("productnm");
+            resultPro.m_productNum = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("productstate");
+            resultPro.m_productState = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            //进入下一个 param
+            lmtTmp = lmtTmp->NextSiblingElement();
+            
+            [imageArr addObject:resultPro];
+            [resultPro release];
+            
+        }
+                
+    }
+    return imageArr;
+    
+    
+}
+
+//注册 返回
++(NSMutableArray*) decodeForRequestShangJia:(TTiXmlElement *) rootElement
+{
+    
+    NSMutableArray* imageArr = [[[NSMutableArray alloc] init] autorelease];
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("add");
+    
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        while (lmtTmp)
+        {
+            ResultBusiness* resultPro = [[ResultBusiness alloc] init];
+            TTiXmlElement *lmtKey = lmtTmp->FirstChildElement("businesid");
+            resultPro.m_businessId = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("imageid");
+            resultPro.m_imageUrl = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("businesname");
+            resultPro.m_businessName = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            lmtKey = lmtTmp->FirstChildElement("businesshort");
+            resultPro.m_businessDes = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
+            
+            //进入下一个 param
+            lmtTmp = lmtTmp->NextSiblingElement();
+            
+            [imageArr addObject:resultPro];
+            [resultPro release];
+            
+        }
+        
+    }
+    return imageArr;
+    
+    
+}
+
+
+//注册 返回
++(NSString*) decodeForRequestGetPassword:(TTiXmlElement *) rootElement
+{
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    NSString* passwordStr = nil;
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        passwordStr = [[[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] autorelease];
+        
+    }
+    return passwordStr;
+    
+}
 
 +(NSObject*) DecodeToObj:(NSString *)str
 {
@@ -705,7 +908,50 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
             
             [_mutexDe unlock];
             return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_LOGIN]){
+            
+            ResultLogin* registArr = [MyXMLParser decodeForRequestLogin:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_PRODUCT_DETAIL]){
+            
+            ResultLiPinDetail* registArr = [MyXMLParser decodeForRequestLiPinDetail:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_BUSINESS_DETAIL]){
+            
+            ResultShangjiaDetail* registArr = [MyXMLParser decodeForRequestShangJiaDetail:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_CHECK_IN]){
+            
+            NSString* registArr = [MyXMLParser decodeForRequestCheckIn:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_PRODUCT]){
+            
+            NSMutableArray* registArr = [MyXMLParser decodeForRequestProduct:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_BUSINESSES]){
+            
+            NSMutableArray* registArr = [MyXMLParser decodeForRequestShangJia:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_GET_PASSWORD]){
+            
+            NSString* registArr = [MyXMLParser decodeForRequestGetPassword:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
         }
+        
 
         
     }

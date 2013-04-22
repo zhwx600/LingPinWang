@@ -398,6 +398,7 @@
 		1893E7911707225F00E52CCC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1893E7921707225F00E52CCC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1893E7931707225F00E52CCC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		18D8DB831725844000DA33BB /* ZhwxDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhwxDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +429,7 @@
 				180522C81716EE3900D64217 /* ZhwxBaseViewController.m */,
 				180522CA1716EE5C00D64217 /* ZhwxBaseNavCotroller.h */,
 				180522CB1716EE5C00D64217 /* ZhwxBaseNavCotroller.m */,
+				18D8DB831725844000DA33BB /* ZhwxDefine.h */,
 			);
 			path = "公共类";
 			sourceTree = SOURCE_ROOT;
@@ -1220,12 +1222,16 @@
 		1893E762170711A300E52CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LingPinWang/LingPinWang-Prefix.pch";
 				INFOPLIST_FILE = "LingPinWang/LingPinWang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
+				PROVISIONING_PROFILE = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1233,12 +1239,16 @@
 		1893E763170711A300E52CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LingPinWang/LingPinWang-Prefix.pch";
 				INFOPLIST_FILE = "LingPinWang/LingPinWang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
+				PROVISIONING_PROFILE = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

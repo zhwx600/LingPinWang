@@ -17,4 +17,12 @@
 
 -(void) addRightButton:(SEL) sel Title:(NSString*) title;
 
+
+//alertview 进度条
+-(void) showLoadMessageView;
+-(void) dissLoadMessageView;
+
+//显示信息提示框
+-(void) showBaseMessOnMain:(CGRect)frame MesStr:(NSString*) mes Delay:(int) delays;
+
 @end

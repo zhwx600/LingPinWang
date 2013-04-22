@@ -13,6 +13,8 @@
 #import "xmlparser.h"
 #import "ProtocolDefine.h"
 
+#import "Answer.h"
+
 @interface RegistViewController ()
 
 @end
@@ -28,11 +30,7 @@
         [self addMyNavBar];
         [self addRightButton:@selector(tiaoguoButton:) Title:@"跳过"];
         [self setNavTitle:@"注册"];
-        
-        viewArr = [[NSMutableArray alloc] init];
-        m_tableViewCount = 6;
-        [self inittableView];
-        
+
         
     }
     return self;
@@ -41,9 +39,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    // a page is the width of the scroll view
+    self.m_scrollView.pagingEnabled = YES;
+    self.m_scrollView.showsHorizontalScrollIndicator = NO;
+    self.m_scrollView.showsVerticalScrollIndicator = NO;
+    self.m_scrollView.scrollsToTop = NO;
+    self.m_scrollView.delegate = self;
+    
+    //    self.m_pageControl.numberOfPages = m_tableViewCount;
+    //    self.m_pageControl.currentPage = 0;
+    //
+    //    // pages are created on demand
+    //    // load the visible page
+    //    // load the page on either side to avoid flashes when the user starts scrolling
+    //    //
+    //    [self loadScrollViewWithPage:0];
+    //    [self loadScrollViewWithPage:1];
+    //    self.m_pageLabel.text = [NSString stringWithFormat:@"%d/%d",1,m_tableViewCount];
+    
+    if (m_requestDataArray) {
+        [m_requestDataArray release];
+    }
+    m_requestDataArray = nil;
     
     [self requestQuestion];
-    
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -53,25 +74,6 @@
     
     
     
-    // a page is the width of the scroll view
-    self.m_scrollView.pagingEnabled = YES;
-    self.m_scrollView.contentSize = CGSizeMake(self.m_scrollView.frame.size.width * m_tableViewCount, self.m_scrollView.frame.size.height);
-    self.m_scrollView.showsHorizontalScrollIndicator = NO;
-    self.m_scrollView.showsVerticalScrollIndicator = NO;
-    self.m_scrollView.scrollsToTop = NO;
-    self.m_scrollView.delegate = self;
-    
-    self.m_pageControl.numberOfPages = m_tableViewCount;
-    self.m_pageControl.currentPage = 0;
-    
-    // pages are created on demand
-    // load the visible page
-    // load the page on either side to avoid flashes when the user starts scrolling
-    //
-    [self loadScrollViewWithPage:0];
-    [self loadScrollViewWithPage:1];
-    self.m_pageLabel.text = [NSString stringWithFormat:@"%d/%d",1,m_tableViewCount];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +106,9 @@
     
     [_m_pageLabel release];
     [_previousButtonAct release];
+    
+    [m_requestDataArray release];
+    
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -135,6 +140,15 @@
 -(void) inittableView
 {
     
+    if (viewArr) {
+        [viewArr removeAllObjects];
+        [viewArr release];
+    }
+    viewArr = nil;
+    
+    viewArr = [[NSMutableArray alloc] init];
+    m_tableViewCount = m_requestDataArray.count;
+    
     for (int i=0; i<m_tableViewCount; i++) {
         UITableView* table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 280, 285)];
         table.dataSource = self;
@@ -146,6 +160,14 @@
         
     }
     
+    self.m_scrollView.contentSize = CGSizeMake(self.m_scrollView.frame.size.width * m_tableViewCount, self.m_scrollView.frame.size.height);
+    self.m_pageControl.numberOfPages = m_tableViewCount;
+    self.m_pageControl.currentPage = 0;
+    //
+    [self loadScrollViewWithPage:0];
+    [self loadScrollViewWithPage:1];
+    self.m_pageLabel.text = [NSString stringWithFormat:@"%d/%d",1,m_tableViewCount];
+
     
 }
 
@@ -179,9 +201,9 @@
 #pragma mark 滑动事件
 - (void)scrollViewDidScroll:(UIScrollView *)sender
 {
-//    if (sender != self.m_scrollView) {
-//        return;
-//    }
+    if (sender != self.m_scrollView) {
+        return;
+    }
     // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
     // which a scroll event generated from the user hitting the page control triggers updates from
     // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
@@ -225,7 +247,14 @@
 #pragma mark tableView 事件
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 8;
+    int index = [viewArr indexOfObject:tableView];
+    if (m_requestDataArray && m_requestDataArray.count>0) {
+        
+        return ((Answer*)[m_requestDataArray objectAtIndex:index]).m_keyArr.count + 1;
+        
+    }
+    
+    return 0;
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -236,12 +265,24 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
     
-    if (indexPath.row == 0) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%d 问题是？",arc4random()];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }else{
-        cell.textLabel.text = [NSString stringWithFormat:@"%d  答案。",arc4random()];
+    //table 的index
+    int index = [viewArr indexOfObject:tableView];
+    
+    @try {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = ((Answer*)[m_requestDataArray objectAtIndex:index]).m_question;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }else{
+            
+            NSString* key = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_keyArr objectAtIndex:indexPath.row - 1];
+            
+            cell.textLabel.text = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answer valueForKey:key];
+        }
     }
+    @catch (NSException *exception) {
+        cell.textLabel.text = @"";
+    }
+
 
     return cell;
     
@@ -321,19 +362,28 @@
 
 -(void) receiveDataByRequstQuestion:(NSData*) data
 {
+    
+    if (m_requestDataArray) {
+        [m_requestDataArray release];
+    }
+    m_requestDataArray = nil;
+    
     if (data && data.length>0) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-        NSMutableArray* registArr = [[NSMutableArray alloc] initWithArray:(NSArray*)[MyXMLParser DecodeToObj:str]];
+        
+        
+        m_requestDataArray = [[NSMutableArray alloc] initWithArray:(NSArray*)[MyXMLParser DecodeToObj:str]];
         [str release];
         
-        NSLog(@" regist arr count = %d",registArr.count);
+        NSLog(@" regist arr count = %d",m_requestDataArray.count);
         
     }else{
         NSLog(@"receiveDataByRequstQuestion 接收到 数据 异常");
 
         
     }
+    
+    [self performSelectorOnMainThread:@selector(inittableView) withObject:nil waitUntilDone:NO];
 
 }
 

@@ -49,4 +49,20 @@
 }
 
 
+#pragma mark - IOS6.0 旋转
+- (BOOL)shouldAutorotate
+{
+	return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+//    //排除 播放界面
+//    if([[self topViewController] isKindOfClass:[PlayVideoViewController class]])
+//        return UIInterfaceOrientationMaskAll;
+//    else
+        return UIInterfaceOrientationMaskPortrait;
+}
+
+
 @end

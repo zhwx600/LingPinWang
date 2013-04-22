@@ -20,6 +20,8 @@ UIScrollViewDelegate>
     
     NSMutableDictionary* m_questionArrDic;
     
+    NSMutableArray* m_requestDataArray;
+    
 }
 
 
@@ -33,5 +35,6 @@ UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet UIButton *previousButtonAct;
 - (IBAction)previousButtonAct:(id)sender;
 - (IBAction)nextButtonAct:(id)sender;
+
 
 @end
