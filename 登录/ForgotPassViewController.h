@@ -13,6 +13,7 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *m_phoneNumberField;
 
+
 - (IBAction)close:(id)sender;
 - (IBAction)getNewPassword:(id)sender;
 @end

@@ -10,6 +10,8 @@
 #import "HttpProcessor.h"
 #import "xmlparser.h"
 
+#import "RequestRegist.h"
+#import "ProtocolDefine.h"
 
 @interface RegistCommitViewController ()
 
@@ -99,6 +101,9 @@
 - (IBAction)getCodeAct:(id)sender
 {
     [self closeInputView:nil];
+    
+    [self requestCode];
+    
 }
 
 - (IBAction)registerButtonAct:(id)sender
@@ -126,6 +131,8 @@
     [_m_codeField release];
     [_m_passwordField release];
     [_m_passwordSureField release];
+    [_m_segment release];
+    [_m_nameField release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -133,13 +140,99 @@
     [self setM_codeField:nil];
     [self setM_passwordField:nil];
     [self setM_passwordSureField:nil];
+    [self setM_segment:nil];
+    [self setM_nameField:nil];
     [super viewDidUnload];
 }
 
 
 
+#pragma mark- 请求问题
+
+//升级请求
+-(void) requestCode
+{
+    
+    NSString* str = [MyXMLParser EncodeToStr:self.m_phoneNumberField.text Type:REQUEST_FOR_CODE];
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstCode:)];
+    [http threadFunStart];
+    
+    [http release];
+}
+
+-(void) receiveDataByRequstCode:(NSData*) data
+{
+    
+    
+    if (data && data.length>0) {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        
+        NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
+        
+        self.m_codeField.text = getCode;
+        
+        NSLog(@" getCode = %@",getCode);
+        
+    }else{
+        NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
+        
+        self.m_codeField.text = @"";
+        
+    }
+    
+    
+    
+}
 
 
+//升级请求
+-(void) requestRegist
+{
+    
+    RequestRegist* requestObj = [[RequestRegist alloc] init];
+    requestObj.m_name = self.m_nameField.text;
+    requestObj.m_password = self.m_passwordField.text;
+    requestObj.m_phone = self.m_phoneNumberField.text;
+    requestObj.m_sex = [self.m_segment titleForSegmentAtIndex:self.m_segment.selectedSegmentIndex];
+    requestObj.m_answerDic = nil;
+    
+    
+    NSString* str = [MyXMLParser EncodeToStr:nil Type:REQUEST_FOR_REGIST];
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstRegist:)];
+    [http threadFunStart];
+    
+    [http release];
+}
+
+-(void) receiveDataByRequstRegist:(NSData*) data
+{
+    
+    
+    if (data && data.length>0) {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        
+        NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
+        
+        self.m_codeField.text = getCode;
+        
+        NSLog(@" getCode = %@",getCode);
+        
+    }else{
+        NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
+        
+        self.m_codeField.text = @"";
+        
+    }
+    
+    
+    
+}
 
 
 @end

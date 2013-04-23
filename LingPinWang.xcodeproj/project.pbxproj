@@ -1222,16 +1222,14 @@
 		1893E762170711A300E52CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhen qian (6GWVTNGX9U)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LingPinWang/LingPinWang-Prefix.pch";
 				INFOPLIST_FILE = "LingPinWang/LingPinWang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
-				PROVISIONING_PROFILE = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1239,16 +1237,14 @@
 		1893E763170711A300E52CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zheng wanxiang (PP2A9QZ2TA)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LingPinWang/LingPinWang-Prefix.pch";
 				INFOPLIST_FILE = "LingPinWang/LingPinWang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
-				PROVISIONING_PROFILE = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BABC3A84-DCAA-4AD3-B9EA-4831940180C2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

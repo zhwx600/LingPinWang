@@ -9,11 +9,23 @@
 #import "ZhwxBaseViewController.h"
 
 @interface RegistCommitViewController : ZhwxBaseViewController<UITextFieldDelegate>
+{
+    
+    
+}
+
+
 
 @property (retain, nonatomic) IBOutlet UITextField *m_phoneNumberField;
+@property (retain, nonatomic) IBOutlet UITextField *m_nameField;
 @property (retain, nonatomic) IBOutlet UITextField *m_codeField;
 @property (retain, nonatomic) IBOutlet UITextField *m_passwordField;
 @property (retain, nonatomic) IBOutlet UITextField *m_passwordSureField;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *m_segment;
+
+
+@property (nonatomic,assign)NSMutableArray* m_requestDataArray;
+
 - (IBAction)m_passwordField:(id)sender;
 
 - (IBAction)getCodeAct:(id)sender;

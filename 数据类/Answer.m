@@ -15,6 +15,7 @@
     if (self = [super init]) {
         self.m_keyArr = [[NSMutableArray alloc] init];
         self.m_answer = [[NSMutableDictionary alloc] init];
+        self.m_answerSelect = [[NSMutableDictionary alloc] init];
     }
     return  self;
 }
@@ -27,6 +28,7 @@
     [self.m_keyArr release];
     [self.m_question release];
     [self.m_type release];
+    [self.m_answerSelect release];
     
     [super dealloc];
 }

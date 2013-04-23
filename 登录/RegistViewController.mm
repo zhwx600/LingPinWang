@@ -92,6 +92,8 @@
 -(void) tiaoguoButton:(id) sender
 {
     RegistCommitViewController* commitView = [[RegistCommitViewController alloc] init];
+    commitView.m_requestDataArray = m_requestDataArray;
+    
     [self.navigationController pushViewController:commitView animated:YES];
     [commitView release];
 }
@@ -102,8 +104,7 @@
     [_m_pageControl release];
     [viewArr release];
     [m_questionArrDic release];
-    [m_questionArrDic release];
-    
+
     [_m_pageLabel release];
     [_previousButtonAct release];
     
@@ -276,7 +277,18 @@
             
             NSString* key = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_keyArr objectAtIndex:indexPath.row - 1];
             
+            NSString* selectValue = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect valueForKey:key];
+            
+            if (0 == [selectValue compare:@"1"]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+
             cell.textLabel.text = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answer valueForKey:key];
+            
+            
+            
         }
     }
     @catch (NSException *exception) {
@@ -284,22 +296,57 @@
     }
 
 
+    
+
     return cell;
     
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    int index = [viewArr indexOfObject:tableView];
+    NSString* type = ((Answer*)[m_requestDataArray objectAtIndex:index]).m_type;
     
     if (indexPath.row > 0) {
         NSLog(@"选择了 答案");
+
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        
+        NSString* key = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_keyArr objectAtIndex:indexPath.row - 1];
+        
+        
         UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
         if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
             cell.accessoryType = UITableViewCellAccessoryNone;
+            [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"0" forKey:key];
         }else{
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            
+            //多选题
+            if (0 == [type compare:@"1"]) {
+                
+                
+                
+            }else{
+                
+                for (NSString* temKey in [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect allKeys]) {
+                    
+                    [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"0" forKey:temKey];
+                    
+                }
+                
+            }
+            
+            [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"1" forKey:key];
+            
         }
+        
+        [tableView reloadData];
+        
+        
+    }else{
         
     }
     
@@ -326,6 +373,12 @@
 }
 
 - (IBAction)nextButtonAct:(id)sender {
+    
+    if (self.m_pageControl.currentPage+1 >= m_requestDataArray.count) {
+        [self tiaoguoButton:nil];
+        return;
+    }
+    
     int page = self.m_pageControl.currentPage+1;
 	
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)

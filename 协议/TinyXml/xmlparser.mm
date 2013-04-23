@@ -580,6 +580,7 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
                     
                     NSArray*  temArr = [(NSString*)([itemArr objectAtIndex:i]) componentsSeparatedByString:ID_VALUE_SPARETE_STR];
                     [imageObj.m_answer setObject:[temArr objectAtIndex:1] forKey:[temArr objectAtIndex:0]];
+                    [imageObj.m_answerSelect setObject:@"0" forKey:[temArr objectAtIndex:0]];
                     [imageObj.m_keyArr addObject:[temArr objectAtIndex:0]];
                     
                 }
