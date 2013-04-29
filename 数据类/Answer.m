@@ -16,6 +16,8 @@
         self.m_keyArr = [[NSMutableArray alloc] init];
         self.m_answer = [[NSMutableDictionary alloc] init];
         self.m_answerSelect = [[NSMutableDictionary alloc] init];
+        self.m_max = 0;
+        self.m_min = 0;
     }
     return  self;
 }

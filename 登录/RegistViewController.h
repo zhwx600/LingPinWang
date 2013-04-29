@@ -28,10 +28,12 @@ UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet UIScrollView *m_scrollView;
 @property (retain, nonatomic) IBOutlet UIPageControl *m_pageControl;
 @property (retain, nonatomic) IBOutlet UILabel *m_pageLabel;
+@property (retain, nonatomic) IBOutlet UIButton *m_nextButton;
+@property (retain, nonatomic) IBOutlet UIButton *m_checkButton;
 
 - (IBAction)pageChangeAct:(id)sender;
 
--(void) tiaoguoButton:(id) sender;
+-(IBAction)tiaoguoButton:(id) sender;
 @property (retain, nonatomic) IBOutlet UIButton *previousButtonAct;
 - (IBAction)previousButtonAct:(id)sender;
 - (IBAction)nextButtonAct:(id)sender;

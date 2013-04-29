@@ -571,6 +571,14 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
             imageObj.m_type = [[NSString alloc] initWithCString:lmtKey->GetText() encoding:NSUTF8StringEncoding];
             
             //------------
+            lmtKey = lmtTmp->FirstChildElement("min");
+            imageObj.m_min = atoi(lmtKey->GetText());
+            
+            //------------
+            lmtKey = lmtTmp->FirstChildElement("max");
+            imageObj.m_max = atoi(lmtKey->GetText());
+            
+            //------------
             lmtKey = lmtTmp->FirstChildElement("item");
             @try {
                 NSArray*  itemArr = [[NSString stringWithUTF8String:lmtKey->GetText()] componentsSeparatedByString:OPTION_SPARETE_STR];

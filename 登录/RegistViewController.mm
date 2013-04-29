@@ -9,6 +9,7 @@
 #import "RegistViewController.h"
 #import "RegistCommitViewController.h"
 
+#import "Utilities.h"
 #import "HttpProcessor.h"
 #import "xmlparser.h"
 #import "ProtocolDefine.h"
@@ -28,9 +29,11 @@
         // Custom initialization
         self.title = @"注册";
         [self addMyNavBar];
-        [self addRightButton:@selector(tiaoguoButton:) Title:@"跳过"];
+        //[self addRightButton:@selector(tiaoguoButton:) Title:@"跳过"];
         [self setNavTitle:@"注册"];
-
+        
+        [self.m_checkButton setHidden:YES];
+        [self.m_nextButton setHidden:NO];
         
     }
     return self;
@@ -91,6 +94,10 @@
 
 -(void) tiaoguoButton:(id) sender
 {
+    if (![self checkSelectCount]) {
+        return ;
+    }
+    
     RegistCommitViewController* commitView = [[RegistCommitViewController alloc] init];
     commitView.m_requestDataArray = m_requestDataArray;
     
@@ -110,6 +117,8 @@
     
     [m_requestDataArray release];
     
+    [_m_checkButton release];
+    [_m_nextButton release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -117,6 +126,8 @@
     [self setM_pageControl:nil];
     [self setM_pageLabel:nil];
     [self setPreviousButtonAct:nil];
+    [self setM_checkButton:nil];
+    [self setM_nextButton:nil];
     [super viewDidUnload];
 }
 - (IBAction)pageChangeAct:(id)sender
@@ -172,6 +183,62 @@
     
 }
 
+-(BOOL) checkSelectCount
+{
+    
+    for (int page=0; page<m_requestDataArray.count; page++) {
+        
+        Answer* temAnswer = (Answer*)[m_requestDataArray objectAtIndex:page];
+        
+        int minCount = temAnswer.m_min<=0 ?1:temAnswer.m_min;
+        // int maxCount = temAnswer.m_max<=0 ?9999:temAnswer.m_max;
+        int selectCount = 0;
+        
+        for (NSString* temKey in [temAnswer.m_answerSelect allKeys]) {
+            
+            NSString* selectValue = [temAnswer.m_answerSelect valueForKey:temKey];
+            // 选中 答案
+            if (0 == [selectValue compare:@"1"]) {
+                selectCount ++;
+            }
+            
+        }
+        
+        if (selectCount < minCount) {
+            
+            [Utilities ShowAlert:[NSString stringWithFormat:@"第【%d】题至少选择【%d】项！",page+1,minCount]];
+            return NO;
+            
+        }
+        
+
+    }
+    return YES;
+        //
+//    //多选题
+//    if (0 == [temAnswer.m_type compare:@"1"]) {
+//
+//        
+//        
+//        
+//        if (selectCount >= maxCount) {
+//            
+//            [Utilities ShowAlert:[NSString stringWithFormat:@"超过最大选项个数(%d)！",maxCount]];
+//            return NO;
+//        }
+//        return YES;
+//    }else{
+//        
+//        if (selectCount <= minCount) {
+//            
+//            [Utilities ShowAlert:[NSString stringWithFormat:@"至少选择%d项！",minCount]];
+//            return NO;
+//            
+//        }
+//    }
+
+}
+
 
 #pragma mark 加载
 - (void)loadScrollViewWithPage:(int)page
@@ -180,6 +247,17 @@
         return;
     if (page >= m_tableViewCount)
         return;
+    
+    if (self.m_pageControl.currentPage+1 >= m_requestDataArray.count) {
+        
+        [self.m_nextButton setHidden:YES];
+        [self.m_checkButton setHidden:NO];
+        
+        //return;
+    }else{
+        [self.m_nextButton setHidden:NO];
+        [self.m_checkButton setHidden:YES];
+    }
     
     // replace the placeholder if necessary
     UITableView* temview = [viewArr objectAtIndex:page];
@@ -208,6 +286,7 @@
     // We don't want a "feedback loop" between the UIPageControl and the scroll delegate in
     // which a scroll event generated from the user hitting the page control triggers updates from
     // the delegate method. We use a boolean to disable the delegate logic when the page control is used.
+
     if (pageControlUsed)
     {
         // do nothing - the scroll was initiated from the page control, not the user dragging
@@ -242,6 +321,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     pageControlUsed = NO;
+
 }
 
 
@@ -273,6 +353,10 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = ((Answer*)[m_requestDataArray objectAtIndex:index]).m_question;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            [cell.textLabel setLineBreakMode:NSLineBreakByCharWrapping];
+            [cell.textLabel setNumberOfLines:10];
+            [cell.textLabel setFont:[UIFont boldSystemFontOfSize:17]];
         }else{
             
             NSString* key = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_keyArr objectAtIndex:indexPath.row - 1];
@@ -287,7 +371,10 @@
 
             cell.textLabel.text = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answer valueForKey:key];
             
+            [cell.textLabel setLineBreakMode:NSLineBreakByCharWrapping];
+            [cell.textLabel setNumberOfLines:10];
             
+            [cell.textLabel setFont:[UIFont systemFontOfSize:14]];
             
         }
     }
@@ -317,29 +404,55 @@
         
         
         UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        //已经选中的 再次点击
         if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+            
             cell.accessoryType = UITableViewCellAccessoryNone;
             [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"0" forKey:key];
+            
+        // 从未选中到 选中
         }else{
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
             
             
             //多选题
             if (0 == [type compare:@"1"]) {
                 
+                int maxCount = ((Answer*)[m_requestDataArray objectAtIndex:index]).m_max<=0 ?9999:((Answer*)[m_requestDataArray objectAtIndex:index]).m_max;
+                int selectCount = 0;
                 
+                for (NSString* temKey in [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect allKeys]) {
+                    
+                    NSString* selectValue = [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect valueForKey:temKey];
+                    // 选中 答案
+                    if (0 == [selectValue compare:@"1"]) {
+                        selectCount ++;
+                    }
+
+                }
+                
+                if (selectCount >= maxCount) {
+                    
+                    [Utilities ShowAlert:[NSString stringWithFormat:@"超过最大选项个数(%d)！",maxCount]];
+                    
+                }else{
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"1" forKey:key];
+                }
                 
             }else{
                 
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 for (NSString* temKey in [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect allKeys]) {
                     
                     [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"0" forKey:temKey];
                     
                 }
                 
+                [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"1" forKey:key];
             }
             
-            [((Answer*)[m_requestDataArray objectAtIndex:index]).m_answerSelect setValue:@"1" forKey:key];
+        
             
         }
         
@@ -355,6 +468,10 @@
 
 - (IBAction)previousButtonAct:(id)sender
 {
+    [self.m_nextButton setHidden:NO];
+    [self.m_checkButton setHidden:YES];
+    
+    
     int page = self.m_pageControl.currentPage-1;
 	
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
@@ -375,8 +492,11 @@
 - (IBAction)nextButtonAct:(id)sender {
     
     if (self.m_pageControl.currentPage+1 >= m_requestDataArray.count) {
-        [self tiaoguoButton:nil];
-        return;
+        
+        [self.m_nextButton setHidden:YES];
+        [self.m_checkButton setHidden:NO];
+        
+        //return;
     }
     
     int page = self.m_pageControl.currentPage+1;
