@@ -47,4 +47,10 @@
 
 #define ENC_GB1832 CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000)
 
+
+
+// 保存用户
+#define USER_NAME_DEAULT_KEY @"user_login_name_key"
+#define USER_PSWD_DEAULT_KEY @"user_login_pswd_key"
+
 #endif

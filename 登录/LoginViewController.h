@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZhwxBaseViewController.h"
 
+
 @interface LoginViewController :ZhwxBaseViewController<UITextFieldDelegate>
 {
     
@@ -16,6 +17,7 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *m_userNameField;
 @property (retain, nonatomic) IBOutlet UITextField *m_passwordField;
+@property (retain, nonatomic) IBOutlet UIButton *m_saveButton;
 
 - (IBAction)login:(id)sender;
 - (IBAction)registerAct:(id)sender;

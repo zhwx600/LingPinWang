@@ -12,5 +12,6 @@
 
 @property (nonatomic,retain) NSString* m_phone;//电话
 @property (nonatomic,retain) NSString* m_password;//昵称
+@property (nonatomic,retain) NSString* m_loginType;
 
 @end

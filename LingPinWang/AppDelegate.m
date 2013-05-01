@@ -116,7 +116,7 @@
 }
 */
 
--(void) entryTabControllerView;
+-(void) entryTabControllerView
 {
     CATransition *transtion = [CATransition animation];
     transtion.duration = 0.5;

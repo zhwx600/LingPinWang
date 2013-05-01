@@ -179,15 +179,15 @@
         
         NSString* textstr = [arr objectAtIndex:i];
         UIFont *font =  [UIFont fontWithName:@"Helvetica" size:15.0f];
-        CGSize size = [textstr sizeWithFont:font constrainedToSize:CGSizeMake(278, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize size = [textstr sizeWithFont:font constrainedToSize:CGSizeMake(278, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
         
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(21, startVerOff, size.width, size.height)];
         label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = UITextAlignmentLeft;
+        label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont fontWithName:@"Helvetica" size:15.0f];
         label.textColor = [UIColor blackColor];
         [label setNumberOfLines:0];
-        [label setLineBreakMode:UILineBreakModeWordWrap];
+        [label setLineBreakMode:NSLineBreakByWordWrapping];
         
         label.text = textstr;
         [self.m_moreScrollView addSubview:label];

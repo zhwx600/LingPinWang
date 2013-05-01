@@ -249,14 +249,14 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         lmtTmp->LinkEndChild(txtId);
         lmtParamRoot->LinkEndChild(lmtTmp);
         
-        NSArray* valueArray = [registObj.m_answerDic valueForKey:key];
-        NSString* valueStr = [valueArray componentsJoinedByString:OPTION_SPARETE_STR];
-        
-        lmtTmp = new TTiXmlElement("answer");
-        if (valueStr && valueStr.length>0) {
-        }else{
-            valueStr = @"";
-        }
+        NSString* valueStr = [registObj.m_answerDic valueForKey:key];
+//        NSString* valueStr = [valueArray componentsJoinedByString:OPTION_SPARETE_STR];
+//        
+//        lmtTmp = new TTiXmlElement("answer");
+//        if (valueStr && valueStr.length>0) {
+//        }else{
+//            valueStr = @"";
+//        }
         lmtTmp = new TTiXmlElement("answer");
         txtId = new TTiXmlText([valueStr UTF8String]);
         lmtTmp->LinkEndChild(txtId);
@@ -283,6 +283,11 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     
     lmtTmp = new TTiXmlElement("logpw");
     txtId = new TTiXmlText([loginObj.m_password UTF8String]);
+    lmtTmp->LinkEndChild(txtId);
+    lmtParamRoot->LinkEndChild(lmtTmp);
+    
+    lmtTmp = new TTiXmlElement("type");
+    txtId = new TTiXmlText([loginObj.m_loginType UTF8String]);
     lmtTmp->LinkEndChild(txtId);
     lmtParamRoot->LinkEndChild(lmtTmp);
     

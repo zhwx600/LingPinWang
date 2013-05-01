@@ -22,6 +22,7 @@
 {
     [self.m_password release];
     [self.m_phone release];
+    [self.m_loginType release];
     
     [super dealloc];
 }

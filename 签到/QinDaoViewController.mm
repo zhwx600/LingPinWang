@@ -8,6 +8,13 @@
 
 #import "QinDaoViewController.h"
 
+#import "DataManager.h"
+#import "Utilities.h"
+#import "HttpProcessor.h"
+#import "xmlparser.h"
+#import "ProtocolDefine.h"
+#import "RequestLogin.h"
+
 @interface QinDaoViewController ()
 
 @end
