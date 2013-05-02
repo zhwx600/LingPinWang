@@ -12,7 +12,6 @@
 -(id) init
 {
     if (self = [super init]) {
-        self.m_adUrlDic = [[NSMutableDictionary alloc] init];
         self.m_adToUrlArrary = [[NSMutableArray alloc] init];
         self.m_adImageUrlArrary = [[NSMutableArray alloc] init];
     }
@@ -22,7 +21,6 @@
 
 -(void) dealloc
 {
-    [self.m_adUrlDic release];
     [self.m_linpinCount release];
     [self.m_result release];
     [self.m_sessionId release];

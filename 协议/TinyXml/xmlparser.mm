@@ -677,7 +677,7 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         resultLogin.m_userState = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
         
         lmtTmp = lmtParamRoot->FirstChildElement("captionurl");
-        resultLogin.m_userState = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        resultLogin.m_upImageUrl = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
         
         lmtTmp = lmtParamRoot->FirstChildElement("otherurl");
         [resultLogin.m_adImageUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];

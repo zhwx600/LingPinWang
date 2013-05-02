@@ -17,8 +17,6 @@
 @property (nonatomic,retain) NSString* m_userState;//用户状态 签到1 未签到0
 @property (nonatomic,retain) NSString* m_upImageUrl;//上图 url
 
-@property (nonatomic,retain) NSMutableDictionary* m_adUrlDic;//广告图片 url，跳到的连接地址
-
 @property (nonatomic,retain) NSMutableArray* m_adImageUrlArrary;
 @property (nonatomic,retain) NSMutableArray* m_adToUrlArrary;
 
