@@ -202,7 +202,8 @@
         
         //登录成功
         if (0 == [result.m_result compare:@"8"]) {
-
+            
+            [DataManager shareInstance].m_loginPhone = self.m_userNameField.text;
             AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             [del entryTabControllerView];
             

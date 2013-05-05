@@ -53,4 +53,8 @@
 #define USER_NAME_DEAULT_KEY @"user_login_name_key"
 #define USER_PSWD_DEAULT_KEY @"user_login_pswd_key"
 
+//点到保存KEY
+#define USER_QIANDAO_DEAULT_KEY @"user_qiandao_key"
+
+
 #endif

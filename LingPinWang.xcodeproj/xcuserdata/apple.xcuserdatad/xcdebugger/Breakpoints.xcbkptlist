@@ -7,26 +7,78 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#30331;&#24405;/RegistCommitViewController.mm"
-         timestampString = "389114361.482008"
+         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
+         timestampString = "389460488.763286"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "259"
-         endingLineNumber = "259"
-         landmarkName = "-receiveDataByRequstCode:"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#30331;&#24405;/LoginViewController.mm"
-         timestampString = "389198382.140973"
+         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
+         timestampString = "389461519.913394"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
-         landmarkName = "-receiveDataByRequstLogin:"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
+         landmarkName = "-setQiandaoButtonState"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
+         timestampString = "389462660.496163"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
+         landmarkName = "-receiveDataByRequstQiandao:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
+         timestampString = "389462660.496163"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-setQiandaoButtonState"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
+         timestampString = "389462750.425446"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
+         landmarkName = "-setQiandaoButtonState"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#30331;&#24405;/ForgotPassViewController.mm"
+         timestampString = "389463680.953938"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-receiveDataByRequstForget:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

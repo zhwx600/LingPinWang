@@ -125,8 +125,10 @@
     [self dissLoadMessageView];
     
     if (data && data.length>0) {
-        NSString * result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
+        NSString * result = (NSString*)[MyXMLParser DecodeToObj:str];
+        [str release];
         //登录成功
         if (0 == [result compare:@"8"]) {
             [Utilities ShowAlert:@"处理成功，密码已通过短信发送给您手机！"];

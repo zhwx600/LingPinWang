@@ -12,7 +12,10 @@
 
 @interface DataManager : NSObject
 
-@property (nonatomic,retain)ResultLogin* m_loginResult;
+@property (nonatomic,retain)NSString* m_loginPhone;
+
+@property (nonatomic,retain)ResultLogin* m_loginResult;//登录返回
+
 
 +(DataManager*) shareInstance;
 

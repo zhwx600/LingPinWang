@@ -111,7 +111,12 @@
 	}
 	@finally {
 		
-        [self.m_mainObject performSelectorOnMainThread:self.m_mainSel withObject:self.m_reData waitUntilDone:NO];				
+        if ([self.m_mainObject respondsToSelector:self.m_mainSel]) {
+            [self.m_mainObject performSelectorOnMainThread:self.m_mainSel withObject:self.m_reData waitUntilDone:NO];
+        }
+        
+//        if (self.m_mainSel)
+//        [self.m_mainObject performSelectorOnMainThread:self.m_mainSel withObject:self.m_reData waitUntilDone:NO];				
 	}
 
 	[tempool release];

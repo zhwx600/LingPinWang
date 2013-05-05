@@ -88,6 +88,7 @@
 		1817217E172184D4006718CA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18172175172184D4006718CA /* tinyxmlparser.cpp */; };
 		1817217F172184D4006718CA /* xmlparser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18172177172184D4006718CA /* xmlparser.mm */; };
 		18172184172188A2006718CA /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18172183172188A2006718CA /* Answer.m */; };
+		1829106517366185005D46D8 /* ZWXPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1829106417366185005D46D8 /* ZWXPageScrollView.m */; };
 		184D4C711723C6A60074D36C /* RequestRegist.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C701723C6A60074D36C /* RequestRegist.m */; };
 		184D4C74172425620074D36C /* RequestLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C73172425610074D36C /* RequestLogin.m */; };
 		184D4C77172425940074D36C /* ResultLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 184D4C76172425940074D36C /* ResultLogin.m */; };
@@ -308,6 +309,8 @@
 		1817218017218512006718CA /* xmlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xmlCommand.h; sourceTree = "<group>"; };
 		18172182172188A2006718CA /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		18172183172188A2006718CA /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		1829106317366185005D46D8 /* ZWXPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWXPageScrollView.h; sourceTree = "<group>"; };
+		1829106417366185005D46D8 /* ZWXPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWXPageScrollView.m; sourceTree = "<group>"; };
 		184D4C6F1723C6A60074D36C /* RequestRegist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestRegist.h; sourceTree = "<group>"; };
 		184D4C701723C6A60074D36C /* RequestRegist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestRegist.m; sourceTree = "<group>"; };
 		184D4C72172425610074D36C /* RequestLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestLogin.h; sourceTree = "<group>"; };
@@ -604,6 +607,8 @@
 				1812542F17179C5000D0DD1A /* ZhwxTableCell.m */,
 				18532B9017186E95005EA34B /* UINavigationBar+Image.h */,
 				18532B9117186E95005EA34B /* UINavigationBar+Image.m */,
+				1829106317366185005D46D8 /* ZWXPageScrollView.h */,
+				1829106417366185005D46D8 /* ZWXPageScrollView.m */,
 			);
 			path = "自定义控件";
 			sourceTree = SOURCE_ROOT;
@@ -1142,6 +1147,7 @@
 				184D4C89172434860074D36C /* RequestBusiness.m in Sources */,
 				184D4C8C172434BB0074D36C /* ResultBusiness.m in Sources */,
 				18FFBD5E173141950060FFEE /* DataManager.m in Sources */,
+				1829106517366185005D46D8 /* ZWXPageScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

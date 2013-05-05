@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZhwxBaseViewController.h"
 
 
-
-@interface QinDaoViewController : UIViewController
+@interface QinDaoViewController : ZhwxBaseViewController
 {
 
 }
 
-
+-(void) setQiandaoButtonState;
 @end

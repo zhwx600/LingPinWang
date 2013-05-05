@@ -126,6 +126,7 @@
     [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
     self.window.rootViewController = self.tabBarController;
     [self.tabBarController setSelectedIndex:0];
+    [self.m_qiandaoViewController setQiandaoButtonState];
 }
 -(void) entryLoginControllerView
 {
@@ -142,5 +143,12 @@
 
 }
 
+
+-(void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if (tabBarController.selectedIndex == 0) {
+        [self.m_qiandaoViewController setQiandaoButtonState];
+    }
+}
 
 @end

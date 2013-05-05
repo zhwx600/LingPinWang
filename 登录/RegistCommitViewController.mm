@@ -398,6 +398,8 @@
         
         [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
         
+        [DataManager shareInstance].m_loginPhone = self.m_phoneNumberField.text;
+        
         ResultLogin* result = [DataManager shareInstance].m_loginResult;
         
         //登录成功
@@ -408,7 +410,7 @@
 
             [[NSUserDefaults standardUserDefaults] setValue:self.m_phoneNumberField.text forKey:USER_NAME_DEAULT_KEY];
             [[NSUserDefaults standardUserDefaults] setValue:self.m_passwordField.text forKey:USER_PSWD_DEAULT_KEY];
-
+            [self.navigationController popToRootViewControllerAnimated:YES];
             
         }else if (0 == [result.m_result compare:@"0"]){
             [Utilities ShowAlert:@"登录失败，账号不存在！"];
