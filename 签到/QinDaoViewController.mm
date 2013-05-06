@@ -55,21 +55,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    ResultLogin* result = [DataManager shareInstance].m_loginResult;
-    
-    self.m_pageView = [[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 297, 320, 68)
-                                                      PathList:result.m_adImageUrlArrary
-                                                          Flag:INIT_SCROLL_URL
-                                                      Delegate:self];
-    [self.view addSubview:self.m_pageView];
-    
-    self.m_stateLabel.text = result.m_userState;
-    self.m_timesLabel.text = result.m_linpinCount;
-    self.m_userNameLabel.text = result.m_userName;
-    
-    [self.m_upImageView setImageWithURL:[NSURL URLWithString:result.m_upImageUrl]
-                       placeholderImage:[UIImage imageNamed:@"Default"]
-                                options:(SDWebImageOptions)SDWebImageCacheMemoryOnly];
 
     [self setQiandaoButtonState];
     
@@ -105,6 +90,27 @@
 
 -(void) setQiandaoButtonState
 {
+    
+    ResultLogin* result = [DataManager shareInstance].m_loginResult;
+    
+    self.m_pageView = [[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 297, 320, 68)
+                                                      PathList:result.m_adImageUrlArrary
+                                                          Flag:INIT_SCROLL_URL
+                                                      Delegate:self];
+    [self.view addSubview:self.m_pageView];
+    
+    self.m_stateLabel.text = result.m_userState;
+    self.m_timesLabel.text = result.m_linpinCount;
+    self.m_userNameLabel.text = result.m_userName;
+    
+    [self.m_upImageView setImageWithURL:[NSURL URLWithString:result.m_upImageUrl]
+                       placeholderImage:[UIImage imageNamed:@"Default"]
+                                options:(SDWebImageOptions)SDWebImageCacheMemoryOnly];
+
+    [self.m_headImageView setImageWithURL:[NSURL URLWithString:result.m_userImageUrl]
+                         placeholderImage:[UIImage imageNamed:@"Default"] options:(SDWebImageOptions)SDWebImageCacheMemoryOnly];
+    
+    
     NSDictionary* dic = [[NSUserDefaults standardUserDefaults] valueForKey:USER_QIANDAO_DEAULT_KEY];
     NSString* userKey = [DataManager shareInstance].m_loginPhone;
     NSDate* valueDate = [dic valueForKey:userKey];
@@ -141,6 +147,19 @@
 #pragma mark - ZWXPageScrollDelegate
 -(void) imageSelectWithButton:(UIButton*) button
 {
+    ResultLogin* result = [DataManager shareInstance].m_loginResult;
+    
+    
+    @try {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[result.m_adToUrlArrary objectAtIndex:button.tag]]];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"imageSelectWithButton e = %@",exception);
+    }
+    @finally {
+        
+    }
+    
     
     NSLog(@"button.tag = %d !",button.tag);
 }

@@ -29,7 +29,7 @@
     [self.m_userState release];
     [self.m_adImageUrlArrary release];
     [self.m_adToUrlArrary release];
-    
+    [self.m_userImageUrl release];
     [super dealloc];
 }
 

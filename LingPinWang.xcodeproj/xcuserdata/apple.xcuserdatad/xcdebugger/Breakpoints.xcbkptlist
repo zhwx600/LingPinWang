@@ -7,78 +7,52 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389460488.763286"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554426.506648"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "376"
+         endingLineNumber = "376"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389461519.913394"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554426.506648"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
-         landmarkName = "-setQiandaoButtonState"
+         startingLineNumber = "418"
+         endingLineNumber = "418"
+         landmarkName = "-receiveDataByRequstBusiness:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389462660.496163"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554216.148955"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "207"
-         endingLineNumber = "207"
-         landmarkName = "-receiveDataByRequstQiandao:"
+         startingLineNumber = "355"
+         endingLineNumber = "355"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389462660.496163"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554243.018972"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-setQiandaoButtonState"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389462750.425446"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
-         landmarkName = "-setQiandaoButtonState"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#30331;&#24405;/ForgotPassViewController.mm"
-         timestampString = "389463680.953938"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
-         landmarkName = "-receiveDataByRequstForget:"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZhwxBaseViewController.h"
 
-@interface LiPinViewController : UIViewController
+@interface LiPinViewController : ZhwxBaseViewController
 
 {
     
 }
 
 - (void)flushCache;
+
+-(void) resetAllData;
+
 @end

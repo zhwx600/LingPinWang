@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZhwxBaseViewController.h"
 
-@interface ShangJiaViewController : UIViewController
+@interface ShangJiaViewController : ZhwxBaseViewController
 {
     
 }
