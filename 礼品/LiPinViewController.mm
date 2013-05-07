@@ -10,7 +10,7 @@
 #import "PullingRefreshTableView.h"
 #import "ZhwxTableCell.h"
 #import "UIImageView+WebCache.h"
-#import "ShangJiaDetailViewController.h"
+#import "LinPinDetailViewController.h"
 
 #import "DataManager.h"
 #import "Utilities.h"
@@ -201,8 +201,10 @@ UITableViewDelegate>
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+    ResultProduct* product = [self.list objectAtIndex:indexPath.row];
+    LinPinDetailViewController* shangjia  = [[LinPinDetailViewController alloc] init];
     shangjia.title = @"礼品详情";
+    shangjia.m_proResult = product;
     [self.navigationController pushViewController:shangjia animated:YES];
     [shangjia release];
     
@@ -263,6 +265,7 @@ UITableViewDelegate>
         NSLog(@" receiveDataByRequstProduct str = %@",str);
         
         NSMutableArray* resultArr = (NSMutableArray*)[MyXMLParser DecodeToObj:str];
+        [str release];
         
         if (resultArr && resultArr.count >0) {
             

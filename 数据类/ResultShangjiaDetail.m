@@ -12,7 +12,7 @@
 -(id) init
 {
     if (self = [super init]) {
-        self.m_imageUrlArrary = [[NSMutableArray alloc] init];
+        self.m_imageUrlArrary = [[[NSMutableArray alloc] init] autorelease];
     }
     return  self;
 }
@@ -20,11 +20,11 @@
 
 -(void) dealloc
 {
-    [self.m_imageUrlArrary release];
-    [self.m_description release];
-    [self.m_address release];
-    [self.m_fax release];
-    [self.m_telephone release];
+    self.m_imageUrlArrary = nil;
+    self.m_description = nil;
+    self.m_address = nil;
+    self.m_fax = nil;
+    self.m_telephone = nil;
     
     [super dealloc];
 }

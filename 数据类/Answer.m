@@ -13,9 +13,9 @@
 -(id) init
 {
     if (self = [super init]) {
-        self.m_keyArr = [[NSMutableArray alloc] init];
-        self.m_answer = [[NSMutableDictionary alloc] init];
-        self.m_answerSelect = [[NSMutableDictionary alloc] init];
+        self.m_keyArr = [[[NSMutableArray alloc] init] autorelease];
+        self.m_answer = [[[NSMutableDictionary alloc] init] autorelease];
+        self.m_answerSelect = [[[NSMutableDictionary alloc] init] autorelease];
         self.m_max = 0;
         self.m_min = 0;
     }
@@ -25,12 +25,12 @@
 
 -(void) dealloc
 {
-    [self.m_questionId release];
-    [self.m_answer release];
-    [self.m_keyArr release];
-    [self.m_question release];
-    [self.m_type release];
-    [self.m_answerSelect release];
+    self.m_questionId = nil;
+    self.m_answer = nil;
+    self.m_keyArr = nil;
+    self.m_question = nil;
+    self.m_type = nil;
+    self.m_answerSelect = nil;
     
     [super dealloc];
 }

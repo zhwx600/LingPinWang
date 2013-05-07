@@ -11,10 +11,10 @@
 @implementation ResultBusiness
 -(void) dealloc
 {
-    [self.m_imageUrl release];
-    [self.m_businessName release];
-    [self.m_businessId release];
-    [self.m_businessDes release];
+    self.m_imageUrl = nil;
+    self.m_businessName = nil;
+    self.m_businessId = nil;
+    self.m_businessDes = nil;
     
     
     [super dealloc];

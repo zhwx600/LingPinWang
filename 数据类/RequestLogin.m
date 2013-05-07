@@ -20,9 +20,9 @@
 
 -(void) dealloc
 {
-    [self.m_password release];
-    [self.m_phone release];
-    [self.m_loginType release];
+    self.m_password = nil;
+    self.m_phone = nil;
+    self.m_loginType = nil;
     
     [super dealloc];
 }

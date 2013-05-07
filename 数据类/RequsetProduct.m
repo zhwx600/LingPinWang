@@ -13,8 +13,10 @@
 
 -(void) dealloc
 {
-    [self.m_endIndex release];
-    [self.m_startIndex release];
+    self.m_endIndex = nil;
+    self.m_startIndex = nil;
+//    [self.m_endIndex release];
+//    [self.m_startIndex release];
     [super dealloc];
 }
 

@@ -155,6 +155,8 @@
 		1893E78F17071FE800E52CCC /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893E78617071FE800E52CCC /* third@2x.png */; };
 		1893E7941707225F00E52CCC /* LoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E7921707225F00E52CCC /* LoginViewController.mm */; };
 		1893E7951707225F00E52CCC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E7931707225F00E52CCC /* LoginViewController.xib */; };
+		18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */; };
+		18AF757F1738AB0A00CE32CD /* LinPinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */; };
 		18FFBD5E173141950060FFEE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FFBD5D173141940060FFEE /* DataManager.m */; };
 		18FFBD6017314CA90060FFEE /* 选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FFBD5F17314CA90060FFEE /* 选中.png */; };
 /* End PBXBuildFile section */
@@ -403,6 +405,9 @@
 		1893E7911707225F00E52CCC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1893E7921707225F00E52CCC /* LoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoginViewController.mm; sourceTree = "<group>"; };
 		1893E7931707225F00E52CCC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		18AF757B1738AB0A00CE32CD /* LinPinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinPinDetailViewController.h; sourceTree = "<group>"; };
+		18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LinPinDetailViewController.mm; sourceTree = "<group>"; };
+		18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinPinDetailViewController.xib; sourceTree = "<group>"; };
 		18D8DB831725844000DA33BB /* ZhwxDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhwxDefine.h; sourceTree = "<group>"; };
 		18FFBD5C173141940060FFEE /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		18FFBD5D173141940060FFEE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
@@ -850,6 +855,9 @@
 				1893E76917071CD200E52CCC /* LiPinViewController.h */,
 				1893E76A17071CD200E52CCC /* LiPinViewController.mm */,
 				1893E76B17071CD200E52CCC /* LiPinViewController.xib */,
+				18AF757B1738AB0A00CE32CD /* LinPinDetailViewController.h */,
+				18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */,
+				18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */,
 			);
 			path = "礼品";
 			sourceTree = SOURCE_ROOT;
@@ -1049,6 +1057,7 @@
 				188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */,
 				188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */,
 				18FFBD6017314CA90060FFEE /* 选中.png in Resources */,
+				18AF757F1738AB0A00CE32CD /* LinPinDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1148,6 +1157,7 @@
 				184D4C8C172434BB0074D36C /* ResultBusiness.m in Sources */,
 				18FFBD5E173141950060FFEE /* DataManager.m in Sources */,
 				1829106517366185005D46D8 /* ZWXPageScrollView.m in Sources */,
+				18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1239,13 +1249,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: zhen qian (6GWVTNGX9U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LingPinWang/LingPinWang-Prefix.pch";
 				INFOPLIST_FILE = "LingPinWang/LingPinWang-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1261,6 +1273,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "领品网";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

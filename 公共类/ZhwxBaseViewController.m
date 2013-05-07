@@ -66,7 +66,7 @@
     navitem.leftBarButtonItem = leftButton;
     
     [m_zhwxNavBar pushNavigationItem:navitem animated:YES];
-    
+    [navitem release];
     
     if ([m_zhwxNavBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)])
     {
@@ -78,6 +78,7 @@
     }
 
     [self.view addSubview:m_zhwxNavBar];
+
 }
 
 -(void) closeBtnAction:(id) sender
@@ -147,6 +148,7 @@
     
     
     [tem_loadView addSubview:label];
+    [label release];
     tem_loadView.tag = 520;
     [self.view addSubview:tem_loadView];
     [self.view bringSubviewToFront:tem_loadView];

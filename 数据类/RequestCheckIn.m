@@ -13,8 +13,8 @@
 
 -(void) dealloc
 {
-    [self.m_phone release];
-    [self.m_sessionId release];
+    self.m_phone = nil;
+    self.m_sessionId = nil;
     
     [super dealloc];
 }

@@ -93,11 +93,13 @@
     
     ResultLogin* result = [DataManager shareInstance].m_loginResult;
     
-    self.m_pageView = [[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 297, 320, 68)
+    [self.m_pageView removeFromSuperview];
+    self.m_pageView = nil;
+    self.m_pageView = [[[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 297, 320, 68)
                                                       PathList:result.m_adImageUrlArrary
                                                           Flag:INIT_SCROLL_URL
-                                                      Delegate:self];
-    [self.view addSubview:self.m_pageView];
+                                                      Delegate:self] autorelease];
+    [self.view addSubview:_m_pageView];
     
     self.m_stateLabel.text = result.m_userState;
     self.m_timesLabel.text = result.m_linpinCount;
@@ -141,6 +143,7 @@
         [self.m_qiandaoButton setEnabled:YES];
     }
 
+    [dateFormatter release];
 }
 
 
@@ -200,6 +203,7 @@
     [loginObj release];
 }
 
+//签到返回状态，1=成功，-1=失败.(失败统一提示“网络有问题，请稍后再试！”),-2=今日已经有签到(提示“今日您已有签到，感谢您的参考，别忘了明天继续哦！”)
 -(void) receiveDataByRequstQiandao:(NSData*) data
 {
     
@@ -207,26 +211,41 @@
     
     if (data && data.length>0) {
         NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@" receiveDataByRequstQiandao str = %@",str);
-        [self.m_qiandaoButton setEnabled:NO];
         
-        [Utilities ShowAlert:@"签到成功！"];
-        
-        NSDictionary* dic = [[NSUserDefaults standardUserDefaults] valueForKey:USER_QIANDAO_DEAULT_KEY];
-        NSString* userKey = [DataManager shareInstance].m_loginPhone;
-        //保存 key 和时间
-        NSMutableDictionary* mDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+        NSString* result = (NSString*)[MyXMLParser DecodeToObj:str];
         
         
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        //设定时间格式,这里可以设置成自己需要的格式
-//
-//        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//        
-//        [mDic setObject:[dateFormatter dateFromString:@"2013-05-08 23:33:44"] forKey:userKey];
+        if (0 == [result compare:@"1"]) {
+            
+            NSLog(@" receiveDataByRequstQiandao str = %@",str);
+            [self.m_qiandaoButton setEnabled:NO];
+            
+            [Utilities ShowAlert:@"签到成功!\n感谢您的参考,别忘了明天继续哦!"];
+            
+            NSDictionary* dic = [[NSUserDefaults standardUserDefaults] valueForKey:USER_QIANDAO_DEAULT_KEY];
+            NSString* userKey = [DataManager shareInstance].m_loginPhone;
+            //保存 key 和时间
+            NSMutableDictionary* mDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+            
+            
+            //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            //        //设定时间格式,这里可以设置成自己需要的格式
+            //
+            //        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            //
+            //        [mDic setObject:[dateFormatter dateFromString:@"2013-05-08 23:33:44"] forKey:userKey];
+            
+            [mDic setObject:[NSDate date] forKey:userKey];
+            [[NSUserDefaults standardUserDefaults] setObject:mDic forKey:USER_QIANDAO_DEAULT_KEY];
+        }else if (0 == [result compare:@"-1"]){
+            [Utilities ShowAlert:@"签到，网络异常！"];
+        }else{
+            [Utilities ShowAlert:@"今日已经有签到，感谢您的参考，别忘了明天继续哦！"];
+        }
+        
+        
+        [str release];
 
-        [mDic setObject:[NSDate date] forKey:userKey];
-        [[NSUserDefaults standardUserDefaults] setObject:mDic forKey:USER_QIANDAO_DEAULT_KEY];
         
         
     }else{

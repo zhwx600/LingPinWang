@@ -12,12 +12,12 @@
 
 -(void) dealloc
 {
-    [self.m_imageUrl release];
-    [self.m_productDes release];
-    [self.m_productId release];
-    [self.m_productName release];
-    [self.m_productNum release];
-    [self.m_productState release];
+    self.m_imageUrl  = nil;
+    self.m_productDes  = nil;
+    self.m_productId  = nil;
+    self.m_productName  = nil;
+    self.m_productNum  = nil;
+    self.m_productState  = nil;
     
     
     [super dealloc];

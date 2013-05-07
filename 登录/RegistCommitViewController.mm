@@ -248,6 +248,7 @@
         
         NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
         
+        [str release];
         if (0 == [getCode compare:@"-1"]) {
             [Utilities ShowAlert:@"获取验证码失败，请稍后再试！"];
         }else if (0 == [getCode compare:@"-2"]) {
@@ -329,6 +330,7 @@
         
         
         NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
+        [str release];
         
        // self.m_codeField.text = getCode;
         
@@ -397,7 +399,7 @@
         
         
         [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
-        
+        [str release];
         [DataManager shareInstance].m_loginPhone = self.m_phoneNumberField.text;
         
         ResultLogin* result = [DataManager shareInstance].m_loginResult;

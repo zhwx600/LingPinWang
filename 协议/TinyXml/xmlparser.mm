@@ -710,7 +710,14 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         
                 
         lmtTmp = lmtParamRoot->FirstChildElement("imageurl");
-        [resultDetail.m_imageUrlArrary addObjectsFromArray:[[NSString stringWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] componentsSeparatedByString:OPTION_SPARETE_STR]];
+        NSString* urlstr = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        if (urlstr && urlstr.length >0) {
+            [resultDetail.m_imageUrlArrary addObjectsFromArray:[urlstr componentsSeparatedByString:OPTION_SPARETE_STR]];
+        }else{
+            
+        }
+        
+        
     }
     return resultDetail;
     

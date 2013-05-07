@@ -81,7 +81,7 @@
 {
 	
 	CGRect  viewRect = CGRectMake(0, 0, 160, 90);
-	UIView* myView2 = [[UIView alloc] initWithFrame:viewRect];
+	UIView* myView2 = [[[UIView alloc] initWithFrame:viewRect] autorelease];
 	myView2.backgroundColor=[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
 	
 	UILabel *label=[[UILabel alloc] initWithFrame:CGRectMake(0.0f,0.0f, 140.0f, 50)];

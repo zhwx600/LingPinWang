@@ -12,8 +12,8 @@
 -(id) init
 {
     if (self = [super init]) {
-        self.m_adToUrlArrary = [[NSMutableArray alloc] init];
-        self.m_adImageUrlArrary = [[NSMutableArray alloc] init];
+        self.m_adToUrlArrary = [[[NSMutableArray alloc] init] autorelease];
+        self.m_adImageUrlArrary = [[[NSMutableArray alloc] init] autorelease];
     }
     return  self;
 }
@@ -21,15 +21,15 @@
 
 -(void) dealloc
 {
-    [self.m_linpinCount release];
-    [self.m_result release];
-    [self.m_sessionId release];
-    [self.m_upImageUrl release];
-    [self.m_userName release];
-    [self.m_userState release];
-    [self.m_adImageUrlArrary release];
-    [self.m_adToUrlArrary release];
-    [self.m_userImageUrl release];
+    self.m_linpinCount = nil;
+    self.m_result = nil;
+    self.m_sessionId = nil;
+    self.m_upImageUrl = nil;
+    self.m_userName = nil;
+    self.m_userState = nil;
+    self.m_adImageUrlArrary = nil;
+    self.m_adToUrlArrary = nil;
+    self.m_userImageUrl = nil;
     [super dealloc];
 }
 

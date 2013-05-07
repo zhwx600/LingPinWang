@@ -173,7 +173,6 @@ UISearchDisplayDelegate>
 -(void) dealloc
 {
     [m_searchResultArr release];
-    [self.list release];
     self.list = nil;
     
     
@@ -281,10 +280,21 @@ UISearchDisplayDelegate>
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
-    shangjia.title = @"商家详情";
-    [self.navigationController pushViewController:shangjia animated:YES];
-    [shangjia release];
+    
+    if (tableView == self.m_searchDisplayController.searchResultsTableView) {
+        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+        shangjia.title = @"商家详情";
+        [self.navigationController pushViewController:shangjia animated:YES];
+        [shangjia release];
+    }else if(tableView == self.tableView){
+        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+        shangjia.title = @"商家详情";
+        [self.navigationController pushViewController:shangjia animated:YES];
+        [shangjia release];
+    }
+    
+    
+
     
 }
 
@@ -363,14 +373,19 @@ UISearchDisplayDelegate>
         }
         
     }
+    
+    //每次都从 所有项里面搜索
 
     if (searchString.length > 0) { // Should always be the case
         NSArray *personsToSearch = self.list;
-        if (m_currentSearchString.length > 0 && [searchString rangeOfString:m_currentSearchString].location == 0) { // If the new search string starts with the last search string, reuse the already filtered array so searching is faster
-            personsToSearch = m_searchResultArr;
-        }
+//        if (m_currentSearchString.length > 0 && [searchString rangeOfString:m_currentSearchString].location == 0) { // If the new search string starts with the last search string, reuse the already filtered array so searching is faster
+//            personsToSearch = m_searchResultArr;
+//        }
         self.m_searchResultArr = nil;
-        m_searchResultArr = [[NSMutableArray alloc] initWithArray:[personsToSearch filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.m_businessName CONTAINS %@", searchString]]];
+        if (personsToSearch && personsToSearch.count >0) {
+             m_searchResultArr = [[NSMutableArray alloc] initWithArray:[personsToSearch filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.m_businessName CONTAINS %@", searchString]]];
+        }
+       
     } else {
         self.m_searchResultArr = nil;
         m_searchResultArr = [[NSMutableArray alloc] initWithArray:self.list];
@@ -413,7 +428,7 @@ UISearchDisplayDelegate>
         NSLog(@" receiveDataByRequstProduct str = %@",str);
         
         NSMutableArray* resultArr = (NSMutableArray*)[MyXMLParser DecodeToObj:str];
-        
+        [str release];
         if (resultArr && resultArr.count >0) {
             
             [self.list addObjectsFromArray:resultArr];

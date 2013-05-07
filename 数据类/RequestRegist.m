@@ -13,7 +13,7 @@
 -(id) init
 {
     if (self = [super init]) {
-        self.m_answerDic = [[NSMutableDictionary alloc] init];
+        self.m_answerDic = [[[NSMutableDictionary alloc] init] autorelease];
     }
     return  self;
 }
@@ -21,11 +21,11 @@
 
 -(void) dealloc
 {
-    [self.m_answerDic release];
-    [self.m_name release];
-    [self.m_password release];
-    [self.m_phone release];
-    [self.m_sex release];
+    self.m_answerDic = nil;
+    self.m_name = nil;
+    self.m_password = nil;
+    self.m_phone = nil;
+    self.m_sex = nil;
     
     [super dealloc];
 }

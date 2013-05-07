@@ -43,16 +43,16 @@
         CGRect tframe = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
         //滑动控件
-        self.m_scrollView = [[UIScrollView alloc] initWithFrame:tframe];
+        self.m_scrollView = [[[UIScrollView alloc] initWithFrame:tframe] autorelease];
         [self.m_scrollView setBounces:NO];
         [self addSubview:self.m_scrollView];
         //翻页控件
-        self.m_pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, tframe.size.height-26, tframe.size.width, 36)];
+        self.m_pageControl = [[[UIPageControl alloc] initWithFrame:CGRectMake(0, tframe.size.height-26, tframe.size.width, 36)] autorelease];
         [self.m_pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:self.m_pageControl];
         
         //初始化参数
-        self.m_imagePathList = [[NSArray alloc] initWithArray:list];
+        self.m_imagePathList = [[[NSArray alloc] initWithArray:list] autorelease];
         self.m_initFlag = flag;
         self.m_delegate = deleagate;
         
@@ -77,8 +77,8 @@
 -(void) initButtonImageVieWithFrame:(CGRect)frame
 {
     
-    self.m_imageViewList = [[NSMutableArray alloc] init];
-    self.m_buttonList = [[NSMutableArray alloc] init];
+    self.m_imageViewList = [[[NSMutableArray alloc] init] autorelease];
+    self.m_buttonList = [[[NSMutableArray alloc] init] autorelease];
 
     for (int i=0; i<self.m_imagePathList.count; i++) {
         

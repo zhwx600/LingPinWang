@@ -193,7 +193,7 @@
             default:
                 break;
         }
-        cell.backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+        cell.backgroundView = [[[UIImageView alloc] initWithFrame:cell.frame] autorelease];
         cell.backgroundView.backgroundColor = [UIColor clearColor];
         
         
@@ -212,7 +212,7 @@
         //        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
         //        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bgCartNavi.png"]];
         
-        cell.backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+        cell.backgroundView = [[[UIImageView alloc] initWithFrame:cell.frame] autorelease];
         cell.backgroundView.backgroundColor = [UIColor clearColor];
         
         

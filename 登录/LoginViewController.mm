@@ -197,6 +197,7 @@
         
         
         [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
+        [str release];
         
         ResultLogin* result = [DataManager shareInstance].m_loginResult;
         
