@@ -11,9 +11,59 @@
          timestampString = "389842401.752593"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
          startingLineNumber = "141"
          endingLineNumber = "141"
+=======
+<<<<<<< HEAD
+         startingLineNumber = "145"
+         endingLineNumber = "145"
+>>>>>>> 1、更新
          landmarkName = "-requestLiPinDetail"
+=======
+         startingLineNumber = "376"
+         endingLineNumber = "376"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554426.506648"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "418"
+         endingLineNumber = "418"
+         landmarkName = "-receiveDataByRequstBusiness:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554216.148955"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "355"
+         endingLineNumber = "355"
+         landmarkName = "@implementation ShangJiaViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
+         timestampString = "389554243.018972"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "364"
+         endingLineNumber = "364"
+         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
+>>>>>>> 1、更新
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
