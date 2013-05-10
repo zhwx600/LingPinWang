@@ -8,31 +8,20 @@
 
 #import "ZhwxBaseViewController.h"
 
+#import "ResultBusiness.h"
+
 @interface ShangJiaDetailViewController : ZhwxBaseViewController<UIScrollViewDelegate>
 {
-    NSMutableArray *viewArr;
 
-    
-    // To be used when scrolls originate from the UIPageControl
-    BOOL pageControlUsed;
-    
-    int imageCount;
 }
 
 
-@property (retain, nonatomic) IBOutlet UIPageControl *m_pageControl;
 @property (retain, nonatomic) IBOutlet UIScrollView *m_scrollView;
-@property (retain, nonatomic) IBOutlet UITextView *m_desTextView;
-@property (retain, nonatomic) IBOutlet UIScrollView *m_moreScrollView;
 
-@property (nonatomic,retain)    NSMutableArray* m_imageUrlList;
+@property (nonatomic,assign)ResultBusiness* m_proResult;
 
 -(void) closeBtnAction:(id)sender;
--(void) initImageViewForLiPin;
--(void) initImageViewForShangJia;
-
 
 -(void) initParamScrollView:(NSArray*) arr;
-
 
 @end

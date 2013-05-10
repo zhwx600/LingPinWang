@@ -19,6 +19,9 @@
 
 #define ID_VALUE_SPARETE_STR @"="
 
+
+#define PARAM_SPARETESTR @"\n"
+
 //协议命令 宏
 //获取问题答案
 #define REQUEST_FOR_ANSWER @"getweijian"

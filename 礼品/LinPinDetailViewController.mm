@@ -29,8 +29,6 @@
 @end
 
 
-#define PARAM_SPARETESTR @"\n"
-
 @implementation LinPinDetailViewController
 
 
@@ -139,10 +137,8 @@
 //升级请求
 -(void) requestLiPinDetail
 {
-    
-    ResultLogin* loginObj = [DataManager shareInstance].m_loginResult;
-    
-    NSString* str = [MyXMLParser EncodeToStr:loginObj.m_sessionId Type:REQUEST_FOR_PRODUCT_DETAIL];
+
+    NSString* str = [MyXMLParser EncodeToStr:self.m_proResult.m_productId Type:REQUEST_FOR_PRODUCT_DETAIL];
     NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
     
     HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstLiPinDetail:)];
@@ -172,16 +168,14 @@
         }else{
             [Utilities ShowAlert:@"获取礼品详情异常！"];
         }
-
+        
     }else{
         NSLog(@"receiveDataByRequstLiPinDetail 接收到 数据 异常");
         
-        [Utilities ShowAlert:@"签到，网络异常！"];
+        [Utilities ShowAlert:@"获取失败，网络异常！"];
         
     }
-    
-    
-    
+
 }
 
 

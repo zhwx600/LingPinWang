@@ -282,13 +282,24 @@ UISearchDisplayDelegate>
 {
     
     if (tableView == self.m_searchDisplayController.searchResultsTableView) {
+        
+        ResultBusiness* product = [self.m_searchResultArr objectAtIndex:indexPath.row];
+        
         ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
         shangjia.title = @"商家详情";
+        
+        shangjia.m_proResult = product;
         [self.navigationController pushViewController:shangjia animated:YES];
         [shangjia release];
+        
+        
     }else if(tableView == self.tableView){
+        
+        ResultBusiness* product = [self.list objectAtIndex:indexPath.row];
         ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
         shangjia.title = @"商家详情";
+        
+        shangjia.m_proResult = product;
         [self.navigationController pushViewController:shangjia animated:YES];
         [shangjia release];
     }
