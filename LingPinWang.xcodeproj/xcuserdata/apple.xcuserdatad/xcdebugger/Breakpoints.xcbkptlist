@@ -4,26 +4,68 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#31036;&#21697;/LiPinViewController.mm"
+         timestampString = "389969157.035237"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "-resetAllData"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31036;&#21697;/LinPinDetailViewController.mm"
-         timestampString = "389842401.752593"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981502.912338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
-         startingLineNumber = "141"
-         endingLineNumber = "141"
-=======
-<<<<<<< HEAD
-         startingLineNumber = "145"
-         endingLineNumber = "145"
->>>>>>> 1、更新
-         landmarkName = "-requestLiPinDetail"
-=======
-         startingLineNumber = "376"
-         endingLineNumber = "376"
-         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
+         landmarkName = "-receiveDataByRequstShangJiaDetail:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981502.912338"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "285"
+         endingLineNumber = "285"
+         landmarkName = "-requestShangJiaDetail"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981502.912338"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "237"
+         endingLineNumber = "237"
+         landmarkName = "-initParamMessWithDetail:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981502.912338"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
+         landmarkName = "-initParamMessWithDetail:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -31,12 +73,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
-         timestampString = "389554426.506648"
+         timestampString = "389982078.338433"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "418"
-         endingLineNumber = "418"
-         landmarkName = "-receiveDataByRequstBusiness:"
+         startingLineNumber = "297"
+         endingLineNumber = "297"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -44,65 +86,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
-         timestampString = "389554216.148955"
+         timestampString = "389982078.338433"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "355"
-         endingLineNumber = "355"
-         landmarkName = "@implementation ShangJiaViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#21830;&#23478;/ShangJiaViewController.mm"
-         timestampString = "389554243.018972"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "364"
-         endingLineNumber = "364"
-         landmarkName = "-searchDisplayController:shouldReloadTableForSearchString:"
->>>>>>> 1、更新
+         startingLineNumber = "308"
+         endingLineNumber = "308"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#31614;&#21040;/QinDaoViewController.mm"
-         timestampString = "389842960.552938"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981016.909076"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "218"
-         endingLineNumber = "218"
-         landmarkName = "-receiveDataByRequstQiandao:"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#30331;&#24405;/LoginViewController.mm"
-         timestampString = "389842979.0599"
+         filePath = "&#21830;&#23478;/ShangJiaDetailViewController.mm"
+         timestampString = "389981502.912338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
-         landmarkName = "-receiveDataByRequstLogin:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#31036;&#21697;/LinPinDetailViewController.mm"
-         timestampString = "389843058.467482"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
-         landmarkName = "-receiveDataByRequstLiPinDetail:"
+         startingLineNumber = "282"
+         endingLineNumber = "282"
+         landmarkName = "-requestShangJiaDetail"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

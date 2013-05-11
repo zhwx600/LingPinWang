@@ -127,9 +127,17 @@
     self.window.rootViewController = self.tabBarController;
     [self.tabBarController setSelectedIndex:0];
     [self.m_qiandaoViewController setQiandaoButtonState];
+    
+    [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"REFRESH_TABLE_VEIW_DATA" object:nil userInfo:nil] postingStyle:NSPostASAP];
+    
 }
 -(void) entryLoginControllerView
 {
+    
+    [m_qiandaoViewController.navigationController popToRootViewControllerAnimated:NO];
+    [m_lipinViewController.navigationController popToRootViewControllerAnimated:NO];
+    [m_shangjiaViewController.navigationController popToRootViewControllerAnimated:NO];
+
     
     CATransition *transtion = [CATransition animation];
     transtion.duration = 0.5;
@@ -137,7 +145,7 @@
     [transtion setType:@"oglFlip"];
     [transtion setSubtype:kCATransitionFromLeft];
     [self.window.layer addAnimation:transtion forKey:@"transtionKey"];
-    
+
     self.window.rootViewController = m_zhwxLoginBase;
     
 

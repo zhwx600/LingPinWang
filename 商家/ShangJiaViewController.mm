@@ -61,6 +61,9 @@ UISearchDisplayDelegate>
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAllData) name:@"REFRESH_TABLE_VEIW_DATA" object:nil];
+        
         self.title = @"商家";
         self.tabBarItem.image = [UIImage imageNamed:@"third"];
         
@@ -175,7 +178,7 @@ UISearchDisplayDelegate>
     [m_searchResultArr release];
     self.list = nil;
     
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"REFRESH_TABLE_VEIW_DATA" object:nil];
     [super dealloc];
 }
 
@@ -185,6 +188,12 @@ UISearchDisplayDelegate>
 {
     [SDWebImageManager.sharedManager.imageCache clearMemory];
     [SDWebImageManager.sharedManager.imageCache clearDisk];
+}
+
+-(void) resetAllData
+{
+    [self.tableView performSelectorOnMainThread:@selector(launchRefreshing) withObject:nil waitUntilDone:NO];
+    
 }
 
 - (void)loadData{

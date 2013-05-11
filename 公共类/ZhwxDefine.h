@@ -13,7 +13,7 @@
 //是否 iphone5
 #define isRetina5inch (fabs(( double)[[ UIScreen mainScreen] bounds].size.height-( double )568) < DBL_EPSILON)
 
-#define autoRetina5Frame(rect1,rect2) isRetina5inch ? rect1:rect2
+#define autoRetina5Frame(rect5,rect4) isRetina5inch ? rect5:rect4
 
 
 //设备全屏

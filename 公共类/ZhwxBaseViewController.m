@@ -11,6 +11,8 @@
 #import "UINavigationBar+Image.h"
 #import "Utilities.h"
 
+#import "ZhwxDefine.h"
+
 @interface ZhwxBaseViewController ()
 
 @property (nonatomic,retain)UINavigationBar* m_zhwxNavBar;
@@ -27,6 +29,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        UIImageView* tem = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"全局视图背景"]] autorelease];
+        [tem setFrame:autoRetina5Frame(DEV_FULLSCREEN_Vertical_FOR_5_FRAME, DEV_FULLSCREEN_Vertical_FOR_4_FRAME)];
+
+        [self.view insertSubview:tem atIndex:0];
+
     }
     return self;
 }

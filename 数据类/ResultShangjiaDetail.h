@@ -13,5 +13,6 @@
 @property (nonatomic,retain) NSString* m_telephone;
 @property (nonatomic,retain) NSString* m_fax;
 @property (nonatomic,retain) NSString* m_address;
+@property (nonatomic,retain) NSString* m_activity;
 @property (nonatomic,retain) NSMutableArray* m_imageUrlArrary;
 @end

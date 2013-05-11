@@ -51,9 +51,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self showLoadMessageView];
     [self requestLiPinDetail];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,12 +92,12 @@
     
     [self.m_pageView removeFromSuperview];
     self.m_pageView = nil;
-    self.m_pageView = [[[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 240)
+    self.m_pageView = [[[ZWXPageScrollView alloc] initWithFrame:CGRectMake(21, 15, 280, 180)
                                                        PathList:detail.m_imageUrlArrary
                                                            Flag:INIT_SCROLL_URL
                                                        Delegate:self] autorelease];
     self.m_pageView.m_buttonSelectEnable = NO;
-    [self.view addSubview:self.m_pageView];
+    [self.m_scrollView addSubview:self.m_pageView];
     
 }
 
@@ -100,7 +105,7 @@
 -(void) initParamScrollView:(NSArray*) arr
 {
     
-    int startVerOff = 200;
+    int startVerOff = 210;
     
     for (int i=0; i<arr.count; i++) {
         

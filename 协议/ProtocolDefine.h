@@ -11,7 +11,7 @@
 
 #define SQL_FILE_NAME @"data.sqlite3"
 
-#define REQUEST_SERVER_URL @"http://service.la-minas.cn/Default.aspx"
+#define REQUEST_SERVER_URL @"http://service.51lpw.cn/default.aspx"
 
 #define PARAM_SPARETE_STR @"$paramSeparate$"
 
@@ -20,7 +20,7 @@
 #define ID_VALUE_SPARETE_STR @"="
 
 
-#define PARAM_SPARETESTR @"\n"
+#define PARAM_SPARETESTR @"$paramSeparate$"
 
 //协议命令 宏
 //获取问题答案

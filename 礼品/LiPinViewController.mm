@@ -50,6 +50,8 @@ UITableViewDelegate>
         self.title = @"礼品";
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetAllData) name:@"REFRESH_TABLE_VEIW_DATA" object:nil];
+        
         
         CGRect bounds = self.view.bounds;
         bounds.size.height = [UIScreen mainScreen].bounds.size.height - 44-20-49;
@@ -122,6 +124,13 @@ UITableViewDelegate>
     // Dispose of any resources that can be recreated.
 }
 
+-(void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"REFRESH_TABLE_VEIW_DATA" object:nil];
+    
+    [super dealloc];
+}
+
 #pragma mark - Your actions
 
 - (void)flushCache
@@ -132,7 +141,8 @@ UITableViewDelegate>
 
 -(void) resetAllData
 {
-    
+    [self.tableView performSelectorOnMainThread:@selector(launchRefreshing) withObject:nil waitUntilDone:NO];
+
 }
 
 - (void)loadData{

@@ -25,6 +25,7 @@
     self.m_address = nil;
     self.m_fax = nil;
     self.m_telephone = nil;
+    self.m_activity = nil;
     
     [super dealloc];
 }

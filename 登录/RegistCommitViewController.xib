@@ -153,14 +153,17 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">获取验证码</string>
 						<reference key="IBUIHighlightedTitleColor" ref="795699102"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
+						<object class="NSColor" key="IBUINormalTitleColor" id="98072590">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="157667605"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="65171004">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">小按钮背景.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="469390045"/>
 						<reference key="IBUIFont" ref="216987684"/>
 					</object>
@@ -262,6 +265,7 @@
 						<string key="NSFrame">{{110, 377}, {100, 34}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -270,11 +274,9 @@
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">完成注册</string>
 						<reference key="IBUIHighlightedTitleColor" ref="795699102"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="98072590"/>
 						<reference key="IBUINormalTitleShadowColor" ref="157667605"/>
+						<reference key="IBUINormalBackgroundImage" ref="65171004"/>
 						<reference key="IBUIFontDescription" ref="469390045"/>
 						<reference key="IBUIFont" ref="216987684"/>
 					</object>
@@ -482,7 +484,6 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="111447549"/>
-							<reference ref="159991940"/>
 							<reference ref="702405988"/>
 							<reference ref="593958657"/>
 							<reference ref="459123231"/>
@@ -490,6 +491,7 @@
 							<reference ref="780267299"/>
 							<reference ref="1045567942"/>
 							<reference ref="866766687"/>
+							<reference ref="159991940"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -657,6 +659,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">小按钮背景.png</string>
+			<string key="NS.object.0">{101, 63}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

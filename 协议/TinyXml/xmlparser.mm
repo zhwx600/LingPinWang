@@ -748,6 +748,9 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         lmtTmp = lmtParamRoot->FirstChildElement("businesaddress");
         resultDetail.m_address = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
         
+        lmtTmp = lmtParamRoot->FirstChildElement("activity");
+        resultDetail.m_activity = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
+        
         lmtTmp = lmtParamRoot->FirstChildElement("businesmemo");
         resultDetail.m_description = [[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding];
         

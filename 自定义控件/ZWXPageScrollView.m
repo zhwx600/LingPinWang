@@ -226,13 +226,13 @@
 {
     _m_buttonSelectEnable = m_buttonSelectEnable;
     if (m_buttonSelectEnable) {
-        for (int i=0; self.m_buttonList.count; i++) {
+        for (int i=0;i<self.m_buttonList.count; i++) {
             UIButton* button = [self.m_buttonList objectAtIndex:i];
             [button setEnabled:YES];
         }
     }else{
         
-        for (int i=0; self.m_buttonList.count; i++) {
+        for (int i=0; i<self.m_buttonList.count; i++) {
             UIButton* button = [self.m_buttonList objectAtIndex:i];
             [button setEnabled:NO];
         }
