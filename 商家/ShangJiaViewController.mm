@@ -257,6 +257,7 @@ UISearchDisplayDelegate>
     if (cell == nil){
         cell = [[[ZhwxTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.m_desLabel.textColor = [UIColor grayColor];
     }
     
     cell.m_desLabel.text = [NSString stringWithFormat:@" des row =%d",indexPath.row];
@@ -295,7 +296,7 @@ UISearchDisplayDelegate>
         ResultBusiness* product = [self.m_searchResultArr objectAtIndex:indexPath.row];
         
         ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
-        shangjia.title = @"商家详情";
+        shangjia.title = @"详细介绍";
         
         shangjia.m_proResult = product;
         [self.navigationController pushViewController:shangjia animated:YES];
@@ -306,7 +307,7 @@ UISearchDisplayDelegate>
         
         ResultBusiness* product = [self.list objectAtIndex:indexPath.row];
         ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
-        shangjia.title = @"商家详情";
+        shangjia.title = @"详细介绍";
         
         shangjia.m_proResult = product;
         [self.navigationController pushViewController:shangjia animated:YES];

@@ -231,7 +231,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">短信验证</string>
+						<string key="IBUINormalTitle">完成注册</string>
 						<reference key="IBUIHighlightedTitleColor" ref="802534687"/>
 						<reference key="IBUINormalTitleColor" ref="674024436"/>
 						<reference key="IBUINormalTitleShadowColor" ref="331709984"/>

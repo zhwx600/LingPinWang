@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import "UIImageView+WebCache.h"
 
+#import "AboutMeViewController.h"
+#import "ReplyViewController.h"
+
 @interface SheZhiViewController ()
 
 @end
@@ -86,7 +89,7 @@
 {
     
     // Return the number of sections.
-    return 4;
+    return 3;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -115,17 +118,17 @@
 {
     
     switch (section) {
-        case 0:
+        case 10:
             return 2;
             break;
-        case 1:
+        case 0:
             return 3;
             break;
             
-        case 2:
+        case 1:
             return 1;
             break;
-        case 3:
+        case 2:
             return 1;
             break;
             
@@ -145,7 +148,7 @@
     
     int section = indexPath.section;
     int row = indexPath.row;
-    if (0 == section) {
+/*    if (0 == section) {
         switch (row) {
             case 0:
                 cell = self.m_cell0;
@@ -158,7 +161,7 @@
             default:
                 break;
         }
-    }else if(1 == section){
+    }else */if(0 == section){
         switch (row) {
             case 0:
                 cell = self.m_cell2;
@@ -182,7 +185,7 @@
                 break;
         }
         
-    }else if(2 == section){
+    }else if(1 == section){
         
         switch (row) {
             case 0:
@@ -198,7 +201,7 @@
         
         
         
-    }else if(3 == section){
+    }else if(2 == section){
         
         switch (row) {
             case 0:
@@ -231,7 +234,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    //UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     int temsection = indexPath.section;
     int row = indexPath.row;
     
@@ -239,8 +242,22 @@
     
     if (temsection == 0) {
         
-    }else if(temsection == 1){
+        if (0 == row) {
+            AboutMeViewController* about = [[AboutMeViewController alloc] init];
+            [self.navigationController pushViewController:about animated:YES];
+            [about release];
+        }else if(1 == row){
 
+        }else{
+            ReplyViewController* about = [[ReplyViewController alloc] init];
+            [self.navigationController pushViewController:about animated:YES];
+            [about release];
+        }
+        
+        
+        
+    }else if(temsection == 1){
+        
         
     }else if(temsection == 2){
 

@@ -19,9 +19,22 @@
 #import "RequestLogin.h"
 #import "ResultLogin.h"
 
+#import "AboutViewController.h"
+#import "RegistViewController.h"
+
 @interface RegistCommitViewController ()<UIAlertViewDelegate>
 
+
+@property (nonatomic,assign) BOOL m_bAgreeXieYi;
 @property (nonatomic,retain)NSString* m_recCode;
+- (IBAction)m_agreeButton:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *m_agreeButton;
+
+@property (nonatomic,retain) NSString* m_rememberPhone;
+
+
+- (IBAction)agreeButtonAct:(id)sender;
+- (IBAction)xieyiButtonAct:(id)sender;
 
 @end
 
@@ -35,6 +48,7 @@
         
         [self addMyNavBar];
         [self setNavTitle:@"注册"];
+        self.m_bAgreeXieYi = YES;
         
     }
     return self;
@@ -74,7 +88,7 @@
         [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
         [UIView setAnimationDuration:animationDuration];
 
-        CGRect rect = CGRectMake(0.0f, -180.0f, self.view.frame.size.width, self.view.frame.size.height);
+        CGRect rect = CGRectMake(0.0f, -210.0f, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = rect;
         [UIView commitAnimations];
         
@@ -145,8 +159,13 @@
         [Utilities ShowAlert:@"验证码输入为空！"];
         return;
     }
-    if (0 != [self.m_recCode compare:self.m_codeField.text]) {
+    if (!(0 == [self.m_rememberPhone compare:self.m_phoneNumberField.text] && 0 == [self.m_recCode compare:self.m_codeField.text])) {
         [Utilities ShowAlert:@"验证码错误，请输入正确的验证码！"];
+        return;
+    }
+    //验证 
+    if (!self.m_codeField.text || self.m_codeField.text.length <= 0) {
+        [Utilities ShowAlert:@"验证码输入为空！"];
         return;
     }
     //验证 密码
@@ -163,8 +182,27 @@
         return;
     }
     
-    [self showLoadMessageView];
-    [self requestRegist];
+    if (!self.m_bAgreeXieYi) {
+        [Utilities ShowAlert:@"请先阅读《51领品网用户协议》后，并同意后再注册！"];
+        return;
+    }
+    
+    
+    RequestRegist* requestObj = [[RequestRegist alloc] init];
+    requestObj.m_name = self.m_nameField.text;
+    requestObj.m_password = self.m_passwordField.text;
+    requestObj.m_phone = self.m_phoneNumberField.text;
+    requestObj.m_sex = [self.m_segment titleForSegmentAtIndex:self.m_segment.selectedSegmentIndex];
+    
+    RegistViewController* registview = [[RegistViewController alloc] init];
+    registview.m_rRegistRequest = requestObj;
+    
+    [self.navigationController pushViewController:registview animated:YES];
+    [registview release];
+    [requestObj release];
+    
+//    [self showLoadMessageView];
+//    [self requestRegist];
 
 }
 
@@ -191,6 +229,7 @@
     [_m_passwordSureField release];
     [_m_segment release];
     [_m_nameField release];
+    [_m_agreeButton release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -200,8 +239,34 @@
     [self setM_passwordSureField:nil];
     [self setM_segment:nil];
     [self setM_nameField:nil];
+    [self setM_agreeButton:nil];
     [super viewDidUnload];
 }
+
+
+
+- (IBAction)m_agreeButton:(id)sender {
+}
+- (IBAction)agreeButtonAct:(id)sender {
+    
+    if (self.m_bAgreeXieYi) {
+        [self.m_agreeButton setImage:[UIImage imageNamed:@"没选中"] forState:UIControlStateNormal];
+        self.m_bAgreeXieYi = NO;
+    }else{
+        self.m_bAgreeXieYi = YES;
+        [self.m_agreeButton setImage:[UIImage imageNamed:@"选中"] forState:UIControlStateNormal];
+    }
+    
+}
+
+- (IBAction)xieyiButtonAct:(id)sender {
+    
+    AboutViewController* about = [[AboutViewController alloc] init];
+    [self.navigationController pushViewController:about animated:YES];
+    [about release];
+    
+}
+
 
 #pragma mark- UITextFieldDelegate
 -(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -257,6 +322,8 @@
             [Utilities ShowAlert:@"该手机今天获取验证码已满，请明天再试！"];
         }else{
             self.m_recCode = getCode;
+            self.m_rememberPhone = [NSString stringWithFormat:@"%@",self.m_phoneNumberField.text];
+            
             [Utilities ShowAlert:@"验证码已通过短信发送到您手机，请注意查收"];
         }
         
@@ -274,165 +341,165 @@
     
 }
 
--(NSMutableDictionary*) initAnswerDicData
-{
-    
-    NSMutableDictionary* temMuDic = [[NSMutableDictionary alloc] init];
-    for (int page=0; page<self.m_requestDataArray.count; page++) {
-        
-        Answer* temAnswer = (Answer*)[self.m_requestDataArray objectAtIndex:page];
-        
-        NSMutableArray* seletValueArr = [[NSMutableArray alloc] init];
-        for (NSString* key in [temAnswer.m_answerSelect allKeys]) {
-            if (0 == [(NSString*)([((NSString*)temAnswer.m_answerSelect) valueForKey:key]) compare:@"1"]) {
-                [seletValueArr addObject:key];
-            }
-        }
-        
-        NSString* answerIdStr = [seletValueArr componentsJoinedByString:@","];
-        [seletValueArr release];
-        
-        [temMuDic setValue:answerIdStr forKey:temAnswer.m_questionId];
-
-    }
-    return temMuDic;
-    
-}
-
-//升级请求
--(void) requestRegist
-{
-    
-    RequestRegist* requestObj = [[RequestRegist alloc] init];
-    requestObj.m_name = self.m_nameField.text;
-    requestObj.m_password = self.m_passwordField.text;
-    requestObj.m_phone = self.m_phoneNumberField.text;
-    requestObj.m_sex = [self.m_segment titleForSegmentAtIndex:self.m_segment.selectedSegmentIndex];
-    requestObj.m_answerDic = [self initAnswerDicData];
-    
-    
-    NSString* str = [MyXMLParser EncodeToStr:requestObj Type:REQUEST_FOR_REGIST];
-    [requestObj release];
-    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    
-    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstRegist:)];
-    [http threadFunStart];
-    
-    [http release];
-}
-
--(void) receiveDataByRequstRegist:(NSData*) data
-{
-    
-    
-    if (data && data.length>0) {
-        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        
-        NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
-        [str release];
-        
-       // self.m_codeField.text = getCode;
-        
-        NSLog(@" getCode = %@",getCode);
-        
-        int codeValue = [getCode intValue];
-        if (codeValue == 0) {
-            [self dissLoadMessageView];
-            [Utilities ShowAlert:@"注册失败，请重新提交或稍后再试!"];
-        }else if(codeValue == 1){
-            
-            [self requestLogin];
-            
-           /* UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您注册成功，赶紧签到吧，免费赠品等你来拿哦，也可使用此帐号登入网站(www.51Lpw.cn)签到哦,登入网站完善个人信息得到赠品的机会会更大哦赶紧行动吧。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            alert.tag = 101;
-            [alert show];
-            [alert release];*/
-            
-        }else{
-            [self dissLoadMessageView];
-            [Utilities ShowAlert:@"该手机已被注册，请更换其它手机!"];
-            
-        }
-        
-        
-        
-    }else{
-        [self dissLoadMessageView];
-        NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
-        
-       // self.m_codeField.text = @"";
-        [Utilities ShowAlert:@"注册失败，请确认网络是否正常！"];
-        
-    }
-    
-    
-    
-}
-
-
-//升级请求
--(void) requestLogin
-{
-    RequestLogin* loginObj = [[RequestLogin alloc] init];
-    loginObj.m_loginType = @"iphone";
-    loginObj.m_phone = self.m_phoneNumberField.text;
-    loginObj.m_password = [Utilities md5:self.m_passwordField.text];
-    
-    NSString* str = [MyXMLParser EncodeToStr:loginObj Type:REQUEST_FOR_LOGIN];
-    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    
-    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstLogin:)];
-    [http threadFunStart];
-    
-    [http release];
-    [loginObj release];
-}
-
--(void) receiveDataByRequstLogin:(NSData*) data
-{
-    
-    [self dissLoadMessageView];
-    
-    if (data && data.length>0) {
-        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        
-        [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
-        [str release];
-        [DataManager shareInstance].m_loginPhone = self.m_phoneNumberField.text;
-        
-        ResultLogin* result = [DataManager shareInstance].m_loginResult;
-        
-        //登录成功
-        if (0 == [result.m_result compare:@"8"]) {
-            
-            AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-            [del entryTabControllerView];
-
-            [[NSUserDefaults standardUserDefaults] setValue:self.m_phoneNumberField.text forKey:USER_NAME_DEAULT_KEY];
-            [[NSUserDefaults standardUserDefaults] setValue:self.m_passwordField.text forKey:USER_PSWD_DEAULT_KEY];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            
-        }else if (0 == [result.m_result compare:@"0"]){
-            [Utilities ShowAlert:@"登录失败，账号不存在！"];
-        }else if (0 == [result.m_result compare:@"1"]){
-            [Utilities ShowAlert:@"登录失败，密码不正确！"];
-        }
-        
-        
-        
-    }else{
-        NSLog(@"receiveDataByRequstLogin 接收到 数据 异常");
-        
-        [Utilities ShowAlert:@"登录失败，网络异常！"];
-        
-    }
-    
-    
-    
-}
-
+//-(NSMutableDictionary*) initAnswerDicData
+//{
+//    
+//    NSMutableDictionary* temMuDic = [[NSMutableDictionary alloc] init];
+//    for (int page=0; page<self.m_requestDataArray.count; page++) {
+//        
+//        Answer* temAnswer = (Answer*)[self.m_requestDataArray objectAtIndex:page];
+//        
+//        NSMutableArray* seletValueArr = [[NSMutableArray alloc] init];
+//        for (NSString* key in [temAnswer.m_answerSelect allKeys]) {
+//            if (0 == [(NSString*)([((NSString*)temAnswer.m_answerSelect) valueForKey:key]) compare:@"1"]) {
+//                [seletValueArr addObject:key];
+//            }
+//        }
+//        
+//        NSString* answerIdStr = [seletValueArr componentsJoinedByString:@","];
+//        [seletValueArr release];
+//        
+//        [temMuDic setValue:answerIdStr forKey:temAnswer.m_questionId];
+//
+//    }
+//    return temMuDic;
+//    
+//}
+//
+////升级请求
+//-(void) requestRegist
+//{
+//    
+//    RequestRegist* requestObj = [[RequestRegist alloc] init];
+//    requestObj.m_name = self.m_nameField.text;
+//    requestObj.m_password = self.m_passwordField.text;
+//    requestObj.m_phone = self.m_phoneNumberField.text;
+//    requestObj.m_sex = [self.m_segment titleForSegmentAtIndex:self.m_segment.selectedSegmentIndex];
+//    requestObj.m_answerDic = [self initAnswerDicData];
+//    
+//    
+//    NSString* str = [MyXMLParser EncodeToStr:requestObj Type:REQUEST_FOR_REGIST];
+//    [requestObj release];
+//    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+//    
+//    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstRegist:)];
+//    [http threadFunStart];
+//    
+//    [http release];
+//}
+//
+//-(void) receiveDataByRequstRegist:(NSData*) data
+//{
+//    
+//    
+//    if (data && data.length>0) {
+//        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        
+//        
+//        NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
+//        [str release];
+//        
+//       // self.m_codeField.text = getCode;
+//        
+//        NSLog(@" getCode = %@",getCode);
+//        
+//        int codeValue = [getCode intValue];
+//        if (codeValue == 0) {
+//            [self dissLoadMessageView];
+//            [Utilities ShowAlert:@"注册失败，请重新提交或稍后再试!"];
+//        }else if(codeValue == 1){
+//            
+//            [self requestLogin];
+//            
+//           /* UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜您注册成功，赶紧签到吧，免费赠品等你来拿哦，也可使用此帐号登入网站(www.51Lpw.cn)签到哦,登入网站完善个人信息得到赠品的机会会更大哦赶紧行动吧。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            alert.tag = 101;
+//            [alert show];
+//            [alert release];*/
+//            
+//        }else{
+//            [self dissLoadMessageView];
+//            [Utilities ShowAlert:@"该手机已被注册，请更换其它手机!"];
+//            
+//        }
+//        
+//        
+//        
+//    }else{
+//        [self dissLoadMessageView];
+//        NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
+//        
+//       // self.m_codeField.text = @"";
+//        [Utilities ShowAlert:@"注册失败，请确认网络是否正常！"];
+//        
+//    }
+//    
+//    
+//    
+//}
+//
+//
+////升级请求
+//-(void) requestLogin
+//{
+//    RequestLogin* loginObj = [[RequestLogin alloc] init];
+//    loginObj.m_loginType = @"iphone";
+//    loginObj.m_phone = self.m_phoneNumberField.text;
+//    loginObj.m_password = [Utilities md5:self.m_passwordField.text];
+//    
+//    NSString* str = [MyXMLParser EncodeToStr:loginObj Type:REQUEST_FOR_LOGIN];
+//    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+//    
+//    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstLogin:)];
+//    [http threadFunStart];
+//    
+//    [http release];
+//    [loginObj release];
+//}
+//
+//-(void) receiveDataByRequstLogin:(NSData*) data
+//{
+//    
+//    [self dissLoadMessageView];
+//    
+//    if (data && data.length>0) {
+//        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        
+//        
+//        [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
+//        [str release];
+//        [DataManager shareInstance].m_loginPhone = self.m_phoneNumberField.text;
+//        
+//        ResultLogin* result = [DataManager shareInstance].m_loginResult;
+//        
+//        //登录成功
+//        if (0 == [result.m_result compare:@"8"]) {
+//            
+//            AppDelegate* del = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+//            [del entryTabControllerView];
+//
+//            [[NSUserDefaults standardUserDefaults] setValue:self.m_phoneNumberField.text forKey:USER_NAME_DEAULT_KEY];
+//            [[NSUserDefaults standardUserDefaults] setValue:self.m_passwordField.text forKey:USER_PSWD_DEAULT_KEY];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+//            
+//        }else if (0 == [result.m_result compare:@"0"]){
+//            [Utilities ShowAlert:@"登录失败，账号不存在！"];
+//        }else if (0 == [result.m_result compare:@"1"]){
+//            [Utilities ShowAlert:@"登录失败，密码不正确！"];
+//        }
+//        
+//        
+//        
+//    }else{
+//        NSLog(@"receiveDataByRequstLogin 接收到 数据 异常");
+//        
+//        [Utilities ShowAlert:@"登录失败，网络异常！"];
+//        
+//    }
+//    
+//    
+//    
+//}
+//
 
 
 #pragma mark - uialertdelegate

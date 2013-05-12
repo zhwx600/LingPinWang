@@ -195,6 +195,7 @@ UITableViewDelegate>
     if (cell == nil){
         cell = [[[ZhwxTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.m_desLabel.textColor = [UIColor grayColor];
     }
     
     ResultProduct* product = [self.list objectAtIndex:indexPath.row];

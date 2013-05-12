@@ -24,10 +24,13 @@
 
 @interface ShangJiaDetailViewController ()<ZWXPageScrollDelegate>
 @property (nonatomic,retain) ZWXPageScrollView* m_pageView;
+
+@property (nonatomic,assign) BOOL m_bFirstInView;
+
 @end
 
 @implementation ShangJiaDetailViewController
-
+@synthesize m_bFirstInView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +38,7 @@
     if (self) {
         // Custom initialization
         
-        
+        self.m_bFirstInView = YES;
         self.navigationItem.leftBarButtonItem = [Utilities createNavItemByTarget:self Sel:@selector(closeBtnAction:) Imgage:[UIImage imageNamed:@"item_back.png"]];
         
         // [self initParamScrollView:m_imageUrlList];
@@ -55,8 +58,13 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self showLoadMessageView];
-    [self requestShangJiaDetail];
+
+    if (self.m_bFirstInView) {
+        [self showLoadMessageView];
+        [self requestShangJiaDetail];
+        self.m_bFirstInView = NO;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,27 +113,38 @@
     int imageVerOff = 210;
     int spearetVerOff = 248;
     
-    UIImageView* telImageView = nil;
+    //UIImageView* telImageView = nil;
     UIImageView* sperImageView = nil;
-    UIFont *font =  [UIFont fontWithName:@"Helvetica" size:15.0f];
+    UIFont *font =  [UIFont fontWithName:@"Helvetica" size:14.0f];
+    UIFont *titlefont =  [UIFont boldSystemFontOfSize: 17.0];
     CGSize size = CGSizeZero;
     UILabel* label = nil;
+    UILabel* titleLabel = nil;
     
-//    detail.m_telephone = @"13811111111";
-//    detail.m_address = @"厦门软件园二区2号楼";
-//    detail.m_fax = @"059234234234";
+    detail.m_telephone = @"13811111111";
+    detail.m_address = @"厦门市软件园二区2号楼";
+    detail.m_fax = @"059234234234";
     
     if (detail.m_activity && [detail.m_activity length]>0) {
         
-        telImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"item_right.png"]];
-        [telImageView setFrame:CGRectMake(20, imageVerOff, 60, 35)];
+//        telImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"item_right.png"]];
+//        [telImageView setFrame:CGRectMake(20, imageVerOff, 60, 35)];
+        
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, imageVerOff, 90, 35)];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.textAlignment = NSTextAlignmentLeft;
+        titleLabel.font = titlefont;
+        titleLabel.textColor = [UIColor blackColor];
+        [titleLabel setNumberOfLines:0];
+        titleLabel.text = @"优惠活动:";
+        
         
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
         
-        size = [detail.m_activity sizeWithFont:font constrainedToSize:CGSizeMake(210, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
-        label = [[UILabel alloc] initWithFrame:CGRectMake(90, labelVerOff, 210, 35)];
+        size = [detail.m_activity sizeWithFont:font constrainedToSize:CGSizeMake(500, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 35)];
         
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentLeft;
@@ -136,10 +155,10 @@
         label.textColor = [UIColor redColor];
         
         [self.m_scrollView addSubview:label];
-        [self.m_scrollView addSubview:telImageView];
+        [self.m_scrollView addSubview:titleLabel];
         [self.m_scrollView addSubview:sperImageView];
         [label release];
-        [telImageView release];
+        [titleLabel release];
         [sperImageView release];
         
         labelVerOff += 45;
@@ -150,26 +169,31 @@
     }
     if (detail.m_telephone && [detail.m_telephone length]>0) {
         
-        telImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"item_right.png"]];
-        [telImageView setFrame:CGRectMake(20, imageVerOff, 60, 35)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, imageVerOff, 90, 35)];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.textAlignment = NSTextAlignmentLeft;
+        titleLabel.font = titlefont;
+        titleLabel.textColor = [UIColor blackColor];
+        [titleLabel setNumberOfLines:0];
+        titleLabel.text = @"联系电话:";
         
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(90, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
         tview.text = detail.m_telephone;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
         tview.font = font;
-        tview.textColor = [UIColor blackColor];
+        tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
         
         [self.m_scrollView addSubview:tview];
-        [self.m_scrollView addSubview:telImageView];
+        [self.m_scrollView addSubview:titleLabel];
         [self.m_scrollView addSubview:sperImageView];
         [tview release];
-        [telImageView release];
+        [titleLabel release];
         [sperImageView release];
         
         labelVerOff += 45;
@@ -179,26 +203,31 @@
     
     if (detail.m_fax && [detail.m_fax length]>0) {
         
-        telImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"item_right.png"]];
-        [telImageView setFrame:CGRectMake(20, imageVerOff, 60, 35)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, imageVerOff, 90, 35)];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.textAlignment = NSTextAlignmentLeft;
+        titleLabel.font = titlefont;
+        titleLabel.textColor = [UIColor blackColor];
+        [titleLabel setNumberOfLines:0];
+        titleLabel.text = @"传       真:";
         
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(90, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
         tview.text = detail.m_fax;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
         tview.font = font;
-        tview.textColor = [UIColor blackColor];
+        tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
         
         [self.m_scrollView addSubview:tview];
-        [self.m_scrollView addSubview:telImageView];
+        [self.m_scrollView addSubview:titleLabel];
         [self.m_scrollView addSubview:sperImageView];
         [tview release];
-        [telImageView release];
+        [titleLabel release];
         [sperImageView release];
         
         labelVerOff += 45;
@@ -207,26 +236,31 @@
     }
     if (detail.m_address && [detail.m_address length]>0) {
         
-        telImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"item_right.png"]];
-        [telImageView setFrame:CGRectMake(20, imageVerOff, 60, 35)];
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, imageVerOff, 90, 35)];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.textAlignment = NSTextAlignmentLeft;
+        titleLabel.font = titlefont;
+        titleLabel.textColor = [UIColor blackColor];
+        [titleLabel setNumberOfLines:0];
+        titleLabel.text = @"联系地址:";
         
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(90, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
         tview.text = detail.m_address;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
         tview.font = font;
-        tview.textColor = [UIColor blackColor];
+        tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
         
         [self.m_scrollView addSubview:tview];
-        [self.m_scrollView addSubview:telImageView];
+        [self.m_scrollView addSubview:titleLabel];
         [self.m_scrollView addSubview:sperImageView];
         [tview release];
-        [telImageView release];
+        [titleLabel release];
         [sperImageView release];
         
         labelVerOff += 45;

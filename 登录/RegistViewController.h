@@ -8,6 +8,8 @@
 
 #import "ZhwxBaseViewController.h"
 
+#import "RequestRegist.h"
+
 @interface RegistViewController : ZhwxBaseViewController<UITableViewDelegate,UITableViewDataSource,
 UIScrollViewDelegate>
 
@@ -30,6 +32,9 @@ UIScrollViewDelegate>
 @property (retain, nonatomic) IBOutlet UILabel *m_pageLabel;
 @property (retain, nonatomic) IBOutlet UIButton *m_nextButton;
 @property (retain, nonatomic) IBOutlet UIButton *m_checkButton;
+
+@property (nonatomic,retain) RequestRegist* m_rRegistRequest;
+
 
 - (IBAction)pageChangeAct:(id)sender;
 

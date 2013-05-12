@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 领品网. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZhwxBaseViewController.h"
 
-@interface SheZhiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SheZhiViewController : ZhwxBaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     
 }

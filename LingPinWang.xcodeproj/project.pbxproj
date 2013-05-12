@@ -127,9 +127,15 @@
 		188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */; };
 		188981BB171B03FE00345ADF /* ShangJiaDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188981B9171B03FE00345ADF /* ShangJiaDetailViewController.mm */; };
 		188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */; };
+		188E9E88173FCDD5001862AE /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E86173FCDD5001862AE /* AboutMeViewController.m */; };
+		188E9E89173FCDD5001862AE /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E9E87173FCDD5001862AE /* AboutMeViewController.xib */; };
+		188E9E8D173FCE38001862AE /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E8B173FCE38001862AE /* ReplyViewController.m */; };
+		188E9E8E173FCE38001862AE /* ReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E9E8C173FCE38001862AE /* ReplyViewController.xib */; };
 		188F969C173E90030017DEA1 /* 详情_分割线.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F969B173E90030017DEA1 /* 详情_分割线.png */; };
 		188F969F173E9F8A0017DEA1 /* 按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F969E173E9F8A0017DEA1 /* 按钮背景.png */; };
 		188F96A1173EA0AF0017DEA1 /* 全局视图背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F96A0173EA0AF0017DEA1 /* 全局视图背景.png */; };
+		1892D804173F6C1600D89E26 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892D802173F6C1600D89E26 /* AboutViewController.m */; };
+		1892D805173F6C1600D89E26 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892D803173F6C1600D89E26 /* AboutViewController.xib */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
 		1893E736170711A300E52CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E735170711A300E52CCC /* Foundation.framework */; };
 		1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E737170711A300E52CCC /* CoreGraphics.framework */; };
@@ -370,9 +376,18 @@
 		188981B8171B03FE00345ADF /* ShangJiaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangJiaDetailViewController.h; sourceTree = "<group>"; };
 		188981B9171B03FE00345ADF /* ShangJiaDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ShangJiaDetailViewController.mm; sourceTree = "<group>"; };
 		188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangJiaDetailViewController.xib; sourceTree = "<group>"; };
+		188E9E85173FCDD5001862AE /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
+		188E9E86173FCDD5001862AE /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
+		188E9E87173FCDD5001862AE /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
+		188E9E8A173FCE38001862AE /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
+		188E9E8B173FCE38001862AE /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
+		188E9E8C173FCE38001862AE /* ReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyViewController.xib; sourceTree = "<group>"; };
 		188F969B173E90030017DEA1 /* 详情_分割线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "详情_分割线.png"; sourceTree = "<group>"; };
 		188F969E173E9F8A0017DEA1 /* 按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮背景.png"; sourceTree = "<group>"; };
 		188F96A0173EA0AF0017DEA1 /* 全局视图背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全局视图背景.png"; sourceTree = "<group>"; };
+		1892D801173F6C1600D89E26 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1892D802173F6C1600D89E26 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1892D803173F6C1600D89E26 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		1893E730170711A300E52CCC /* 领品网.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "领品网.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893E733170711A300E52CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1893E735170711A300E52CCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -909,6 +924,12 @@
 				1893E77817071D3B00E52CCC /* SheZhiViewController.h */,
 				1893E77917071D3B00E52CCC /* SheZhiViewController.m */,
 				1893E77A17071D3B00E52CCC /* SheZhiViewController.xib */,
+				188E9E85173FCDD5001862AE /* AboutMeViewController.h */,
+				188E9E86173FCDD5001862AE /* AboutMeViewController.m */,
+				188E9E87173FCDD5001862AE /* AboutMeViewController.xib */,
+				188E9E8A173FCE38001862AE /* ReplyViewController.h */,
+				188E9E8B173FCE38001862AE /* ReplyViewController.m */,
+				188E9E8C173FCE38001862AE /* ReplyViewController.xib */,
 			);
 			path = "设置";
 			sourceTree = SOURCE_ROOT;
@@ -962,15 +983,18 @@
 				1893E7911707225F00E52CCC /* LoginViewController.h */,
 				1893E7921707225F00E52CCC /* LoginViewController.mm */,
 				1893E7931707225F00E52CCC /* LoginViewController.xib */,
-				18532B951718757B005EA34B /* RegistViewController.h */,
-				18532B961718757B005EA34B /* RegistViewController.mm */,
-				18532B971718757B005EA34B /* RegistViewController.xib */,
 				18532B9A171875BD005EA34B /* ForgotPassViewController.h */,
 				18532B9B171875BD005EA34B /* ForgotPassViewController.mm */,
 				18532B9C171875BD005EA34B /* ForgotPassViewController.xib */,
 				188981B3171AF4EF00345ADF /* RegistCommitViewController.h */,
 				188981B4171AF4EF00345ADF /* RegistCommitViewController.mm */,
 				188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */,
+				1892D801173F6C1600D89E26 /* AboutViewController.h */,
+				1892D802173F6C1600D89E26 /* AboutViewController.m */,
+				1892D803173F6C1600D89E26 /* AboutViewController.xib */,
+				18532B951718757B005EA34B /* RegistViewController.h */,
+				18532B961718757B005EA34B /* RegistViewController.mm */,
+				18532B971718757B005EA34B /* RegistViewController.xib */,
 			);
 			path = "登录";
 			sourceTree = SOURCE_ROOT;
@@ -1082,6 +1106,9 @@
 				188F969F173E9F8A0017DEA1 /* 按钮背景.png in Resources */,
 				188F96A1173EA0AF0017DEA1 /* 全局视图背景.png in Resources */,
 				18BD17C4173EA5F7003D61B8 /* 小按钮背景.png in Resources */,
+				1892D805173F6C1600D89E26 /* AboutViewController.xib in Resources */,
+				188E9E89173FCDD5001862AE /* AboutMeViewController.xib in Resources */,
+				188E9E8E173FCE38001862AE /* ReplyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,6 +1209,9 @@
 				18FFBD5E173141950060FFEE /* DataManager.m in Sources */,
 				1829106517366185005D46D8 /* ZWXPageScrollView.m in Sources */,
 				18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */,
+				1892D804173F6C1600D89E26 /* AboutViewController.m in Sources */,
+				188E9E88173FCDD5001862AE /* AboutMeViewController.m in Sources */,
+				188E9E8D173FCE38001862AE /* ReplyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

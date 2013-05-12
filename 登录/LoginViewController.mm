@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "RegistViewController.h"
 #import "ForgotPassViewController.h"
+#import "RegistCommitViewController.h"
 
 #import "Utilities.h"
 #import "HttpProcessor.h"
@@ -109,9 +110,13 @@
 
 - (IBAction)registerAct:(id)sender
 {
-    RegistViewController* registview = [[RegistViewController alloc] init];
-    [self.navigationController pushViewController:registview animated:YES];
-    [registview release];
+    RegistCommitViewController* commit = [[RegistCommitViewController alloc] init];
+    [self.navigationController pushViewController:commit animated:YES];
+    [commit release];
+    
+//    RegistViewController* registview = [[RegistViewController alloc] init];
+//    [self.navigationController pushViewController:registview animated:YES];
+//    [registview release];
 }
 
 - (IBAction)getPasswordAct:(id)sender
