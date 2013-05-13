@@ -215,6 +215,7 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+<<<<<<< HEAD
          filePath = "&#35774;&#32622;/ReplyViewController.mm"
          timestampString = "390236933.946652"
          startingColumnNumber = "9223372036854775807"
@@ -235,6 +236,15 @@
          startingLineNumber = "89"
          endingLineNumber = "89"
          landmarkName = "-requestStver"
+=======
+         filePath = "&#30331;&#24405;/ForgotPassViewController.mm"
+         timestampString = "389845958.962744"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
+         landmarkName = "-receiveDataByRequstForget:"
+>>>>>>> 1、更新啊。。
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
