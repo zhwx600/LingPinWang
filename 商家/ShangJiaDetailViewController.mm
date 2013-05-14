@@ -121,9 +121,9 @@
     UILabel* label = nil;
     UILabel* titleLabel = nil;
     
-    detail.m_telephone = @"13811111111";
-    detail.m_address = @"厦门市软件园二区2号楼";
-    detail.m_fax = @"059234234234";
+//    detail.m_telephone = @"13811111111";
+//    detail.m_address = @"厦门市软件园二区2号楼";
+//    detail.m_fax = @"059234234234";
     
     if (detail.m_activity && [detail.m_activity length]>0) {
         
