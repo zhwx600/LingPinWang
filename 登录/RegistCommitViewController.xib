@@ -860,29 +860,18 @@
 					<string key="className">RegistCommitViewController</string>
 					<string key="superclassName">ZhwxBaseViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="agreeButtonAct:">id</string>
 						<string key="closeInputView:">id</string>
 						<string key="getCodeAct:">id</string>
-						<string key="m_agreeButton:">id</string>
 						<string key="m_passwordField:">id</string>
 						<string key="registerButtonAct:">id</string>
-						<string key="xieyiButtonAct:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="agreeButtonAct:">
-							<string key="name">agreeButtonAct:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="closeInputView:">
 							<string key="name">closeInputView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="getCodeAct:">
 							<string key="name">getCodeAct:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="m_agreeButton:">
-							<string key="name">m_agreeButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="m_passwordField:">
@@ -893,13 +882,8 @@
 							<string key="name">registerButtonAct:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="xieyiButtonAct:">
-							<string key="name">xieyiButtonAct:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="m_agreeButton">UIButton</string>
 						<string key="m_codeField">UITextField</string>
 						<string key="m_nameField">UITextField</string>
 						<string key="m_passwordField">UITextField</string>
@@ -908,10 +892,6 @@
 						<string key="m_segment">UISegmentedControl</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="m_agreeButton">
-							<string key="name">m_agreeButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="m_codeField">
 							<string key="name">m_codeField</string>
 							<string key="candidateClassName">UITextField</string>
@@ -958,7 +938,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="小按钮背景.png">{101, 63}</string>
-			<string key="选中.png">{223, 181}</string>
+			<string key="选中.png">{47, 48}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

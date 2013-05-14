@@ -220,7 +220,7 @@
             NSLog(@" receiveDataByRequstQiandao str = %@",str);
             [self.m_qiandaoButton setEnabled:NO];
             
-            [Utilities ShowAlert:@"签到成功!\n感谢您的参考,别忘了明天继续哦!"];
+            [Utilities ShowAlert:@"签到成功!\n感谢您的参与,别忘了明天继续哦!"];
             
             NSDictionary* dic = [[NSUserDefaults standardUserDefaults] valueForKey:USER_QIANDAO_DEAULT_KEY];
             NSString* userKey = [DataManager shareInstance].m_loginPhone;
@@ -240,7 +240,7 @@
         }else if (0 == [result compare:@"-1"]){
             [Utilities ShowAlert:@"签到，网络异常！"];
         }else{
-            [Utilities ShowAlert:@"今日已经有签到，感谢您的参考，别忘了明天继续哦！"];
+            [Utilities ShowAlert:@"今日已经有签到，感谢您的参与，别忘了明天继续哦！"];
         }
         
         

@@ -129,11 +129,14 @@
 		188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */; };
 		188E9E88173FCDD5001862AE /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E86173FCDD5001862AE /* AboutMeViewController.m */; };
 		188E9E89173FCDD5001862AE /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E9E87173FCDD5001862AE /* AboutMeViewController.xib */; };
-		188E9E8D173FCE38001862AE /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E8B173FCE38001862AE /* ReplyViewController.m */; };
+		188E9E8D173FCE38001862AE /* ReplyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E8B173FCE38001862AE /* ReplyViewController.mm */; };
 		188E9E8E173FCE38001862AE /* ReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E9E8C173FCE38001862AE /* ReplyViewController.xib */; };
 		188F969C173E90030017DEA1 /* 详情_分割线.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F969B173E90030017DEA1 /* 详情_分割线.png */; };
 		188F969F173E9F8A0017DEA1 /* 按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F969E173E9F8A0017DEA1 /* 按钮背景.png */; };
 		188F96A1173EA0AF0017DEA1 /* 全局视图背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 188F96A0173EA0AF0017DEA1 /* 全局视图背景.png */; };
+		18906B0B17427452005F81FF /* 密码.png in Resources */ = {isa = PBXBuildFile; fileRef = 18906B0917427452005F81FF /* 密码.png */; };
+		18906B0C17427452005F81FF /* 用户名.png in Resources */ = {isa = PBXBuildFile; fileRef = 18906B0A17427452005F81FF /* 用户名.png */; };
+		18906B0F1742767B005F81FF /* RequestStver.m in Sources */ = {isa = PBXBuildFile; fileRef = 18906B0E1742767B005F81FF /* RequestStver.m */; };
 		1892D804173F6C1600D89E26 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892D802173F6C1600D89E26 /* AboutViewController.m */; };
 		1892D805173F6C1600D89E26 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892D803173F6C1600D89E26 /* AboutViewController.xib */; };
 		1893E734170711A300E52CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E733170711A300E52CCC /* UIKit.framework */; };
@@ -380,11 +383,15 @@
 		188E9E86173FCDD5001862AE /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		188E9E87173FCDD5001862AE /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
 		188E9E8A173FCE38001862AE /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
-		188E9E8B173FCE38001862AE /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
+		188E9E8B173FCE38001862AE /* ReplyViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReplyViewController.mm; sourceTree = "<group>"; };
 		188E9E8C173FCE38001862AE /* ReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyViewController.xib; sourceTree = "<group>"; };
 		188F969B173E90030017DEA1 /* 详情_分割线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "详情_分割线.png"; sourceTree = "<group>"; };
 		188F969E173E9F8A0017DEA1 /* 按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮背景.png"; sourceTree = "<group>"; };
 		188F96A0173EA0AF0017DEA1 /* 全局视图背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全局视图背景.png"; sourceTree = "<group>"; };
+		18906B0917427452005F81FF /* 密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码.png"; sourceTree = "<group>"; };
+		18906B0A17427452005F81FF /* 用户名.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户名.png"; sourceTree = "<group>"; };
+		18906B0D1742767B005F81FF /* RequestStver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestStver.h; sourceTree = "<group>"; };
+		18906B0E1742767B005F81FF /* RequestStver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestStver.m; sourceTree = "<group>"; };
 		1892D801173F6C1600D89E26 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1892D802173F6C1600D89E26 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1892D803173F6C1600D89E26 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -756,6 +763,8 @@
 				184D4C8B172434BA0074D36C /* ResultBusiness.m */,
 				18FFBD5C173141940060FFEE /* DataManager.h */,
 				18FFBD5D173141940060FFEE /* DataManager.m */,
+				18906B0D1742767B005F81FF /* RequestStver.h */,
+				18906B0E1742767B005F81FF /* RequestStver.m */,
 			);
 			path = "数据类";
 			sourceTree = SOURCE_ROOT;
@@ -763,6 +772,8 @@
 		18532B6617185E6A005EA34B /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				18906B0917427452005F81FF /* 密码.png */,
+				18906B0A17427452005F81FF /* 用户名.png */,
 				18BD17C3173EA5F7003D61B8 /* 小按钮背景.png */,
 				18FFBD5F17314CA90060FFEE /* 选中.png */,
 				18532B6717185E6A005EA34B /* 背景.jpg */,
@@ -928,7 +939,7 @@
 				188E9E86173FCDD5001862AE /* AboutMeViewController.m */,
 				188E9E87173FCDD5001862AE /* AboutMeViewController.xib */,
 				188E9E8A173FCE38001862AE /* ReplyViewController.h */,
-				188E9E8B173FCE38001862AE /* ReplyViewController.m */,
+				188E9E8B173FCE38001862AE /* ReplyViewController.mm */,
 				188E9E8C173FCE38001862AE /* ReplyViewController.xib */,
 			);
 			path = "设置";
@@ -1109,6 +1120,8 @@
 				1892D805173F6C1600D89E26 /* AboutViewController.xib in Resources */,
 				188E9E89173FCDD5001862AE /* AboutMeViewController.xib in Resources */,
 				188E9E8E173FCE38001862AE /* ReplyViewController.xib in Resources */,
+				18906B0B17427452005F81FF /* 密码.png in Resources */,
+				18906B0C17427452005F81FF /* 用户名.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,7 +1224,8 @@
 				18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */,
 				1892D804173F6C1600D89E26 /* AboutViewController.m in Sources */,
 				188E9E88173FCDD5001862AE /* AboutMeViewController.m in Sources */,
-				188E9E8D173FCE38001862AE /* ReplyViewController.m in Sources */,
+				188E9E8D173FCE38001862AE /* ReplyViewController.mm in Sources */,
+				18906B0F1742767B005F81FF /* RequestStver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

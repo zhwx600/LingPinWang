@@ -43,7 +43,8 @@
 #define REQUEST_FOR_BUSINESSES @"businesses"
 //找回密码
 #define REQUEST_FOR_GET_PASSWORD @"getpw"
-
+//反馈请求
+#define REQUEST_FOR_STVER @"question"
 
 
 //编码

@@ -16,6 +16,8 @@
 #import "RequsetProduct.h"
 #import "RequestCheckIn.h"
 #import "RequestBusiness.h"
+#import "RequestStver.h"
+
 
 #import "ResultLogin.h"
 #import "ResultLiPinDetail.h"
@@ -398,6 +400,34 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
 }
 
 
++(void) encodeForRequestStver:(TTiXmlElement *) rootElement Obj:(NSObject*) requestObj
+{
+    RequestStver* product = (RequestStver*)requestObj;
+    
+    TTiXmlElement *lmtParamRootUp = new TTiXmlElement("requestver");
+    rootElement->LinkEndChild(lmtParamRootUp);
+    
+    
+    TTiXmlElement *lmtParamRoot = new TTiXmlElement("logid");
+    TTiXmlText *txtId = new TTiXmlText([product.m_phoneNumber UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    lmtParamRootUp->LinkEndChild(lmtParamRoot);
+    
+    
+    lmtParamRoot = new TTiXmlElement("sessionno");
+    txtId = new TTiXmlText([product.m_sessionId UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    lmtParamRootUp->LinkEndChild(lmtParamRoot);
+    
+    lmtParamRoot = new TTiXmlElement("memo");
+    txtId = new TTiXmlText([product.m_content UTF8String]);
+    lmtParamRoot->LinkEndChild(txtId);
+    lmtParamRootUp->LinkEndChild(lmtParamRoot);
+    
+    return;
+}
+
+
 +(NSString*) EncodeToStr:(NSObject *)obj Type:(NSString *)type
 {
     TTiXmlDocument doc; 
@@ -449,6 +479,8 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         [MyXMLParser encodeForRequestShangJia:lmtRoot Obj:obj];
     }else if(0 == [type compare:REQUEST_FOR_GET_PASSWORD]){
         [MyXMLParser encodeForRequestPassword:lmtRoot Obj:obj];
+    }else if(0 == [type compare:REQUEST_FOR_STVER]){
+        [MyXMLParser encodeForRequestStver:lmtRoot Obj:obj];
     }
     
     
@@ -882,6 +914,23 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
     
 }
 
+//注册 返回
++(NSString*) decodeForRequestStver:(TTiXmlElement *) rootElement
+{
+    
+    TTiXmlElement *lmtParamRoot = rootElement->NextSiblingElement("requestver");
+    NSString* passwordStr = nil;
+    if (lmtParamRoot)
+    {
+        
+        TTiXmlElement *lmtTmp = lmtParamRoot->FirstChildElement();
+        passwordStr = [[[NSString alloc] initWithCString:lmtTmp->GetText() encoding:NSUTF8StringEncoding] autorelease];
+        
+    }
+    return passwordStr;
+    
+}
+
 +(NSObject*) DecodeToObj:(NSString *)str
 {
     TTiXmlDocument doc;
@@ -974,6 +1023,12 @@ bool xmlparser::Decode(const char *xml,S_Data *sData)
         }else if(0 == [commid compare:REQUEST_FOR_GET_PASSWORD]){
             
             NSString* registArr = [MyXMLParser decodeForRequestGetPassword:lmtName];
+            
+            [_mutexDe unlock];
+            return registArr;
+        }else if(0 == [commid compare:REQUEST_FOR_STVER]){
+            
+            NSString* registArr = [MyXMLParser decodeForRequestStver:lmtName];
             
             [_mutexDe unlock];
             return registArr;
