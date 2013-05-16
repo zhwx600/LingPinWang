@@ -68,6 +68,12 @@
 }
 - (IBAction)sendButtonAct:(id)sender {
     
+    //验证手机号
+    if (!self.m_textView.text || self.m_textView.text.length <= 0) {
+        [Utilities ShowAlert:@"反馈内容不能为空！"];
+        return;
+    }
+    
     [self showLoadMessageView];
     [self requestStver];
 }

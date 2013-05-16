@@ -170,6 +170,7 @@
 		18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */; };
 		18AF757F1738AB0A00CE32CD /* LinPinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */; };
 		18BD17C4173EA5F7003D61B8 /* 小按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BD17C3173EA5F7003D61B8 /* 小按钮背景.png */; };
+		18EEB0021744E53400EC4786 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EEB0011744E53400EC4786 /* Icon.png */; };
 		18FFBD5E173141950060FFEE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FFBD5D173141940060FFEE /* DataManager.m */; };
 		18FFBD6017314CA90060FFEE /* 选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FFBD5F17314CA90060FFEE /* 选中.png */; };
 /* End PBXBuildFile section */
@@ -439,6 +440,7 @@
 		18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinPinDetailViewController.xib; sourceTree = "<group>"; };
 		18BD17C3173EA5F7003D61B8 /* 小按钮背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小按钮背景.png"; sourceTree = "<group>"; };
 		18D8DB831725844000DA33BB /* ZhwxDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhwxDefine.h; sourceTree = "<group>"; };
+		18EEB0011744E53400EC4786 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		18FFBD5C173141940060FFEE /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		18FFBD5D173141940060FFEE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		18FFBD5F17314CA90060FFEE /* 选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中.png"; sourceTree = "<group>"; };
@@ -977,6 +979,7 @@
 		1893E78717071FE800E52CCC /* uiimage */ = {
 			isa = PBXGroup;
 			children = (
+				18EEB0011744E53400EC4786 /* Icon.png */,
 				188981B1171AEF9B00345ADF /* bgCartNavi@2x.png */,
 				181254F117191DCB00D0DD1A /* item_back.png */,
 				181254F217191DCB00D0DD1A /* item_right.png */,
@@ -1122,6 +1125,7 @@
 				188E9E8E173FCE38001862AE /* ReplyViewController.xib in Resources */,
 				18906B0B17427452005F81FF /* 密码.png in Resources */,
 				18906B0C17427452005F81FF /* 用户名.png in Resources */,
+				18EEB0021744E53400EC4786 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

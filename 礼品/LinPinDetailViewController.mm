@@ -25,7 +25,7 @@
 @interface LinPinDetailViewController ()<ZWXPageScrollDelegate>
 
 @property (nonatomic,retain) ZWXPageScrollView* m_pageView;
-
+@property (nonatomic,assign) BOOL m_bFirstInView;
 @end
 
 
@@ -37,7 +37,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
+        self.m_bFirstInView = YES;
         
         self.navigationItem.leftBarButtonItem = [Utilities createNavItemByTarget:self Sel:@selector(closeBtnAction:) Imgage:[UIImage imageNamed:@"item_back.png"]];
         
@@ -57,8 +57,13 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self showLoadMessageView];
-    [self requestLiPinDetail];
+    
+    if (self.m_bFirstInView) {
+        [self showLoadMessageView];
+        [self requestLiPinDetail];
+        self.m_bFirstInView = NO;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

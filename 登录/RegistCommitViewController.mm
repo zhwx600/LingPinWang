@@ -147,7 +147,7 @@
     
     //验证手机号
     if (!self.m_phoneNumberField.text || self.m_phoneNumberField.text.length <= 0) {
-        [Utilities ShowAlert:@"用户名输入为空！"];
+        [Utilities ShowAlert:@"手机号输入为空！"];
         return;
     }
     if (self.m_phoneNumberField.text.length != 11) {
