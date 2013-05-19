@@ -48,7 +48,7 @@
         
         [self addMyNavBar];
         [self setNavTitle:@"注册"];
-        self.m_bAgreeXieYi = YES;
+        self.m_bAgreeXieYi = NO;
         
     }
     return self;

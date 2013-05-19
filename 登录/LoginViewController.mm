@@ -24,6 +24,9 @@
 
 @property (nonatomic,assign)bool m_bSavePassword;
 
+
+
+
 @end
 
 @implementation LoginViewController
@@ -158,6 +161,8 @@
     [self setM_saveButton:nil];
     [super viewDidUnload];
 }
+
+
 #pragma mark- UITextFieldDelegate
 -(BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

@@ -23,6 +23,8 @@
 @property (nonatomic,assign) BOOL pageControlUsed;
 
 
+@property (nonatomic,retain) NSTimer* m_autoScrollTimer;
+
 @property (nonatomic,assign) id<ZWXPageScrollDelegate> m_delegate;
 
 @end
@@ -240,6 +242,44 @@
 }
 
 
+-(void) scrollToNext
+{
+    self.m_pageControl.currentPage = (self.m_pageControl.currentPage +1)%self.m_imageViewList.count;
+    int page = self.m_pageControl.currentPage;
+	
+    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
+    [self loadScrollViewWithPage:page - 1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page + 1];
+    
+	// update the scroll view to the appropriate page
+    CGRect frame = self.m_scrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [self.m_scrollView scrollRectToVisible:frame animated:YES];
+    
+	// Set the boolean used when scrolls originate from the UIPageControl. See scrollViewDidScroll: above.
+    self.pageControlUsed = YES;
+}
+
+
+-(void) setM_autoScrollEnable:(BOOL)m_autoScrollEnable
+{
+    _m_autoScrollEnable = m_autoScrollEnable;
+    
+    if (m_autoScrollEnable) {
+        if (self.m_autoScrollTimer) {
+            [self.m_autoScrollTimer invalidate];
+        }
+        self.m_autoScrollTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(scrollToNext) userInfo:nil repeats:YES];
+        
+    }else{
+        
+        [self.m_autoScrollTimer invalidate];
+        self.m_autoScrollTimer = nil;
+    }
+}
+
 -(void) dealloc
 {
     self.m_scrollView = nil;
@@ -249,6 +289,9 @@
     self.m_imagePathList = nil;
     self.m_imagePathList = nil;
     self.m_pageControl = nil;
+    [self.m_autoScrollTimer invalidate];
+    self.m_autoScrollTimer = nil;
+    
     
     [super dealloc];
 }

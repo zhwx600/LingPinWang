@@ -24,6 +24,7 @@ typedef enum {
 @interface ZWXPageScrollView : UIView
 
 @property (nonatomic,assign) BOOL m_buttonSelectEnable;//设置按钮 是否可以 点击。 默认为YES
+@property (nonatomic,assign) BOOL m_autoScrollEnable;//设置 自动滑动
 
 //****************初始化滑动翻页 view****************
 //frame：view 大小

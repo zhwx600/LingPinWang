@@ -31,6 +31,8 @@
 @property (retain, nonatomic) IBOutlet UIImageView *m_headImageView;
 @property (retain, nonatomic) IBOutlet UIButton *m_qiandaoButton;
 
+@property (nonatomic,retain) NSTimer* m_stateTimer;
+
 - (IBAction)qiandaoButtonAct:(id)sender;
 
 @end
@@ -45,7 +47,7 @@
         self.title = @"签到";
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
         
-        
+        [self startCheckStates];
         
     }
     return self;
@@ -56,7 +58,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    [self setQiandaoButtonState];
+    
     
     
 }
@@ -64,7 +66,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+   // [self setQiandaoButtonState];
     NSLog(@" viewWillAppear:(BOOL)animated ; ");
     
 }
@@ -78,15 +80,61 @@
 -(void) dealloc
 {
     self.m_pageView = nil;
-    
+    [self stopCheckStates];
     [_m_upImageView release];
     [_m_userNameLabel release];
     [_m_stateLabel release];
     [_m_timesLabel release];
     [_m_headImageView release];
     [_m_qiandaoButton release];
+    
+    
+    
     [super dealloc];
 }
+
+
+
+-(void) checkStates
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    //[dateFormatter setDateFormat:@"yyyy-MM-dd "];
+    [dateFormatter setDateFormat:@"HH:mm:ss"];
+    
+    NSString* startDateStr =[dateFormatter stringFromDate:[NSDate date]];
+    
+    if (0 == [startDateStr compare:@"00:00:00"]) {
+        ResultLogin* result = [DataManager shareInstance].m_loginResult;
+        result.m_userState = @"0";
+        self.m_stateLabel.text = @"未签到";
+        [self.m_qiandaoButton setEnabled:YES];
+    }
+    
+    
+    
+}
+
+-(void) startCheckStates
+{
+    if (self.m_stateTimer) {
+        [self.m_stateTimer invalidate];
+        self.m_stateTimer = nil;
+    }
+    self.m_stateTimer = [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(checkStates) userInfo:nil repeats:YES];
+    
+    
+}
+
+-(void) stopCheckStates
+{
+    if (self.m_stateTimer) {
+        [self.m_stateTimer invalidate];
+        self.m_stateTimer = nil;
+    }
+}
+
+
 
 -(void) setQiandaoButtonState
 {
@@ -99,9 +147,16 @@
                                                       PathList:result.m_adImageUrlArrary
                                                           Flag:INIT_SCROLL_URL
                                                       Delegate:self] autorelease];
+    self.m_pageView.m_autoScrollEnable = YES;
     [self.view addSubview:_m_pageView];
     
-    self.m_stateLabel.text = result.m_userState;
+    if (0 == [result.m_userState compare:@"1"]) {
+        self.m_stateLabel.text = @"已签到";
+    }else{
+        self.m_stateLabel.text = @"未签到";
+    }
+    
+    
     self.m_timesLabel.text = result.m_linpinCount;
     self.m_userNameLabel.text = result.m_userName;
     
