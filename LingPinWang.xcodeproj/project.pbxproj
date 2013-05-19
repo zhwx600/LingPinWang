@@ -127,6 +127,7 @@
 		188981B7171AF4F000345ADF /* RegistCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981B5171AF4EF00345ADF /* RegistCommitViewController.xib */; };
 		188981BB171B03FE00345ADF /* ShangJiaDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188981B9171B03FE00345ADF /* ShangJiaDetailViewController.mm */; };
 		188981BC171B03FE00345ADF /* ShangJiaDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */; };
+		188A39CE1749207B00C159A7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A39CD1749207B00C159A7 /* CoreTelephony.framework */; };
 		188E9E88173FCDD5001862AE /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E86173FCDD5001862AE /* AboutMeViewController.m */; };
 		188E9E89173FCDD5001862AE /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188E9E87173FCDD5001862AE /* AboutMeViewController.xib */; };
 		188E9E8D173FCE38001862AE /* ReplyViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 188E9E8B173FCE38001862AE /* ReplyViewController.mm */; };
@@ -380,6 +381,7 @@
 		188981B8171B03FE00345ADF /* ShangJiaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangJiaDetailViewController.h; sourceTree = "<group>"; };
 		188981B9171B03FE00345ADF /* ShangJiaDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ShangJiaDetailViewController.mm; sourceTree = "<group>"; };
 		188981BA171B03FE00345ADF /* ShangJiaDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangJiaDetailViewController.xib; sourceTree = "<group>"; };
+		188A39CD1749207B00C159A7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		188E9E85173FCDD5001862AE /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		188E9E86173FCDD5001862AE /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		188E9E87173FCDD5001862AE /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188A39CE1749207B00C159A7 /* CoreTelephony.framework in Frameworks */,
 				181254CD1717E58A00D0DD1A /* MapKit.framework in Frameworks */,
 				181254CB1717E57F00D0DD1A /* ImageIO.framework in Frameworks */,
 				18052377171706E200D64217 /* libz.1.1.3.dylib in Frameworks */,
@@ -842,6 +845,7 @@
 		1893E732170711A300E52CCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188A39CD1749207B00C159A7 /* CoreTelephony.framework */,
 				181254CC1717E58900D0DD1A /* MapKit.framework */,
 				181254CA1717E57E00D0DD1A /* ImageIO.framework */,
 				18052376171706E200D64217 /* libz.1.1.3.dylib */,
