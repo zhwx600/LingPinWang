@@ -11,9 +11,12 @@
 #import "Utilities.h"
 #import "HttpProcessor.h"
 #import "xmlparser.h"
+#import "RequestRegist.h"
 #import "ProtocolDefine.h"
 
 @interface ForgotPassViewController ()
+
+@property (nonatomic,retain) NSString* m_recCode;
 
 @end
 
@@ -82,6 +85,8 @@
 
 - (void)dealloc {
     [_m_phoneNumberField release];
+    self.m_recCode = nil;
+    
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -104,6 +109,55 @@
 
 
 #pragma mark- 请求问题
+-(void) requestCode
+{
+    
+    NSString* str = [MyXMLParser EncodeToStr:self.m_phoneNumberField.text Type:REQUEST_FOR_CODE];
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstCode:)];
+    [http threadFunStart];
+    
+    [http release];
+}
+
+-(void) receiveDataByRequstCode:(NSData*) data
+{
+    [self dissLoadMessageView];
+    
+    if (data && data.length>0) {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        
+        NSString* getCode = (NSString*)[MyXMLParser DecodeToObj:str];
+        
+        [str release];
+        if (0 == [getCode compare:@"-1"]) {
+            [Utilities ShowAlert:@"获取验证码失败，请稍后再试！"];
+        }else if (0 == [getCode compare:@"-2"]) {
+            [Utilities ShowAlert:@"验证码已发送到该手机，请稍后再试！"];
+        }else if (0 == [getCode compare:@"-3"]){
+            [Utilities ShowAlert:@"该手机今天获取验证码已满，请明天再试！"];
+        }else{
+            self.m_recCode = getCode;
+            
+            [Utilities ShowAlert:@"验证码已通过短信发送到您手机，请注意查收"];
+        }
+        
+        NSLog(@" getCode = %@",getCode);
+        
+    }else{
+        NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
+        
+        self.m_recCode = @"";
+        [Utilities ShowAlert:@"获取验证码，网络异常！"];
+        
+    }
+    
+    
+    
+}
+
 
 //升级请求
 -(void) requestForget

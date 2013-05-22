@@ -20,9 +20,9 @@
 #import "ProtocolDefine.h"
 #import "RequestLogin.h"
 
-#import <CoreTelephony/CoreTelephonyDefines.h>
-#import <CoreTelephony/CTTelephonyNetworkInfo.h>
-extern NSString *CTSettingCopyMyPhoneNumber();
+
+
+
 
 @interface LoginViewController ()
 
@@ -69,7 +69,7 @@ extern NSString *CTSettingCopyMyPhoneNumber();
         self.m_passwordField.text = @"";
         [self.m_saveButton setImage:[UIImage imageNamed:@"没选中"] forState:UIControlStateNormal];
     }
-    self.m_userNameField.text = [self myNumber];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,9 +79,7 @@ extern NSString *CTSettingCopyMyPhoneNumber();
 }
 
 
--(NSString *)myNumber{
-    return CTSettingCopyMyPhoneNumber();
-}
+
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
