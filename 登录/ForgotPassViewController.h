@@ -12,8 +12,11 @@
 
 
 @property (retain, nonatomic) IBOutlet UITextField *m_phoneNumberField;
+@property (retain, nonatomic) IBOutlet UITextField *m_codeField;
 
 
 - (IBAction)close:(id)sender;
 - (IBAction)getNewPassword:(id)sender;
+- (IBAction)getCode:(id)sender;
+- (IBAction)closeInput:(id)sender;
 @end

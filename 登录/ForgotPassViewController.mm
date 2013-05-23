@@ -56,14 +56,55 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    [self getNewPassword: nil];
+    if (textField == self.m_phoneNumberField){
+        [textField resignFirstResponder];
+        [self getCode:nil];
+    }else{
+        [textField resignFirstResponder];
+        [self getNewPassword: nil];
+    }
+    
+
     return YES;
 }
 
 
 - (IBAction)getNewPassword:(id)sender
 {
+    //验证手机号
+    if (!self.m_phoneNumberField.text || self.m_phoneNumberField.text.length <= 0) {
+        [Utilities ShowAlert:@"手机号输入为空！"];
+        return;
+    }
+    if (self.m_phoneNumberField.text.length != 11) {
+        [Utilities ShowAlert:@"手机号码必须为11位数！"];
+        return;
+    }
+    
+    if (!self.m_recCode || self.m_recCode.length <= 0) {
+        [Utilities ShowAlert:@"您还没有获取验证码！"];
+        return;
+    }
+    
+    //验证 验证码
+    if (!self.m_codeField.text || self.m_codeField.text.length <= 0) {
+        [Utilities ShowAlert:@"验证码输入为空！"];
+        return;
+    }
+    if (0 != [self.m_recCode compare:self.m_codeField.text]) {
+        [Utilities ShowAlert:@"验证码错误，请输入正确的验证码！"];
+        return;
+    }
+    //验证
+    if (!self.m_codeField.text || self.m_codeField.text.length <= 0) {
+        [Utilities ShowAlert:@"验证码输入为空！"];
+        return;
+    }
+    
+    [self requestForget];
+}
+
+- (IBAction)getCode:(id)sender {
     if (!self.m_phoneNumberField.text || self.m_phoneNumberField.text.length<=0) {
         [Utilities ShowAlert:@"手机号码为空，请重输！"];
         return;
@@ -73,7 +114,12 @@
         return;
     }
     [self showLoadMessageView];
-    [self requestForget];
+    [self requestCode];
+}
+
+- (IBAction)closeInput:(id)sender {
+    [self.m_codeField resignFirstResponder];
+    [self.m_phoneNumberField resignFirstResponder];
 }
 
 
@@ -87,10 +133,12 @@
     [_m_phoneNumberField release];
     self.m_recCode = nil;
     
+    [_m_codeField release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setM_phoneNumberField:nil];
+    [self setM_codeField:nil];
     [super viewDidUnload];
 }
 
@@ -100,6 +148,8 @@
     int length = 0;
     if (textField == self.m_phoneNumberField) {
         length = 11;
+    }else{
+        length = 10;
     }
     
     if (range.location >= length)
