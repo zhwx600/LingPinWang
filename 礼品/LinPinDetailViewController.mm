@@ -176,7 +176,7 @@
             [self initParamScrollView:[result.m_description componentsSeparatedByString:PARAM_SPARETESTR]];
             
         }else{
-            [Utilities ShowAlert:@"获取礼品详情异常！"];
+            [Utilities ShowAlert:@"没有改礼品的详情信息！"];
         }
         
     }else{

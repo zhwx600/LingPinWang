@@ -47,6 +47,8 @@
         self.title = @"签到";
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setQiandaoButtonState) name:@"back_login_success_notify" object:nil];
+        
         [self startCheckStates];
         
     }

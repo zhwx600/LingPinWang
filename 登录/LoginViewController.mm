@@ -60,16 +60,17 @@
     
     [self.navigationController.navigationBar setHidden:YES];
     if (self.m_bSavePassword) {
-        self.m_userNameField.text = [[NSUserDefaults standardUserDefaults] valueForKey:USER_NAME_DEAULT_KEY];
-        self.m_passwordField.text = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PSWD_DEAULT_KEY];
+
         [self.m_saveButton setImage:[UIImage imageNamed:@"选中"] forState:UIControlStateNormal];
         
     }else{
-        self.m_userNameField.text = @"";
-        self.m_passwordField.text = @"";
+//        self.m_userNameField.text = @"";
+//        self.m_passwordField.text = @"";
         [self.m_saveButton setImage:[UIImage imageNamed:@"没选中"] forState:UIControlStateNormal];
     }
 
+    self.m_userNameField.text = [[NSUserDefaults standardUserDefaults] valueForKey:USER_NAME_DEAULT_KEY];
+    self.m_passwordField.text = [[NSUserDefaults standardUserDefaults] valueForKey:USER_PSWD_DEAULT_KEY];
 }
 
 - (void)didReceiveMemoryWarning
@@ -230,8 +231,8 @@
                 [[NSUserDefaults standardUserDefaults] setValue:self.m_userNameField.text forKey:USER_NAME_DEAULT_KEY];
                 [[NSUserDefaults standardUserDefaults] setValue:self.m_passwordField.text forKey:USER_PSWD_DEAULT_KEY];
             }else{
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_NAME_DEAULT_KEY];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_PSWD_DEAULT_KEY];
+                [[NSUserDefaults standardUserDefaults] setValue:self.m_userNameField.text forKey:USER_NAME_DEAULT_KEY];
+                [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:USER_PSWD_DEAULT_KEY];
             }
             
         }else if (0 == [result.m_result compare:@"0"]){

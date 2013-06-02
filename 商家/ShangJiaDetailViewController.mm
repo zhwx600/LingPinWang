@@ -180,7 +180,7 @@
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff-3, 210, 40)];
         tview.text = detail.m_telephone;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
@@ -188,6 +188,7 @@
         tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
+        [tview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];//也可以监听contentSize属性
         
         [self.m_scrollView addSubview:tview];
         [self.m_scrollView addSubview:titleLabel];
@@ -214,7 +215,7 @@
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff-3, 210, 40)];
         tview.text = detail.m_fax;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
@@ -222,6 +223,7 @@
         tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
+        [tview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];//也可以监听contentSize属性
         
         [self.m_scrollView addSubview:tview];
         [self.m_scrollView addSubview:titleLabel];
@@ -247,7 +249,7 @@
         sperImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"详情_分割线"]];
         [sperImageView setFrame:CGRectMake(20, spearetVerOff, sperImageView.frame.size.width, sperImageView.frame.size.height)];
         
-        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff, 210, 40)];
+        UITextView* tview = [[UITextView alloc] initWithFrame:CGRectMake(100, labelVerOff-3, 210, 40)];
         tview.text = detail.m_address;
         tview.backgroundColor = [UIColor clearColor];
         tview.textAlignment = NSTextAlignmentLeft;
@@ -255,6 +257,8 @@
         tview.textColor = [UIColor grayColor];
         [tview setEditable:NO];
         [tview setDataDetectorTypes:UIDataDetectorTypePhoneNumber|UIDataDetectorTypeAddress|UIDataDetectorTypeCalendarEvent];
+        
+        [tview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];//也可以监听contentSize属性
         
         [self.m_scrollView addSubview:tview];
         [self.m_scrollView addSubview:titleLabel];
@@ -270,6 +274,21 @@
 
     [self initParamScrollView:[detail.m_description componentsSeparatedByString:PARAM_SPARETESTR] Index:spearetVerOff-35];
         
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    UITextView *mText= object;
+    
+    CGFloat topCorrect = ([mText bounds].size.height - [mText contentSize].height);
+    
+    topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
+    
+    mText.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
+    
+    [mText removeObserver:self forKeyPath:@"contentSize"];
+    
 }
 
 

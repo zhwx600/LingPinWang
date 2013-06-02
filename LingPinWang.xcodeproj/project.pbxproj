@@ -145,7 +145,7 @@
 		1893E738170711A300E52CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1893E737170711A300E52CCC /* CoreGraphics.framework */; };
 		1893E73E170711A300E52CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1893E73C170711A300E52CCC /* InfoPlist.strings */; };
 		1893E740170711A300E52CCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E73F170711A300E52CCC /* main.m */; };
-		1893E744170711A300E52CCC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E743170711A300E52CCC /* AppDelegate.m */; };
+		1893E744170711A300E52CCC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E743170711A300E52CCC /* AppDelegate.mm */; };
 		1893E74D170711A300E52CCC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E74C170711A300E52CCC /* FirstViewController.m */; };
 		1893E754170711A300E52CCC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E753170711A300E52CCC /* SecondViewController.m */; };
 		1893E75B170711A300E52CCC /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E759170711A300E52CCC /* FirstViewController.xib */; };
@@ -407,7 +407,7 @@
 		1893E73F170711A300E52CCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1893E741170711A300E52CCC /* LingPinWang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LingPinWang-Prefix.pch"; sourceTree = "<group>"; };
 		1893E742170711A300E52CCC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		1893E743170711A300E52CCC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1893E743170711A300E52CCC /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		1893E74B170711A300E52CCC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		1893E74C170711A300E52CCC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		1893E752170711A300E52CCC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -875,7 +875,7 @@
 				1893E76717071CA900E52CCC /* 商家 */,
 				1893E76817071CA900E52CCC /* 设置 */,
 				1893E742170711A300E52CCC /* AppDelegate.h */,
-				1893E743170711A300E52CCC /* AppDelegate.m */,
+				1893E743170711A300E52CCC /* AppDelegate.mm */,
 				1893E74B170711A300E52CCC /* FirstViewController.h */,
 				1893E74C170711A300E52CCC /* FirstViewController.m */,
 				1893E752170711A300E52CCC /* SecondViewController.h */,
@@ -1141,7 +1141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1893E740170711A300E52CCC /* main.m in Sources */,
-				1893E744170711A300E52CCC /* AppDelegate.m in Sources */,
+				1893E744170711A300E52CCC /* AppDelegate.mm in Sources */,
 				1893E74D170711A300E52CCC /* FirstViewController.m in Sources */,
 				1893E754170711A300E52CCC /* SecondViewController.m in Sources */,
 				1893E76C17071CD200E52CCC /* LiPinViewController.mm in Sources */,

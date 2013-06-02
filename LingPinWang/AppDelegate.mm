@@ -21,6 +21,12 @@
 
 #import <QuartzCore/CoreAnimation.h>
 
+#import "DataManager.h"
+#import "Utilities.h"
+#import "HttpProcessor.h"
+#import "xmlparser.h"
+#import "ProtocolDefine.h"
+#import "RequestLogin.h"
 
 @implementation AppDelegate
 
@@ -90,6 +96,9 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [self requestLogin];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -158,5 +167,77 @@
         [self.m_qiandaoViewController setQiandaoButtonState];
     }
 }
+
+
+#pragma mark- 请求问题
+
+//升级请求
+-(void) requestLogin
+{
+    
+    NSString* name = [[NSUserDefaults standardUserDefaults] valueForKey:USER_NAME_DEAULT_KEY];
+    NSString* pswd= [[NSUserDefaults standardUserDefaults] valueForKey:USER_PSWD_DEAULT_KEY];
+    
+    RequestLogin* loginObj = [[RequestLogin alloc] init];
+    loginObj.m_loginType = @"iphone";
+    loginObj.m_phone = name;
+    loginObj.m_password = [Utilities md5:pswd];
+    
+    NSString* str = [MyXMLParser EncodeToStr:loginObj Type:REQUEST_FOR_LOGIN];
+    NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpProcessor* http = [[HttpProcessor alloc] initWithBody:data main:self Sel:@selector(receiveDataByRequstLogin:)];
+    [http threadFunStart];
+    
+    [http release];
+    [loginObj release];
+}
+
+-(void) receiveDataByRequstLogin:(NSData*) data
+{
+
+    
+    if (data && data.length>0) {
+        NSString * str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        
+        [DataManager shareInstance].m_loginResult = (ResultLogin*)[MyXMLParser DecodeToObj:str];
+        [str release];
+        
+        ResultLogin* result = [DataManager shareInstance].m_loginResult;
+        
+        dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"back_login_success_notify" object:nil];
+        });
+        
+        //登录成功
+        if (0 == [result.m_result compare:@"8"]) {
+            
+            dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"back_login_success_notify" object:nil];
+            });
+            
+            
+             
+             
+        }else if (0 == [result.m_result compare:@"0"]){
+            //[Utilities ShowAlert:@"登录失败，账号不存在！"];
+        }else if (0 == [result.m_result compare:@"1"]){
+           // [Utilities ShowAlert:@"登录失败，密码不正确！"];
+        }
+        
+        
+        
+    }else{
+        //NSLog(@"receiveDataByRequstCode 接收到 数据 异常");
+        
+        //[Utilities ShowAlert:@"登录失败，网络异常！"];
+        
+    }
+    
+    
+    
+}
+
 
 @end
