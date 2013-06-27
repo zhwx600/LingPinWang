@@ -214,7 +214,7 @@ UITableViewDelegate>
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResultProduct* product = [self.list objectAtIndex:indexPath.row];
-    LinPinDetailViewController* shangjia  = [[LinPinDetailViewController alloc] init];
+    LinPinDetailViewController* shangjia  = [[LinPinDetailViewController alloc] initWithNibName:SwitchWith(@"LinPinDetailViewController5",@"LinPinDetailViewController") bundle:nil];
     shangjia.title = @"礼品详情";
     shangjia.m_proResult = product;
     [self.navigationController pushViewController:shangjia animated:YES];

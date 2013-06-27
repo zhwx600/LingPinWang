@@ -243,14 +243,14 @@
     if (temsection == 0) {
         
         if (0 == row) {
-            AboutMeViewController* about = [[AboutMeViewController alloc] init];
+            AboutMeViewController* about = [[AboutMeViewController alloc] initWithNibName:SwitchWith(@"AboutMeViewController5",@"AboutMeViewController") bundle:nil];
             [self.navigationController pushViewController:about animated:YES];
             [about release];
         }else if(1 == row){
             NSString* appstoreUrl=@"http://itunes.apple.com/us/app/shen-zhou-ying/id433835596?mt=8&uo=4";
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appstoreUrl]];
         }else{
-            ReplyViewController* about = [[ReplyViewController alloc] init];
+            ReplyViewController* about = [[ReplyViewController alloc] initWithNibName:SwitchWith(@"ReplyViewController5",@"ReplyViewController") bundle:nil];
             [self.navigationController pushViewController:about animated:YES];
             [about release];
         }

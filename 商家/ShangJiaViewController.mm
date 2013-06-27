@@ -297,7 +297,7 @@ UISearchDisplayDelegate>
         
         ResultBusiness* product = [self.m_searchResultArr objectAtIndex:indexPath.row];
         
-        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] initWithNibName:SwitchWith(@"ShangJiaDetailViewController5",@"ShangJiaDetailViewController") bundle:nil];
         shangjia.title = @"详细介绍";
         
         shangjia.m_proResult = product;
@@ -308,7 +308,7 @@ UISearchDisplayDelegate>
     }else if(tableView == self.tableView){
         
         ResultBusiness* product = [self.list objectAtIndex:indexPath.row];
-        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] init];
+        ShangJiaDetailViewController* shangjia  = [[ShangJiaDetailViewController alloc] initWithNibName:SwitchWith(@"ShangJiaDetailViewController5",@"ShangJiaDetailViewController") bundle:nil];
         shangjia.title = @"详细介绍";
         
         shangjia.m_proResult = product;

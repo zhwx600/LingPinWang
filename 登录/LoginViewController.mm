@@ -121,7 +121,7 @@
 
 - (IBAction)registerAct:(id)sender
 {
-    RegistCommitViewController* commit = [[RegistCommitViewController alloc] init];
+    RegistCommitViewController* commit = [[RegistCommitViewController alloc] initWithNibName:SwitchWith(@"RegistCommitViewController5",@"RegistCommitViewController") bundle:nil];
     [self.navigationController pushViewController:commit animated:YES];
     [commit release];
     
@@ -132,7 +132,7 @@
 
 - (IBAction)getPasswordAct:(id)sender
 {
-    ForgotPassViewController* forgotview = [[ForgotPassViewController alloc] init];
+    ForgotPassViewController* forgotview = [[ForgotPassViewController alloc] initWithNibName:SwitchWith(@"ForgotPassViewController5",@"ForgotPassViewController") bundle:nil];
     [self.navigationController pushViewController:forgotview animated:YES];
     [forgotview release];
 }

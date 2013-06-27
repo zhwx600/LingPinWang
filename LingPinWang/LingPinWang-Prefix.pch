@@ -23,3 +23,8 @@
     #define DEV_HAVE_TABLE_VIEW_FRAME CGRectMake(0, 0, 320, DEV_FULLSCREEN_FRAME.size.height-44-49-20)
 
 #endif
+
+
+#define IS_IPHONE5  ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+#define SwitchWith(xib5,xib4) IS_IPHONE5?xib5:xib4

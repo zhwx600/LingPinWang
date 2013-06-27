@@ -146,10 +146,6 @@
 		1893E73E170711A300E52CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1893E73C170711A300E52CCC /* InfoPlist.strings */; };
 		1893E740170711A300E52CCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E73F170711A300E52CCC /* main.m */; };
 		1893E744170711A300E52CCC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E743170711A300E52CCC /* AppDelegate.mm */; };
-		1893E74D170711A300E52CCC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E74C170711A300E52CCC /* FirstViewController.m */; };
-		1893E754170711A300E52CCC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893E753170711A300E52CCC /* SecondViewController.m */; };
-		1893E75B170711A300E52CCC /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E759170711A300E52CCC /* FirstViewController.xib */; };
-		1893E75E170711A300E52CCC /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E75C170711A300E52CCC /* SecondViewController.xib */; };
 		1893E76C17071CD200E52CCC /* LiPinViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E76A17071CD200E52CCC /* LiPinViewController.mm */; };
 		1893E76D17071CD200E52CCC /* LiPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E76B17071CD200E52CCC /* LiPinViewController.xib */; };
 		1893E77117071D0D00E52CCC /* QinDaoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E76F17071D0D00E52CCC /* QinDaoViewController.mm */; };
@@ -168,6 +164,19 @@
 		1893E78F17071FE800E52CCC /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893E78617071FE800E52CCC /* third@2x.png */; };
 		1893E7941707225F00E52CCC /* LoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1893E7921707225F00E52CCC /* LoginViewController.mm */; };
 		1893E7951707225F00E52CCC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1893E7931707225F00E52CCC /* LoginViewController.xib */; };
+		1897670F177C856200FCEBC7 /* AboutMeViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897670C177C856200FCEBC7 /* AboutMeViewController5.xib */; };
+		18976710177C856200FCEBC7 /* ReplyViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897670D177C856200FCEBC7 /* ReplyViewController5.xib */; };
+		18976711177C856200FCEBC7 /* SheZhiViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897670E177C856200FCEBC7 /* SheZhiViewController5.xib */; };
+		18976714177C857300FCEBC7 /* ShangJiaDetailViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976712177C857300FCEBC7 /* ShangJiaDetailViewController5.xib */; };
+		18976715177C857300FCEBC7 /* ShangJiaViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976713177C857300FCEBC7 /* ShangJiaViewController5.xib */; };
+		18976717177C857B00FCEBC7 /* QinDaoViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976716177C857B00FCEBC7 /* QinDaoViewController5.xib */; };
+		1897671A177C858300FCEBC7 /* LinPinDetailViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976718177C858300FCEBC7 /* LinPinDetailViewController5.xib */; };
+		1897671B177C858300FCEBC7 /* LiPinViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976719177C858300FCEBC7 /* LiPinViewController5.xib */; };
+		18976721177C859800FCEBC7 /* AboutViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897671C177C859800FCEBC7 /* AboutViewController5.xib */; };
+		18976722177C859800FCEBC7 /* ForgotPassViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897671D177C859800FCEBC7 /* ForgotPassViewController5.xib */; };
+		18976723177C859800FCEBC7 /* LoginViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897671E177C859800FCEBC7 /* LoginViewController5.xib */; };
+		18976724177C859800FCEBC7 /* RegistCommitViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897671F177C859800FCEBC7 /* RegistCommitViewController5.xib */; };
+		18976725177C859800FCEBC7 /* RegistViewController5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18976720177C859800FCEBC7 /* RegistViewController5.xib */; };
 		18AF757E1738AB0A00CE32CD /* LinPinDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */; };
 		18AF757F1738AB0A00CE32CD /* LinPinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */; };
 		18BD17C4173EA5F7003D61B8 /* 小按钮背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BD17C3173EA5F7003D61B8 /* 小按钮背景.png */; };
@@ -408,12 +417,6 @@
 		1893E741170711A300E52CCC /* LingPinWang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LingPinWang-Prefix.pch"; sourceTree = "<group>"; };
 		1893E742170711A300E52CCC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1893E743170711A300E52CCC /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		1893E74B170711A300E52CCC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		1893E74C170711A300E52CCC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		1893E752170711A300E52CCC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		1893E753170711A300E52CCC /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		1893E75A170711A300E52CCC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
-		1893E75D170711A300E52CCC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
 		1893E76917071CD200E52CCC /* LiPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiPinViewController.h; sourceTree = "<group>"; };
 		1893E76A17071CD200E52CCC /* LiPinViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LiPinViewController.mm; sourceTree = "<group>"; };
 		1893E76B17071CD200E52CCC /* LiPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiPinViewController.xib; sourceTree = "<group>"; };
@@ -437,6 +440,19 @@
 		1893E7911707225F00E52CCC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1893E7921707225F00E52CCC /* LoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoginViewController.mm; sourceTree = "<group>"; };
 		1893E7931707225F00E52CCC /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1897670C177C856200FCEBC7 /* AboutMeViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController5.xib; sourceTree = "<group>"; };
+		1897670D177C856200FCEBC7 /* ReplyViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyViewController5.xib; sourceTree = "<group>"; };
+		1897670E177C856200FCEBC7 /* SheZhiViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheZhiViewController5.xib; sourceTree = "<group>"; };
+		18976712177C857300FCEBC7 /* ShangJiaDetailViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangJiaDetailViewController5.xib; sourceTree = "<group>"; };
+		18976713177C857300FCEBC7 /* ShangJiaViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShangJiaViewController5.xib; sourceTree = "<group>"; };
+		18976716177C857B00FCEBC7 /* QinDaoViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QinDaoViewController5.xib; sourceTree = "<group>"; };
+		18976718177C858300FCEBC7 /* LinPinDetailViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinPinDetailViewController5.xib; sourceTree = "<group>"; };
+		18976719177C858300FCEBC7 /* LiPinViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiPinViewController5.xib; sourceTree = "<group>"; };
+		1897671C177C859800FCEBC7 /* AboutViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController5.xib; sourceTree = "<group>"; };
+		1897671D177C859800FCEBC7 /* ForgotPassViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPassViewController5.xib; sourceTree = "<group>"; };
+		1897671E177C859800FCEBC7 /* LoginViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController5.xib; sourceTree = "<group>"; };
+		1897671F177C859800FCEBC7 /* RegistCommitViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistCommitViewController5.xib; sourceTree = "<group>"; };
+		18976720177C859800FCEBC7 /* RegistViewController5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistViewController5.xib; sourceTree = "<group>"; };
 		18AF757B1738AB0A00CE32CD /* LinPinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinPinDetailViewController.h; sourceTree = "<group>"; };
 		18AF757C1738AB0A00CE32CD /* LinPinDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LinPinDetailViewController.mm; sourceTree = "<group>"; };
 		18AF757D1738AB0A00CE32CD /* LinPinDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinPinDetailViewController.xib; sourceTree = "<group>"; };
@@ -876,12 +892,6 @@
 				1893E76817071CA900E52CCC /* 设置 */,
 				1893E742170711A300E52CCC /* AppDelegate.h */,
 				1893E743170711A300E52CCC /* AppDelegate.mm */,
-				1893E74B170711A300E52CCC /* FirstViewController.h */,
-				1893E74C170711A300E52CCC /* FirstViewController.m */,
-				1893E752170711A300E52CCC /* SecondViewController.h */,
-				1893E753170711A300E52CCC /* SecondViewController.m */,
-				1893E759170711A300E52CCC /* FirstViewController.xib */,
-				1893E75C170711A300E52CCC /* SecondViewController.xib */,
 				1893E73A170711A300E52CCC /* Supporting Files */,
 			);
 			path = LingPinWang;
@@ -902,6 +912,8 @@
 		1893E76517071CA900E52CCC /* 礼品 */ = {
 			isa = PBXGroup;
 			children = (
+				18976718177C858300FCEBC7 /* LinPinDetailViewController5.xib */,
+				18976719177C858300FCEBC7 /* LiPinViewController5.xib */,
 				1893E76917071CD200E52CCC /* LiPinViewController.h */,
 				1893E76A17071CD200E52CCC /* LiPinViewController.mm */,
 				1893E76B17071CD200E52CCC /* LiPinViewController.xib */,
@@ -915,6 +927,7 @@
 		1893E76617071CA900E52CCC /* 签到 */ = {
 			isa = PBXGroup;
 			children = (
+				18976716177C857B00FCEBC7 /* QinDaoViewController5.xib */,
 				1893E76E17071D0D00E52CCC /* QinDaoViewController.h */,
 				1893E76F17071D0D00E52CCC /* QinDaoViewController.mm */,
 				1893E77017071D0D00E52CCC /* QinDaoViewController.xib */,
@@ -925,6 +938,8 @@
 		1893E76717071CA900E52CCC /* 商家 */ = {
 			isa = PBXGroup;
 			children = (
+				18976712177C857300FCEBC7 /* ShangJiaDetailViewController5.xib */,
+				18976713177C857300FCEBC7 /* ShangJiaViewController5.xib */,
 				1893E77317071D2200E52CCC /* ShangJiaViewController.h */,
 				1893E77417071D2200E52CCC /* ShangJiaViewController.mm */,
 				1893E77517071D2200E52CCC /* ShangJiaViewController.xib */,
@@ -938,6 +953,9 @@
 		1893E76817071CA900E52CCC /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
+				1897670C177C856200FCEBC7 /* AboutMeViewController5.xib */,
+				1897670D177C856200FCEBC7 /* ReplyViewController5.xib */,
+				1897670E177C856200FCEBC7 /* SheZhiViewController5.xib */,
 				1893E77817071D3B00E52CCC /* SheZhiViewController.h */,
 				1893E77917071D3B00E52CCC /* SheZhiViewController.m */,
 				1893E77A17071D3B00E52CCC /* SheZhiViewController.xib */,
@@ -998,6 +1016,11 @@
 		1893E7901707221C00E52CCC /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				1897671C177C859800FCEBC7 /* AboutViewController5.xib */,
+				1897671D177C859800FCEBC7 /* ForgotPassViewController5.xib */,
+				1897671E177C859800FCEBC7 /* LoginViewController5.xib */,
+				1897671F177C859800FCEBC7 /* RegistCommitViewController5.xib */,
+				18976720177C859800FCEBC7 /* RegistViewController5.xib */,
 				1893E7911707225F00E52CCC /* LoginViewController.h */,
 				1893E7921707225F00E52CCC /* LoginViewController.mm */,
 				1893E7931707225F00E52CCC /* LoginViewController.xib */,
@@ -1069,8 +1092,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1893E73E170711A300E52CCC /* InfoPlist.strings in Resources */,
-				1893E75B170711A300E52CCC /* FirstViewController.xib in Resources */,
-				1893E75E170711A300E52CCC /* SecondViewController.xib in Resources */,
 				1893E76D17071CD200E52CCC /* LiPinViewController.xib in Resources */,
 				1893E77217071D0D00E52CCC /* QinDaoViewController.xib in Resources */,
 				1893E77717071D2200E52CCC /* ShangJiaViewController.xib in Resources */,
@@ -1130,6 +1151,19 @@
 				18906B0B17427452005F81FF /* 密码.png in Resources */,
 				18906B0C17427452005F81FF /* 用户名.png in Resources */,
 				18EEB0021744E53400EC4786 /* Icon.png in Resources */,
+				1897670F177C856200FCEBC7 /* AboutMeViewController5.xib in Resources */,
+				18976710177C856200FCEBC7 /* ReplyViewController5.xib in Resources */,
+				18976711177C856200FCEBC7 /* SheZhiViewController5.xib in Resources */,
+				18976714177C857300FCEBC7 /* ShangJiaDetailViewController5.xib in Resources */,
+				18976715177C857300FCEBC7 /* ShangJiaViewController5.xib in Resources */,
+				18976717177C857B00FCEBC7 /* QinDaoViewController5.xib in Resources */,
+				1897671A177C858300FCEBC7 /* LinPinDetailViewController5.xib in Resources */,
+				1897671B177C858300FCEBC7 /* LiPinViewController5.xib in Resources */,
+				18976721177C859800FCEBC7 /* AboutViewController5.xib in Resources */,
+				18976722177C859800FCEBC7 /* ForgotPassViewController5.xib in Resources */,
+				18976723177C859800FCEBC7 /* LoginViewController5.xib in Resources */,
+				18976724177C859800FCEBC7 /* RegistCommitViewController5.xib in Resources */,
+				18976725177C859800FCEBC7 /* RegistViewController5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,8 +1176,6 @@
 			files = (
 				1893E740170711A300E52CCC /* main.m in Sources */,
 				1893E744170711A300E52CCC /* AppDelegate.mm in Sources */,
-				1893E74D170711A300E52CCC /* FirstViewController.m in Sources */,
-				1893E754170711A300E52CCC /* SecondViewController.m in Sources */,
 				1893E76C17071CD200E52CCC /* LiPinViewController.mm in Sources */,
 				1893E77117071D0D00E52CCC /* QinDaoViewController.mm in Sources */,
 				1893E77617071D2200E52CCC /* ShangJiaViewController.mm in Sources */,
@@ -1246,22 +1278,6 @@
 				1893E73D170711A300E52CCC /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1893E759170711A300E52CCC /* FirstViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1893E75A170711A300E52CCC /* en */,
-			);
-			name = FirstViewController.xib;
-			sourceTree = "<group>";
-		};
-		1893E75C170711A300E52CCC /* SecondViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1893E75D170711A300E52CCC /* en */,
-			);
-			name = SecondViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

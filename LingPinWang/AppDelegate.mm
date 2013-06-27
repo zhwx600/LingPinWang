@@ -9,9 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ZhwxBaseNavCotroller.h"
-#import "FirstViewController.h"
 
-#import "SecondViewController.h"
 
 #import "LiPinViewController.h"
 #import "QinDaoViewController.h"
@@ -52,12 +50,13 @@
     // Override point for customization after application launch.
 //    UIViewController *viewController1 = [[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil] autorelease];
 //    UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+
     
-    m_lipinViewController = [[LiPinViewController alloc] init];
-    m_qiandaoViewController = [[QinDaoViewController alloc] init];
-    m_shangjiaViewController = [[ShangJiaViewController alloc] init];
-    m_shezhiViewController = [[SheZhiViewController alloc] init];
-    m_loginViewController = [[LoginViewController alloc] init];
+    m_lipinViewController = [[LiPinViewController alloc] initWithNibName:SwitchWith(@"LiPinViewController5",@"LiPinViewController") bundle:nil];
+    m_qiandaoViewController = [[QinDaoViewController alloc] initWithNibName:SwitchWith(@"QinDaoViewController5",@"QinDaoViewController") bundle:nil];
+    m_shangjiaViewController = [[ShangJiaViewController alloc] initWithNibName:SwitchWith(@"ShangJiaViewController5",@"ShangJiaViewController") bundle:nil];
+    m_shezhiViewController = [[SheZhiViewController alloc] initWithNibName:SwitchWith(@"SheZhiViewController5",@"SheZhiViewController") bundle:nil];
+    m_loginViewController = [[LoginViewController alloc] initWithNibName:SwitchWith(@"LoginViewController5",@"LoginViewController") bundle:nil];
 
     
     ZhwxBaseNavCotroller* rootNav1 = [[ZhwxBaseNavCotroller alloc] initWithRootViewController:m_qiandaoViewController];

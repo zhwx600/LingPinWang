@@ -194,7 +194,7 @@
     requestObj.m_phone = self.m_phoneNumberField.text;
     requestObj.m_sex = [self.m_segment titleForSegmentAtIndex:self.m_segment.selectedSegmentIndex];
     
-    RegistViewController* registview = [[RegistViewController alloc] init];
+    RegistViewController* registview = [[RegistViewController alloc] initWithNibName:SwitchWith(@"RegistViewController5",@"RegistViewController") bundle:nil];
     registview.m_rRegistRequest = requestObj;
     
     [self.navigationController pushViewController:registview animated:YES];
@@ -261,7 +261,7 @@
 
 - (IBAction)xieyiButtonAct:(id)sender {
     
-    AboutViewController* about = [[AboutViewController alloc] init];
+    AboutViewController* about = [[AboutViewController alloc] initWithNibName:SwitchWith(@"AboutViewController5",@"AboutViewController") bundle:nil];
     [self.navigationController pushViewController:about animated:YES];
     [about release];
     
