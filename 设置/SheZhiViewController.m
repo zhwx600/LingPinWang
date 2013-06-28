@@ -122,7 +122,7 @@
             return 2;
             break;
         case 0:
-            return 3;
+            return 2;
             break;
             
         case 1:
@@ -168,13 +168,13 @@
                 cell.textLabel.text = @"关于我们";
 
                 break;
+//            case 1:
+//                cell = self.m_cell3;
+//                cell.textLabel.text = @"给我们一个好评";
+//                //cell.selectedBackgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+//                //cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
+//                break;
             case 1:
-                cell = self.m_cell3;
-                cell.textLabel.text = @"给我们一个好评";
-                //cell.selectedBackgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
-                //cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
-                break;
-            case 2:
                 cell = self.m_cell4;
                 cell.textLabel.text = @"意见反馈";
                 //cell.selectedBackgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
@@ -246,10 +246,10 @@
             AboutMeViewController* about = [[AboutMeViewController alloc] initWithNibName:SwitchWith(@"AboutMeViewController5",@"AboutMeViewController") bundle:nil];
             [self.navigationController pushViewController:about animated:YES];
             [about release];
-        }else if(1 == row){
+        }/*else if(1 == row){
             NSString* appstoreUrl=@"http://itunes.apple.com/us/app/shen-zhou-ying/id433835596?mt=8&uo=4";
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appstoreUrl]];
-        }else{
+        }*/else{
             ReplyViewController* about = [[ReplyViewController alloc] initWithNibName:SwitchWith(@"ReplyViewController5",@"ReplyViewController") bundle:nil];
             [self.navigationController pushViewController:about animated:YES];
             [about release];

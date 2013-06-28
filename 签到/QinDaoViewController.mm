@@ -145,7 +145,7 @@
     
     [self.m_pageView removeFromSuperview];
     self.m_pageView = nil;
-    self.m_pageView = [[[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, 297, 320, 68)
+    self.m_pageView = [[[ZWXPageScrollView alloc] initWithFrame:CGRectMake(0, IS_IPHONE5?297+88:297, 320, 68)
                                                       PathList:result.m_adImageUrlArrary
                                                           Flag:INIT_SCROLL_URL
                                                       Delegate:self] autorelease];
@@ -276,6 +276,7 @@
             
             NSLog(@" receiveDataByRequstQiandao str = %@",str);
             [self.m_qiandaoButton setEnabled:NO];
+            self.m_stateLabel.text = @"已签到";
             
             [Utilities ShowAlert:@"签到成功!\n感谢您的参与,别忘了明天继续哦!"];
             
